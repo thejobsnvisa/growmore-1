@@ -53,6 +53,13 @@ const FAQ = () => {
       ],
     },
       {
+      id: "How do I contact Growmore Immigration for visa inquiries?",
+      title: "How do I contact Growmore Immigration for visa inquiries?",
+      content: [
+        "For any queries or consultations regarding Australian immigration, simply reach out to us via WhatsApp https://wa.me/+61434202021 . Fill out the inquiry form, and one of our experienced Counsellor will contact you within 24 hours, or within 48 hours during weekends. We are here to offer reliable visa solutions and comprehensive immigration support. "
+      ],
+    },
+      {
       id: "Can Growmore Immigration help with Student Visa applications for Australia?",
       title: "Can Growmore Immigration help with Student Visa applications for Australia?",
       content: [
@@ -85,6 +92,13 @@ const FAQ = () => {
       title: "What is an Employer-Sponsored Visa, and how can Growmore Immigration assist with it?",
       content: [
         "An Employer-Sponsored Visa allows Australian employers to sponsor overseas workers to fill positions that cannot be filled by local employees. Growmore Immigration helps both employers and employees with the entire process, from visa application to documentation submission. Our licensed immigration agents will guide you through the requirements and ensure your application is processed efficiently, ensuring you can work in Australia under an employer’s sponsorship.",
+      ],
+    },
+     {
+      id: "What is a General Migration Visa, and how can Growmore Immigration support me?",
+      title: "What is a General Migration Visa, and how can Growmore Immigration support me?",
+      content: [
+        "A General Migration Visa is for individuals who want to move to Australia independently, without a specific employer sponsor. Growmore Immigration provides expert support for all types of general migration visas, including skilled migration pathways and regional migration options. Our experienced migration consultants help you determine your eligibility, prepare necessary documents, and assist with the application process to secure your visa."
       ],
     },
   ];
