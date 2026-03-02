@@ -20,7 +20,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           
           <div className="flex flex-col sm:flex-row items-center gap-4 text-center md:text-left">
-            <div className="bg-[#6dc7d1] rounded-full p-3">
+            <div className="bg-[#6dc7d1] rounded-full ">
               <img
                 src="/assets/img1.svg"
                 alt="phone"

@@ -3,7 +3,7 @@ import { FaCalendar } from "react-icons/fa";
 
 
 const blogs = [
-{
+  {
     id: 1,
     title: "Tasmania 190 & 491 State Nomination – 26 February 2026 Invitation Round Update",
     date: "February 26, 2026",
@@ -21,24 +21,53 @@ const blogs = [
     date: "February 24, 2026",
     image: "/assets/blog1.png",
   },
+  {
+    id: 4,
+    title: "Canberra Matrix Tentative Invitation Dates Changed: See New Dates",
+    date: "February 23, 2026",
+    image: "/assets/blog2.png",
+  },
+  {
+    id: 5,
+    title: "Is Your EOI Ready? NSW 190 Invitations Coming in March",
+    date: "February 23, 2026",
+    image: "/assets/blog3.png",
+  },
+    {
+    id: 6,
+    title: "2025–26 State Migration Update: 190 & 491 State Nominations Issued Till 31 January",
+    date: "February 18, 2026",
+    image: "/assets/blog10.png",
+  },
+  {
+    id: 7,
+    title: "Skilled Refugee Labour Agreement Pilot: Free Webinar for Employers",
+    date: "February 14, 2026",
+    image: "/assets/blog6.png",
+  },
+  {
+    id: 8,
+    title: "English Test Retake Update: OSR & SSR Explained",
+    date: "February 13, 2026",
+    image: "/assets/blog7.png",
+  },
+    {
+    id: 9,
+    title: "Tasmania’s Latest Invitation Round Results – 12 Feb 2026",
+    date: "February 12, 2026",
+    image: "/assets/blog8.png",
+  },{
+    id: 10,
+    title: "Canberra Matrix Invitation Round Summary 29 January 2026",
+    date: "February 6, 2026",
+    image: "/assets/blog9.png",
+  },
 ];
 
-const BlogSection = () => {
+const NewsSection = () => {
   return (
     <section className="bg-white py-20">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-
-        {/* Subtitle */}
-        <p className="text-[#8fd07c] font-semibold text-sm tracking-widest uppercase mb-3">
-          Recent Blogs
-        </p>
-
-        {/* Title */}
-        <h2 className="text-3xl md:text-5xl font-medium text-[#163c3d] mb-14">
-          Latest{" "}
-          <span className="text-[#8fd07c] font-semibold">Insights</span> and
-          Immigration <span className="font-semibold">Updates</span>
-        </h2>
 
         {/* Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -92,4 +121,4 @@ const BlogSection = () => {
   );
 };
 
-export default BlogSection;
+export default NewsSection;

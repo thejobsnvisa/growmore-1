@@ -3,42 +3,71 @@ import { FaCalendar } from "react-icons/fa";
 
 
 const blogs = [
-{
+  {
     id: 1,
-    title: "Tasmania 190 & 491 State Nomination – 26 February 2026 Invitation Round Update",
-    date: "February 26, 2026",
-    image: "/assets/blog4.jpg",
+    title: "How Can Healthcare Professionals Get Australia PR in 2026?",
+    date: "February 23, 2026",
+    image: "/assets/blog3.jpg",
   },
   {
     id: 2,
-    title: "Australia Confirms 4-Tier Occupation Ceilings for 189 & 491 Visas",
-    date: "February 25, 2026",
-    image: "/assets/blog5.jpg",
+    title: "Subclass 186 Direct Entry – Requirements",
+    date: "February 19, 2026",
+    image: "/assets/b2.jpg",
   },
     {
     id: 3,
-    title: "Western Australia’s Feb State Nomination Invites Released",
-    date: "February 24, 2026",
-    image: "/assets/blog1.png",
+    title: "New Points Test in 2026? A Closer Look at the Proposed Reform",
+    date: "February 18, 2026",
+    image: "/assets/b3.jpg",
+  },
+  {
+    id: 4,
+    title: "Australia PR 2026: Eligibility, Process & In-Demand Jobs",
+    date: "February 17, 2026",
+    image: "/assets/b4.png",
+  },
+  {
+    id: 5,
+    title: "Living in Australia on a 485 Visa? Explore Your PR Options",
+    date: "February 16, 2026",
+    image: "/assets/b5.jpg",
+  },
+    {
+    id: 6,
+    title: "Refusals Don’t Stop Dreams: A Glazier’s TRA Skills Assessment Journey",
+    date: "February 12, 2026",
+    image: "/assets/b6.jpg",
+  },
+  {
+    id: 7,
+    title: "Australian Tourist Visa (Subclass 600) Invitation Letter Guide",
+    date: "February 9, 2026",
+    image: "/assets/b7.jpg",
+  },
+  {
+    id: 8,
+    title: "Parent Visa 804 Australia – A Simple Guide for Families",
+    date: "February 6, 2026",
+    image: "/assets/b8.jpg",
+  },
+    {
+    id: 9,
+    title: "Fastest Finger First: Why Australian Migration Feels Like the Hunger Games",
+    date: "january 20, 2026",
+    image: "/assets/b9.png",
+  },{
+    id: 10,
+    title: "Australia Skills Assessment Guide: Eligibility, Fees & Timeline",
+    date: "january 13, 2026",
+    image: "/assets/b10.jpg",
   },
 ];
 
-const BlogSection = () => {
+const BlogStep = () => {
   return (
     <section className="bg-white py-20">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-
-        {/* Subtitle */}
-        <p className="text-[#8fd07c] font-semibold text-sm tracking-widest uppercase mb-3">
-          Recent Blogs
-        </p>
-
-        {/* Title */}
-        <h2 className="text-3xl md:text-5xl font-medium text-[#163c3d] mb-14">
-          Latest{" "}
-          <span className="text-[#8fd07c] font-semibold">Insights</span> and
-          Immigration <span className="font-semibold">Updates</span>
-        </h2>
 
         {/* Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -92,4 +121,4 @@ const BlogSection = () => {
   );
 };
 
-export default BlogSection;
+export default BlogStep;

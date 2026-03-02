@@ -65,7 +65,7 @@ const ContactUs = () => {
   return (
    <div className="w-full">
       <section className="bg-[#28535B] py-16 md:py-20">
-        <div className="max-w-7xl mx-auto px-6 md:px-16">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-15">
           <h1 className="text-3xl md:text-5xl font-semibold text-white mb-3">
             Contact Us
           </h1>
