@@ -25,6 +25,9 @@ import Brochures from './Pages/Brochures'
 import Checklist from './Components/Checklist'
 import Checklistgsm from './Components/Checklistgsm'
 import Checklistlabour from './Components/Checklistlabour'
+import StudentAustralia from './Pages/StudentAustralia'
+import StudentDubai from './Pages/StudentDubai'
+import StudentUk from './Pages/StudentUk'
 
 function App() {
   return (
@@ -54,6 +57,18 @@ function App() {
         /><Route
           path="/checklist-for-labour-agreement"
           element={<Checklistlabour />}
+        />
+        <Route
+          path="/our-services/student-visa/student-visa-australia/"
+          element={<StudentAustralia />}
+        />
+        <Route
+          path="/our-services/student-visa/student-visa-dubai/"
+          element={<StudentDubai/>}
+        />
+         <Route
+          path="/our-services/student-visa/student-visa-uk/"
+          element={<StudentUk/>}
         />
       </Routes>
       <Footer />
