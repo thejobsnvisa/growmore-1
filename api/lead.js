@@ -22,7 +22,7 @@ export default async function handler(req, res) {
     const cleanPhone = phone.replace("+", "");
 
     // extract country code (1–3 digits)
-    const countryCodeMatch = cleanPhone.match(/^\d{1,3}/);
+    const countryCodeMatch = cleanPhone.match(/^\d{1,2}/);
     const countryCode = countryCodeMatch ? countryCodeMatch[0] : "";
 
     // remove country code from phone
@@ -56,7 +56,7 @@ export default async function handler(req, res) {
       crmResponse: data
     });
 
-  } catch (error) {
+  } catch (error) { 
 
     console.error("Webhook error:", error);
 
