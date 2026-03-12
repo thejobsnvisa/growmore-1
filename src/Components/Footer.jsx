@@ -144,7 +144,7 @@ const Footer = () => {
               <span className="text-white font-semibold ">›</span> YouTube
               Channel
               <Link
-                to="/youtube"
+                to="https://www.youtube.com/@growmoreimmigration"
                 className="hover:text-gray-400 transition"
               ></Link>
             </li>
