@@ -7,17 +7,24 @@ export default async function handler(req, res) {
     });
   }
 
+  if (!req.body.name || !req.body.email || !req.body.phone) {
+    return res.status(400).json({
+      success: false,
+      message: "Name, email and phone are required"
+    });
+  }
+
   try {
 
     const phone = req.body.phone || "";
 
-    const countryCodeMatch = phone.match(/^\+\d{1,4}/);
-    const countryCode = countryCodeMatch ? countryCodeMatch[0] : "";
-    const phoneNumber = phone.replace(countryCode, "");
+    const match = phone.match(/^\+(\d{1,3})(\d+)$/);
+    const countryCode = match ? `+${match[1]}` : "";
+    const phoneNumber = match ? match[2] : phone;
 
     const body = new URLSearchParams({
-      Name: req.body.name || "",
-      Email: req.body.email || "",
+      Name: req.body.name,
+      Email: req.body.email,
       Phone: phoneNumber,
       Country_Code: countryCode,
       Inquiries: req.body.visaType || "General Inquiry",
