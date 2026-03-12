@@ -45,6 +45,9 @@ import IndividualVisaBusiness from "./Pages/IndividualVisaBusiness";
 import IndividualVisaRefugee from "./Pages/IndividualVisaRefugee";
 import IndividualVisaETA from "./Pages/IndividualVisaETA";
 import IndividualVisaGurdian from "./Pages/IndividualVisaGurdian";
+import Terms from "./Pages/Terms";
+import Policy from "./Pages/Policy";
+import Refund from "./Pages/Refund";
 
 
 function App() {
@@ -82,6 +85,18 @@ function App() {
         <Route
           path="/checklist-for-labour-agreement"
           element={<Checklistlabour />}
+        />
+        <Route
+          path="/terms-services"
+          element={<Terms />}
+        />
+        <Route
+          path="/privacy-policy"
+          element={<Policy />}
+        />
+        <Route
+          path="/cancellation-and-refund-policy"
+          element={<Refund/>}
         />
         <Route
           path="/our-services/student-visa/student-visa-australia/"

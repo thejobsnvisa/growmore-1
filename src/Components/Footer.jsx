@@ -158,12 +158,12 @@ const Footer = () => {
           </h3>
           <ul className="space-y-2 sm:space-y-3 text-[16px] text-white">
             <li>
-              <Link to="#" className="hover:text-gray-400 transition">
+              <Link to="/terms-services" className="hover:text-gray-400 transition">
                 Terms & Services
               </Link>
             </li>
             <li>
-              <Link to="#" className="hover:text-gray-400 transition">
+              <Link to="/privacy-policy" className="hover:text-gray-400 transition">
                 Privacy Policy
               </Link>
             </li>
@@ -173,7 +173,7 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link to="#" className="hover:text-gray-400 transition">
+              <Link to="/cancellation-and-refund-policy" className="hover:text-gray-400 transition">
                 Cancellation & Refund Policy
               </Link>
             </li>
