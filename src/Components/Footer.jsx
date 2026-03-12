@@ -141,12 +141,11 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <span className="text-white font-semibold ">›</span> YouTube
-              Channel
               <Link
                 to="https://www.youtube.com/@growmoreimmigration"
                 className="hover:text-gray-400 transition"
-              ></Link>
+              > <span className="text-white font-semibold ">›</span> YouTube
+              Channel</Link>
             </li>
           </ul>
         </div>
