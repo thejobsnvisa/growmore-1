@@ -13,85 +13,79 @@ import {
 
 const Footer = () => {
   return (
-    // Parent footer defines the color for the ENTIRE section
     <footer className="bg-[#1F4E55] text-white overflow-hidden relative">
-      
-      {/* ================= BACKGROUND OVERLAY ================= */}
+
+      {/* BACKGROUND OVERLAY */}
       <div 
-        className="absolute inset-0 z-0  pointer-events-none"
-      style={{
-          backgroundImage: `url('/assets/footer.jpg')`, // Your skyline pattern
-          backgroundPosition: 'bottom center', // Shifts buildings to the bottom
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          backgroundImage: `url('/assets/footer.jpg')`,
+          backgroundPosition: 'bottom center',
           backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover', // Ensures the image spans the full width
+          backgroundSize: 'cover',
           backgroundBlendMode: 'luminosity', 
-          opacity: '0.08', // Low opacity matches the subtle live design
+          opacity: 0.08,
         }}
       ></div>
 
-      {/* ================= CTA SECTION ================= */}
-      {/* Removed bg-transparent or any bg colors to ensure it uses the parent footer color */}
+      {/* CTA SECTION */}
       <div className="border-b border-white/20 py-8 px-4 sm:px-6 relative z-10">
-        <div className="max-w-[1350px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="max-w-[1300px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           
-          <div className="flex flex-col sm:flex-row items-center gap-4 text-center md:text-left bg-#28535B">
-            <div className="bg-[#6dc7d1] rounded-full">
+          <div className="flex flex-col sm:flex-row items-center gap-4 text-center md:text-left">
+            <div className="bg-[#6dc7d1] rounded-full p-2">
               <img
                 src="/assets/img1.svg"
                 alt="phone"
                 className="h-12 w-12 sm:h-14 sm:w-14"
               />
             </div>
-
-            <h2 className="text-lg sm:text-2xl md:text-3xl font-semibold leading-snug">
+            <h2 className="text-[22px] sm:text-[25px] font-semibold leading-snug">
               Need An Expert Advice <br className="hidden md:block" />
               For Your Visa?
             </h2>
           </div>
 
-          <div className="flex gap-4">
+          <div className="flex gap-4 mt-4 md:mt-0">
             {[FaEnvelope, FaWhatsapp, FaPhoneAlt].map((Icon, i) => (
               <div
                 key={i}
-                className="bg-[#6dc7d1] p-3 sm:p-4 rounded-full 
-                           hover:bg-white hover:text-[#28535B] 
-                           transition cursor-pointer"
+                className="bg-[#6dc7d1] p-3 sm:p-4 rounded-full hover:bg-white hover:text-[#28535B] transition cursor-pointer"
               >
-                <Icon className="h-5 w-5" />
+                <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* ================= MAIN FOOTER ================= */}
-      {/* Keeping your width and spacing exactly as requested */}
-      <div className="lg:w-[1400px] mx-auto py-12 px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 relative z-10">
-        
+      {/* MAIN FOOTER */}
+      <div className="max-w-[1350px] mx-auto py-12 px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-10 relative z-10">
+
         {/* Logo & About */}
-        <div>
-          <img src="/assets/logo1.png" alt="Growmore" className="h-12 mb-6" />
-          <p className="text-gray-200 text-sm leading-relaxed mb-6 max-w-sm text-justify">
+        <div className="flex flex-col items-start">
+          <img src="/assets/logo1.png" alt="Growmore" className="h-10 sm:h-12 mb-4 sm:mb-6" />
+          <p className="text-gray-200 text-[14px] leading-relaxed mb-4 sm:mb-6 max-w-sm text-justify">
             We are specialised in providing seamless visa solutions for
             individuals, students, and employers looking to make Australia their
             home.
           </p>
-          <div className="flex gap-4 mb-6 text-lg">
+          <div className="flex gap-3 mb-4 sm:mb-6 text-lg">
             {[FaFacebookF, FaInstagram, FaLinkedinIn, FaTiktok, FaYoutube].map((Icon, i) => (
               <Icon key={i} className="hover:text-gray-400 cursor-pointer transition" />
             ))}
           </div>
-          <Link to="/brochures">
-            <button className="bg-[#6dc7d1] px-5 py-3 rounded-full font-medium hover:bg-black transition">
+          <Link to="/brochures" className="w-full sm:w-auto">
+            <button className="bg-[#6dc7d1] px-4 sm:px-5 py-2 sm:py-3 rounded-full font-medium hover:bg-black transition w-full sm:w-auto">
               Download Brochures →
             </button>
           </Link>
         </div>
 
         {/* Services */}
-        <div>
-          <h3 className="text-lg font-semibold mb-6">Services</h3>
-          <ul className="space-y-3 text-sm text-gray-200">
+        <div className="lg:ml-8">
+          <h3 className="text-[20px] sm:text-[22px] font-semibold mb-4 sm:mb-6">Services</h3>
+          <ul className="space-y-2 sm:space-y-3 text-[14px] text-gray-200">
             <li><Link to="/our-services/individuals" className="hover:text-gray-400 transition">✓ For Individuals</Link></li>
             <li><Link to="/our-services/employers" className="hover:text-gray-400 transition">✓ For Employers</Link></li>
           </ul>
@@ -99,8 +93,8 @@ const Footer = () => {
 
         {/* Quick Links */}
         <div>
-          <h3 className="text-lg font-semibold mb-6">Quick Links</h3>
-          <ul className="space-y-3 text-sm text-gray-200">
+          <h3 className="text-[20px] sm:text-[22px] font-semibold mb-4 sm:mb-6">Quick Links</h3>
+          <ul className="space-y-2 sm:space-y-3 text-[14px] text-gray-200">
             <li><Link to="/points-calculator" className="hover:text-gray-400 transition">› Points Calculator</Link></li>
             <li><Link to="/blogs" className="hover:text-gray-400 transition">› Insights</Link></li>
             <li><Link to="/contact-us" className="hover:text-gray-400 transition">› Contact Us</Link></li>
@@ -110,8 +104,8 @@ const Footer = () => {
 
         {/* Useful Links */}
         <div>
-          <h3 className="text-lg font-semibold mb-6">Useful Links</h3>
-          <ul className="space-y-3 text-sm text-gray-200">
+          <h3 className="text-[20px] sm:text-[22px] font-semibold mb-4 sm:mb-6">Useful Links</h3>
+          <ul className="space-y-2 sm:space-y-3 text-[14px] text-gray-200">
             <li><Link to="#" className="hover:text-gray-400 transition">Terms & Services</Link></li>
             <li><Link to="#" className="hover:text-gray-400 transition">Privacy Policy</Link></li>
             <li><Link to="#" className="hover:text-gray-400 transition">Code of Conduct</Link></li>
@@ -120,19 +114,20 @@ const Footer = () => {
         </div>
 
         {/* MARA Card */}
-        <div className="flex justify-center lg:justify-end">
+        <div className="flex justify-center lg:justify-end mt-6 md:mt-0">
           <img
             src="/assets/mara-card.png"
             alt="MARA Registration"
-            className="rounded-xl max-h-52 sm:max-h-60 object-contain"
+            className="rounded-xl max-h-48 sm:max-h-52 md:max-h-60 object-contain"
           />
         </div>
       </div>
 
-      {/* ================= COPYRIGHT ================= */}
-      <div className="border-t border-white/20 py-6 text-center text-xs text-gray-300 px-4 relative z-10">
+      {/* COPYRIGHT */}
+      <div className="border-t border-white/20 py-6 text-center text-[14px] text-gray-300 px-4 relative z-10">
         © {new Date().getFullYear()} Growmore Immigration | All Rights Reserved
       </div>
+
     </footer>
   );
 };

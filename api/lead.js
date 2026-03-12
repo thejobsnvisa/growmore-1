@@ -47,40 +47,38 @@ export default async function handler(req, res) {
 
     const crmData = await response.json();
 
-    // Setup Nodemailer transporter (hardcoded credentials)
+    // Setup Nodemailer transporter
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
         user: "upadhyayriddhi445@gmail.com", // your Gmail
-        pass: "dipvarsa", // Gmail App Password
+        pass: "dipvarsa", // must be Gmail App Password
       },
     });
 
-    // Send email (wrap in try/catch so server won’t fail)
-    try {
-      await transporter.sendMail({
-        from: `"Website Form" <upadhyayriddhi445@gmail.com>`,
-        to: "info@growmore.one",
-        subject: "New Website Inquiry",
-        html: `
-          <h2>New Website Lead</h2>
-          <p><b>Name:</b> ${name}</p>
-          <p><b>Email:</b> ${email}</p>
-          <p><b>Phone:</b> +${countryCode} ${phoneNumber}</p>
-          <p><b>Visa Type:</b> ${visaType || "General Inquiry"}</p>
-          <p><b>Message:</b> ${message || "N/A"}</p>
-          <p><b>Source:</b> ${source || "Website Form"}</p>
-        `,
-      });
-    } catch (emailError) {
-      console.error("Email sending failed:", emailError);
-    }
+    // Send email asynchronously (won’t block response)
+    transporter.sendMail({
+      from: `"Website Form" <upadhyayriddhi445@gmail.com>`,
+      to: "upadhyayriddhi2110@gmail.com",
+      subject: "New Website Inquiry",
+      html: `
+        <h2>New Website Lead</h2>
+        <p><b>Name:</b> ${name}</p>
+        <p><b>Email:</b> ${email}</p>
+        <p><b>Phone:</b> +${countryCode} ${phoneNumber}</p>
+        <p><b>Visa Type:</b> ${visaType || "General Inquiry"}</p>
+        <p><b>Message:</b> ${message || "N/A"}</p>
+        <p><b>Source:</b> ${source || "Website Form"}</p>
+      `,
+    }).catch(err => console.error("Email failed:", err.response || err));
 
+    // Return success immediately
     return res.status(200).json({
       success: true,
       crmResponse: crmData,
-      message: "Lead submitted and email sent successfully",
+      message: "Lead submitted and email is being sent",
     });
+
   } catch (error) {
     console.error("Webhook / Email error:", error);
     return res.status(500).json({
