@@ -9,20 +9,22 @@ export default async function handler(req, res) {
 
   try {
 
+    const body = new URLSearchParams({
+      Name: req.body.name || "",
+      Email: req.body.email || "",
+      Phone: req.body.phone || "",
+      Country_Code: req.body.countryCode || "+91",
+      Message: req.body.message || ""
+    });
+
     const response = await fetch(
       "https://leads.growmore.one/api/website-form",
       {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: JSON.stringify({
-          Name: req.body.name,
-          Email: req.body.email,
-          Phone: req.body.phone,
-          Country_Code: req.body.countryCode,
-          Message: req.body.message
-        }),
+        body: body.toString(),
       }
     );
 
