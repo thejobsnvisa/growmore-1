@@ -39,7 +39,7 @@ export default async function handler(req, res) {
     });
 
     const response = await fetch(
-      "https://leads.growmore.one/api/website-form",
+      "https://case.growmore.one/api/webhooks/website-form",
       {
         method: "POST",
         headers: {
@@ -56,7 +56,7 @@ export default async function handler(req, res) {
       crmResponse: data
     });
 
-  } catch (error) {
+  } catch (error) { 
 
     console.error("Webhook error:", error);
 
