@@ -214,30 +214,38 @@ const Migrate = () => {
       </section>
       <PathwaySection />
       <States />
-      <section className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center gap-24">
+        {/* Contact Section */}
+      <section className="bg-white py-16 md:py-20">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+
           {/* IMAGE */}
-          <div className="w-full md:w-1/2">
-            <img
-              src="/assets/krunal2.png"
-              alt="MARA Registration"
-              className="w-full h-full object-cover"
-            />
-          </div>
+      <div className="w-full lg:w-1/2 flex justify-center lg:justify-start">
+  <img
+    src="/assets/krunal2.png"
+    alt="MARA Registration"
+    className="w-full max-w-sm h-[680px] object-cover rounded-2xl"
+  />
+</div>
 
           {/* FORM */}
-          <div className="w-full md:w-3/4 flex flex-col items-center ml-12">
+          <div className="w-full lg:w-1/2 flex flex-col">
+
             {/* Heading */}
-            <div className="w-full max-w-md mb-6 text-left -mt-24 mr-28">
-              <p className="text-[#8fd07c] text-[14px] font-semibold ml-1">
+            <div className="w-full mb-6 text-left">
+              <p className="text-[#8fd07c] text-sm font-semibold">
                 Contact Information
               </p>
-              <h2 className="text-[#8fd07c] text-[40px] font-semibold">
+              <h2 className="text-[#8fd07c] text-3xl md:text-4xl font-semibold">
                 Get in Touch with Us
               </h2>
             </div>
-            <div className="bg-[#EFF9FB] rounded-3xl shadow-2xl w-full max-w-xl p-8">
+
+            {/* Form Card */}
+            <div className="bg-[#EFF9FB] rounded-3xl shadow-2xl w-full max-w-xl p-6 md:p-8">
+
               <form onSubmit={handleSubmit} className="space-y-4">
+
+                {/* Name + Email */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <input
                     name="name"
@@ -245,6 +253,7 @@ const Migrate = () => {
                     required
                     className="bg-white rounded-lg px-4 py-3 w-full border border-gray-300"
                   />
+
                   <input
                     type="email"
                     name="email"
@@ -254,10 +263,11 @@ const Migrate = () => {
                   />
                 </div>
 
-                {/* 🔥 Split Phone Input */}
+                {/* Phone Input */}
                 <div className="flex gap-3">
+
                   {/* Country Code */}
-                  <div className="w-28 bg-white rounded-lg border border-gray-300">
+                  <div className="w-24 sm:w-28 bg-white rounded-lg border border-gray-300">
                     <PhoneInput
                       country={"in"}
                       enableSearch
@@ -290,6 +300,7 @@ const Migrate = () => {
                   />
                 </div>
 
+                {/* Visa Type */}
                 <select
                   name="visaType"
                   required
@@ -304,18 +315,23 @@ const Migrate = () => {
                   <option>PR Inquiries</option>
                 </select>
 
+                {/* Message */}
                 <textarea
                   rows="4"
                   name="message"
                   placeholder="Your Comments"
                   className="bg-white rounded-lg px-4 py-3 w-full border border-gray-300"
-                ></textarea>
-
-                <ReCAPTCHA
-                  sitekey="6Lcb_HEsAAAAAJESdQwpfYltspCpspxJPbCyM58Z"
-                  ref={recaptchaRef}
                 />
 
+                {/* CAPTCHA */}
+                <div className="flex justify-center">
+                  <ReCAPTCHA
+                    sitekey="6Lcb_HEsAAAAAJESdQwpfYltspCpspxJPbCyM58Z"
+                    ref={recaptchaRef}
+                  />
+                </div>
+
+                {/* Submit */}
                 <button
                   type="submit"
                   disabled={loading}
@@ -323,6 +339,7 @@ const Migrate = () => {
                 >
                   {loading ? "Submitting..." : "Submit →"}
                 </button>
+
               </form>
             </div>
           </div>
