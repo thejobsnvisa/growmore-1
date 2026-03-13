@@ -60,17 +60,15 @@ export default async function handler(req, res) {
 
     // Send Email
     await transporter.sendMail({
-      from: `"Website Form" <upadhyayriddhi445@gmail.com>`,
-      to: "info@growmore.one",
-      subject: "New Website Inquiry",
+      from: `"Growmore Immigration"`,
+      to: "Growmore Immigration LLP",
+      subject: "Appointment Booking from the website",
       html: `
-        <h2>New Website Lead</h2>
-        <p><b>Name:</b> ${name}</p>
-        <p><b>Email:</b> ${email}</p>
-        <p><b>Phone:</b> +${countryCode} ${phoneNumber}</p>
-        <p><b>Visa Type:</b> ${visaType || "General Inquiry"}</p>
-        <p><b>Message:</b> ${message || "N/A"}</p>
-        <p><b>Source:</b> ${source || "Website Form"}</p>
+        <p>Name: ${name}</p>
+        <p>Email:${email}</p>
+        <p>Phone: +${countryCode} ${phoneNumber}</p>
+        <p>Visa Type:${visaType || "General Inquiry"}</p>
+        <p>Message:${message || "N/A"}</p>
       `,
     });
 
