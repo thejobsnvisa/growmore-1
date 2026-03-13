@@ -56,33 +56,36 @@ const Teams = () => {
       {/* ================= COMMUNITY SECTION ================= */}
       <div className="max-w-7xl lg:max-w-screen-2xl mx-auto mt-20 md:mt-28 px-4 sm:px-6">
         {/* Stack on mobile, row only on lg */}
-        <div className="bg-[#1E4E54] rounded-[28px] p-6 md:p-8 lg:p-10 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-10">
+        <div className="bg-[#1E4E54] rounded-[28px] p-8 md:p-10 lg:p-12 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-10">
           {/* LEFT CARD */}
-          <div className="bg-white rounded-2xl p-8 md:p-8 w-full lg:w-3/4 h-[320px] ">
-            <h3 className="text-2xl lg:text-3xl font-semibold text-[#2CA6B0] mb-4 mt-12">
+          <div
+            className="bg-white rounded-2xl w-full lg:w-1/2 h-[320px] 
+                px-18  py-15 ml-6 flex flex-col justify-center shadow-sm"
+          >
+            <h2 className="text-4xl font-semibold text-[#6dc7d1] mb-4">
               Community
-            </h3>
+            </h2>
 
-            <p className="text-gray-600 text-sm lg:text-base leading-relaxed mb-6 text-justify">
+            <p className="text-gray-600 mb-6 max-w-md">
               Stay updated with the latest news, tips, and success stories by
               connecting with us on our social media platforms:
             </p>
 
             {/* SOCIAL ICONS */}
-            <div className="flex flex-wrap gap-4 pt-4">
-              <a href="#">
-                <img src="/assets/t.svg" alt="Tiktok" className="w-9 h-9" />
+            <div className="flex flex-wrap gap-6 pt-4">
+              <a href="https://www.facebook.com/growmore.one">
+                <img src="/assets/f.svg" alt="Facebook" className="w-9 h-9" />
               </a>
-              <a href="#">
+              <a href="https://www.instagram.com/growmore.one/">
                 <img src="/assets/i.svg" alt="Instagram" className="w-9 h-9" />
               </a>
-              <a href="#">
-                <img src="/assets/t.svg" alt="Tiktok" className="w-9 h-9" />
-              </a>
-              <a href="#">
+              <a href="https://www.linkedin.com/company/growmore-immigration/">
                 <img src="/assets/l.svg" alt="LinkedIn" className="w-9 h-9" />
               </a>
-              <a href="#">
+              <a href="https://tiktok.com/@growmore.immigration">
+                <img src="/assets/t.svg" alt="Tiktok" className="w-9 h-9" />
+              </a>
+              <a href="https://www.youtube.com/@growmoreimmigration">
                 <img src="/assets/y.svg" alt="YouTube" className="w-9 h-9" />
               </a>
             </div>
@@ -93,7 +96,7 @@ const Teams = () => {
             <img
               src="/assets/c.png"
               alt="community"
-              className="rounded-2xl w-full h-[220px] sm:h-[260px] md:h-[300px] lg:h-[340px] object-cover lg:ml-[-60px]  mb-2"
+              className="rounded-2xl w-full h-[220px] sm:h-[260px] md:h-[340px] lg:h-[360px] object-cover lg:ml-[-60px]  mb-2"
             />
           </div>
         </div>
