@@ -4,11 +4,15 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {
+  extend: {
+    fontFamily: {
+      jakarta: ['"Plus Jakarta Sans"', 'sans-serif'],
+    },
+  },
+  fontFamily: {
+    sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+  },
 
-      fontFamily: {
-        jakarta: ["Plus Jakarta Sans", "sans-serif"],
-      },
 
       animation: {
         float: "float 5s ease-in-out infinite",
@@ -36,6 +40,6 @@ export default {
       },
 
     },
-  },
+  
   plugins: [],
 };

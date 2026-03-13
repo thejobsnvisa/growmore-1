@@ -37,16 +37,13 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Menu */}
-<ul className="hidden lg:flex items-center space-x-8 text-base font-[545] text-[#1F4E55]">            <li>
-              <Link
-                to="/"
-                onClick={closeAll}
-                className="hover:text-[#8FD07D]"
-              >
+          <ul className="hidden lg:flex items-center space-x-8 text-base font-jakarta text-[#1F4E55]">
+            {" "}
+            <li>
+              <Link to="/" onClick={closeAll} className="hover:text-[#8FD07D]">
                 Home
               </Link>
             </li>
-
             {/* About */}
             <li className="relative">
               <button
@@ -57,7 +54,7 @@ const Navbar = () => {
                 <ChevronDown
                   size={16}
                   className={`transition-transform duration-200 ${
-                    openMenu === "about" ? "hover:text-[#8FD07D]": ""
+                    openMenu === "about" ? "hover:text-[#8FD07D]" : ""
                   }`}
                 />
               </button>
@@ -85,7 +82,6 @@ const Navbar = () => {
                 </Link>
               </div>
             </li>
-
             <li>
               <Link
                 to="/migrate-to-australia"
