@@ -20,7 +20,7 @@ export default async function handler(req, res) {
 
     // Clean phone number
     const cleanPhone = phone.replace("+", "");
-    const countryCodeMatch = cleanPhone.match(/^\d{1,3}/); // 1–3 digits
+    const countryCodeMatch = cleanPhone.match(/^\d{1,3}/);
     const countryCode = countryCodeMatch ? countryCodeMatch[0] : "";
     const phoneNumber = cleanPhone.replace(countryCode, "");
 
@@ -35,12 +35,14 @@ export default async function handler(req, res) {
       Message: message || "",
     });
 
-    // Send to CRM
+    // Send data to CRM
     const response = await fetch(
       "https://case.growmore.one/api/webhooks/website-form",
       {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
         body: body.toString(),
       }
     );
@@ -51,13 +53,13 @@ export default async function handler(req, res) {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "upadhyayriddhi445@gmail.com", // your Gmail
-        pass: "dipvarsa", // must be Gmail App Password
+        user: "upadhyayriddhi445@gmail.com",
+        pass: "dipvarsa", // Replace with Gmail App Password
       },
     });
 
-    // Send email asynchronously (won’t block response)
-    transporter.sendMail({
+    // Send Email
+    await transporter.sendMail({
       from: `"Website Form" <upadhyayriddhi445@gmail.com>`,
       to: "upadhyayriddhi2110@gmail.com",
       subject: "New Website Inquiry",
@@ -70,20 +72,21 @@ export default async function handler(req, res) {
         <p><b>Message:</b> ${message || "N/A"}</p>
         <p><b>Source:</b> ${source || "Website Form"}</p>
       `,
-    }).catch(err => console.error("Email failed:", err.response || err));
+    });
 
-    // Return success immediately
     return res.status(200).json({
       success: true,
       crmResponse: crmData,
-      message: "Lead submitted and email is being sent",
+      message: "Lead submitted and email sent successfully",
     });
 
   } catch (error) {
     console.error("Webhook / Email error:", error);
+
     return res.status(500).json({
       success: false,
-      message: error.message,
+      message: "Something went wrong",
+      error: error.message,
     });
   }
 }
