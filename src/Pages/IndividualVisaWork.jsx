@@ -125,11 +125,11 @@ const IndividualVisaWork = () => {
                 Temporary Work Visa (Subclass 400) and Short Stay Visa Specialist {" "}
               </h3>
               <div>
-                <p className="text-gray-600 mt-4 leading-relaxed text-sm sm:text-base">
+                <p className="text-[#727272] mt-4 leading-relaxed text-sm sm:text-base">
                   The Australian Temporary Work visa allows individuals to come to Australia on a temporary basis for work purposes. The following are some of the most commonly used visa subclasses for temporary work in Australia:
                 </p>
 
-                <ol className="list-decimal pl-6 mt-6 space-y-4 text-gray-600 text-sm sm:text-base">
+                <ol className="list-decimal pl-6 mt-6 space-y-4 text-[#727272] text-sm sm:text-base">
                   <li>
                     <strong>
                       {" "}
@@ -174,7 +174,7 @@ const IndividualVisaWork = () => {
                   This visa is for individuals who are coming to Australia to participate in short-term, highly specialized work.
                   </li>
                 </ol>
-             <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+             <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
                  <b>Note:{" "}</b> eligibility criteria and requirements for each stream are
                   subject to change, and it is always advisable to consult a
                   registered migration agent to understand the latest
@@ -184,7 +184,7 @@ const IndividualVisaWork = () => {
                   </span>
                   to know about any of the mentioned visas.
                 </p>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
                   Our migration agent at{" "}
                   <span className="text-blue-500">Growmore Immigration </span>
                   can help you with the latest information and requirements for

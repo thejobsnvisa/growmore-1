@@ -104,19 +104,19 @@ const EmployerVisaLMT = () => {
                 <h1 className="text-2xl sm:text-3xl font-semibold text-black mt-6">
                   What We Offer:{" "}
                 </h1>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
                   Labour Market Testing (LMT) is a mandatory requirement for{" "}
                   <b className="text-black">Subclass 494</b> (Skilled Employer Sponsored Regional) and
                   Subclass 482 (Temporary Skill Shortage) visa applications.
                 </p>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
                   Our LMT services help businesses comply with regulations by
                   demonstrating genuine efforts to recruit Australian workers.
                 </p>
                 <h1 className="text-2xl sm:text-3xl font-semibold text-black mt-6">
                   We Assist With:
                 </h1>
-                <ul className=" list-disc pl-6 mt-2 text-gray-500 text-sm sm:text-base">
+                <ul className=" list-disc pl-6 mt-2 text-[#727272] text-sm sm:text-base">
                   <li>
                     Drafting and posting job advertisements for the nominated
                     occupations across approved platforms, such as JobActive,
@@ -142,7 +142,7 @@ const EmployerVisaLMT = () => {
                 <h1 className="text-2xl sm:text-3xl font-semibold text-black mt-6">
                   How It Helps:
                 </h1>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
                   Our meticulous LMT process ensures your visa applications meet
                   compliance standards while supporting your case for hiring
                   international talent.

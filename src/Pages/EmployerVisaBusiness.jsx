@@ -99,20 +99,20 @@ const EmployerVisaBusiness = () => {
             <h3 className="text-xl sm:text-2xl font-semibold text-[#28535B] ">
               What is a Standard Business Sponsorship?{" "}
             </h3>
-            <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+            <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
               <span className="font-bold">Standard Business Sponsorship</span>{" "}
               (SBS) is a crucial part of the employer-sponsored visa process in
               Australia, enabling an Australian business to sponsor an overseas
               worker for either a temporary or a permanent visa.
             </p>
-            <p className="text-gray-500 mt-6 leading-relaxed text-justify  text-sm sm:text-base">
+            <p className="text-[#727272] mt-6 leading-relaxed text-justify  text-sm sm:text-base">
               To be eligible for Standard Business Sponsorship, an employer must
               have a good record of compliance with both Australian immigration
               and workplace laws, as well as being a financially stable
               business.
             </p>
             <div>
-              <h3 className="text-sm sm:text-base font-semibold text-gray-500 mt-2">
+              <h3 className="text-sm sm:text-base font-semibold text-[#727272] mt-2">
                 Once approved as a Standard Business Sponsor, the employer can
                 then nominate a skilled worker for a temporary or permanent
                 visa, such as the:{" "}
@@ -128,7 +128,7 @@ const EmployerVisaBusiness = () => {
                   <b>(subclass 494)</b>
                 </li>
               </ul>
-              <p className="text-gray-500 mt-6 leading-relaxed text-justify  text-sm sm:text-base">
+              <p className="text-[#727272] mt-6 leading-relaxed text-justify  text-sm sm:text-base">
                 The Standard Business Sponsorship approval is valid for five
                 years and can be renewed if the employer wishes to continue
                 sponsoring workers. During this period, the employer is
@@ -137,7 +137,7 @@ const EmployerVisaBusiness = () => {
                 employment and ensuring they receive appropriate wages and
                 working conditions.
               </p>
-              <p className="text-gray-500 mt-6 leading-relaxed text-justify  text-sm sm:text-base">
+              <p className="text-[#727272] mt-6 leading-relaxed text-justify  text-sm sm:text-base">
                 It is important for businesses to consider the benefits and
                 obligations of becoming a Standard Business Sponsor before
                 making the decision to sponsor a worker. This includes the
@@ -145,7 +145,7 @@ const EmployerVisaBusiness = () => {
                 to access a global pool of skilled workers, as well as the legal
                 responsibilities and ongoing reporting requirements.
               </p>
-              <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+              <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
                 <span className="font-bold">Note: </span> eligibility criteria
                 and requirements for each stream are subject to change, and it
                 is always advisable to consult a registered migration agent to
@@ -157,7 +157,7 @@ const EmployerVisaBusiness = () => {
                 </span>{" "}
                 to know about any of the mentioned visas.
               </p>{" "}
-              <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+              <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
                 Our migration agent at Growmore Immigration
                 <span className="text-blue-500 ">
                   {" "}

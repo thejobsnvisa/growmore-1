@@ -100,7 +100,7 @@ const EmployerVisa = () => {
             <h3 className="text-xl sm:text-2xl font-semibold text-[#28535B] mt-6">
               Employer Sponsored Visa Australia Requirements
             </h3>
-            <p className="text-gray-600 mt-6 leading-relaxed text-justify text-sm sm:text-base">
+            <p className="text-[#727272] mt-6 leading-relaxed text-justify text-sm sm:text-base">
               The Employer Sponsored visa category allows Australian employers
               to sponsor foreign workers to fill skill shortages in their
               businesses. These visas are designed for individuals with highly
@@ -111,12 +111,12 @@ const EmployerVisa = () => {
               </Link>
               .
             </p>
-            <p className="text-gray-600 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+            <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
               To be eligible for this type of visa, applicants must have an
               employer who is willing to sponsor them and they must meet the
               specific requirements of the position they are applying for.
             </p>
-            <p className="text-gray-600 mt-6 leading-relaxed text-justify  text-sm sm:text-base">
+            <p className="text-[#727272] mt-6 leading-relaxed text-justify  text-sm sm:text-base">
               The eligibility criteria for an Employer Sponsored visa can vary
               greatly depending on the type of visa and the specific occupation,
               so it is important to carefully review the requirements before
@@ -128,7 +128,7 @@ const EmployerVisa = () => {
                 Reasons, Including:{" "}
               </h3>
 
-              <ul className="list-disc pl-6 mt-6 space-y-4 text-gray-600 text-sm sm:text-base">
+              <ul className="list-disc pl-6 mt-6 space-y-4 text-[#727272] text-sm sm:text-base">
                 <li>
                   <strong>To fill a skill shortage: </strong> An employer may
                   sponsor a foreign worker if they are unable to find a suitable

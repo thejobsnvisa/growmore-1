@@ -103,7 +103,7 @@ const EmployerVisaStrategic = () => {
               <h1 className="text-2xl sm:text-3xl font-semibold text-black mt-6">
                 What We Offer:{" "}
               </h1>
-              <ul className=" list-disc pl-6 mt-2 text-gray-500 text-sm sm:text-base">
+              <ul className=" list-disc pl-6 mt-2 text-[#727272] text-sm sm:text-base">
                 <li>
                   Labour Agreements are tailored solutions for Australian
                   businesses that face challenges in finding skilled workers
@@ -125,7 +125,7 @@ const EmployerVisaStrategic = () => {
               <h1 className="text-2xl sm:text-3xl font-semibold text-black mt-6">
                 How It Helps:
               </h1>
-              <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+              <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
                 A well-prepared business case strengthens your application,
                 showcasing the genuine need for international workers to fill
                 roles that cannot be sourced locally, ensuring smooth approval

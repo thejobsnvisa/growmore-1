@@ -65,7 +65,7 @@ const LabourAgreement = () => {
             & Start the Process Now!
           </h3>
 
-          <p className="text-gray-600 mb-6 text-justify">
+          <p className="text-[#727272] mb-6 text-justify">
             If you are thinking of making the next move, then before you dive
             in, make sure that you are actually ready. So, check your
             eligibility and get to know where you actually stand.
@@ -100,7 +100,7 @@ const LabourAgreement = () => {
             Stay Connected with Us
           </h4>
 
-          <p className="text-gray-600 mb-6 text-justify">
+          <p className="text-[#727272] mb-6 text-justify">
             Follow us for updates, tips, and expert guidance on moving to
             Australia and stay informed at every step of your journey.
           </p>

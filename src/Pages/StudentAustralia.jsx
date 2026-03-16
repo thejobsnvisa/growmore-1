@@ -70,14 +70,14 @@ Student Visa Australia
               </h2>
             </div>
 
-            <p className="text-gray-600 mt-3 text-justify leading-relaxed">
+            <p className="text-[#727272] mt-3 text-justify leading-relaxed">
               Dreaming of an international education that leads to real success?
               At Growmore Immigration, we make your study in Australia
               completely perfect by guiding you through each step of your way of
               student visa process.
             </p>
 
-            <p className="text-gray-600 mt-3 text-justify leading-relaxed">
+            <p className="text-[#727272] mt-3 text-justify leading-relaxed">
               Australia is one of the perfect study destinations to begin your
               future with designated, ranked universities, industry-driven
               courses, and a relatively simple path to permanent residency. It
@@ -86,27 +86,27 @@ Student Visa Australia
               by getting the best visa process from us.
             </p>
 
-            <p className="text-gray-600 mt-3 text-justify leading-relaxed">
+            <p className="text-[#727272] mt-3 text-justify leading-relaxed">
               This place will not only leave you with a degree from a
               world-renowned university, but you will also be equipped with more
               opportunities to brighten your future. Australia is a country
               where one can immerse oneself in fresh culture and gain many
               valuable skills.
             </p>
-            <p className="text-gray-600 mt-3 text-justify leading-relaxed">
+            <p className="text-[#727272] mt-3 text-justify leading-relaxed">
               Going to Australia means you will attain a quality education from
               internationally acknowledged universities such as The University
               of Melbourne, The University of Sydney, and The Australian
               National University (ANU) while also getting good job
               opportunities and a perfect standard of living.
             </p>
-            <p className="text-gray-600 mt-3 text-justify leading-relaxed">
+            <p className="text-[#727272] mt-3 text-justify leading-relaxed">
               Melbourne, Sydney, Brisbane, Canberra & Adelaide are an excellent
               mix when it comes to offering superb education, rich culture, and
               meaningful professional status. A mixture of these facets makes
               Australia the best place to get your dreams.
             </p>
-            <p className="text-gray-600 mt-3 text-justify leading-relaxed">
+            <p className="text-[#727272] mt-3 text-justify leading-relaxed">
               Studying in Australia is closer and easier than you think. All you
               need is the right direction and support from a credible
               organization such as Growmore Immigration. Together, we can
@@ -121,7 +121,7 @@ Student Visa Australia
                 Why Australia is the Smart Choice
               </h3>
 
-              <ul className="list-disc pl-6 mt-6 space-y-4 text-gray-600 text-sm sm:text-base">
+              <ul className="list-disc pl-6 mt-6 space-y-4 text-[#727272] text-sm sm:text-base">
                 <li>
                   <strong>World-Class Universities:</strong> 7 Australian
                   universities are ranked in the QS Global Top 100, including
@@ -177,7 +177,7 @@ Student Visa Australia
                   Courses You Can Study in Australia
                 </h2>
 
-                <p className="mt-4 text-gray-600 text-sm sm:text-base leading-relaxed">
+                <p className="mt-4 text-[#727272] text-sm sm:text-base leading-relaxed">
                   Whatever you are interested in, whether it is business growth,
                   research, or supporting advancements in health care, Australia
                   has it all. Here, a wide range of courses is available across
@@ -189,7 +189,7 @@ Student Visa Australia
                   Some of The Most Popular Courses Include:
                 </h3>
 
-                <ul className="list-disc pl-6 mt-4 space-y-2 text-gray-600 text-sm sm:text-base">
+                <ul className="list-disc pl-6 mt-4 space-y-2 text-[#727272] text-sm sm:text-base">
                   <li>Business & Management</li>
                   <li>Information Technology</li>
                   <li>Nursing & Healthcare</li>
@@ -205,7 +205,7 @@ Student Visa Australia
                   Important Documents Checklist
                 </h2>
 
-                <p className="mt-4 text-gray-600 text-sm sm:text-base leading-relaxed">
+                <p className="mt-4 text-[#727272] text-sm sm:text-base leading-relaxed">
                   It is important to make some documents ready before you submit
                   your application for the Australia student visa and embark on
                   your new life studying. When you present each required
@@ -213,7 +213,7 @@ Student Visa Australia
                   without any types of delays.
                 </p>
 
-                <ul className="list-disc pl-6 mt-4 space-y-2 text-gray-600 text-sm sm:text-base">
+                <ul className="list-disc pl-6 mt-4 space-y-2 text-[#727272] text-sm sm:text-base">
                   <li>Valid Passport (Front & Back Pages)</li>
                   <li>Academic Transcripts (10th, 12th, Diploma/Degree)</li>
                   <li>IELTS / PTE Scorecard</li>
@@ -230,7 +230,7 @@ Student Visa Australia
                   Academic & English Language Requirements
                 </h2>
 
-                <ul className="list-disc pl-6 mt-6 space-y-4 text-gray-600 text-sm sm:text-base">
+                <ul className="list-disc pl-6 mt-6 space-y-4 text-[#727272] text-sm sm:text-base">
                   <li>
                     <strong>For Undergraduate (UG) Programs:</strong> Minimum
                     60% in 12th grade and overall IELTS score of 6.0 (no band
@@ -251,13 +251,13 @@ Student Visa Australia
                   Financial Requirements
                 </h2>
 
-                <p className="mt-4 text-gray-600 text-sm sm:text-base leading-relaxed">
+                <p className="mt-4 text-[#727272] text-sm sm:text-base leading-relaxed">
                   To be eligible to study in Australia, you must provide
                   evidence of sufficient funds to cover tuition, living
                   expenses, and other related costs.
                 </p>
 
-                <ul className="list-disc pl-6 mt-4 space-y-2 text-gray-600 text-sm sm:text-base">
+                <ul className="list-disc pl-6 mt-4 space-y-2 text-[#727272] text-sm sm:text-base">
                   <li>AUD 29,710 for living expenses (12 months)</li>
                   <li>1 Year Tuition Fees as per university offer</li>
                   <li>OSHC (Overseas Student Health Cover)</li>
@@ -268,7 +268,7 @@ Student Visa Australia
                   Additional Funds for Dependents:
                 </h3>
 
-                <ul className="list-disc pl-6 mt-4 space-y-2 text-gray-600 text-sm sm:text-base">
+                <ul className="list-disc pl-6 mt-4 space-y-2 text-[#727272] text-sm sm:text-base">
                   <li>For Spouse: AUD 10,394</li>
                   <li>For Per Child: AUD 4,449</li>
                 </ul>
@@ -284,17 +284,17 @@ Student Visa Australia
                   <h3 className="font-semibold text-[#28535B]">
                     Accepted Documents:
                   </h3>
-                  <ul className="list-disc pl-6 mt-3 space-y-2 text-gray-600 text-sm sm:text-base">
+                  <ul className="list-disc pl-6 mt-3 space-y-2 text-[#727272] text-sm sm:text-base">
                     <li>Education loan sanction letter (RBI-approved bank)</li>
                     <li>Personal/Parents’ Bank Savings</li>
                   </ul>
                 </div>
 
                 <div className="mt-6">
-                  <h3 className="font-semibold text-gray-600 ">
+                  <h3 className="font-semibold text-[#727272] ">
                     Not Accepted as Financial Evidence:
                   </h3>
-                  <ul className="list-disc pl-6 mt-3 space-y-2 text-gray-600 text-sm sm:text-base">
+                  <ul className="list-disc pl-6 mt-3 space-y-2 text-[#727272] text-sm sm:text-base">
                     <li>Kisan Vikas Patra (KVP)</li>
                     <li>Life Insurance Policies</li>
                     <li>Loan Against Fixed Deposits (FDs)</li>
@@ -310,14 +310,14 @@ Student Visa Australia
                   Student Visa Process
                 </h2>
 
-                <p className="mt-4 text-gray-600 text-sm sm:text-base leading-relaxed">
+                <p className="mt-4 text-[#727272] text-sm sm:text-base leading-relaxed">
                   A student visa application for studying in Australia is
                   simple, but following the correct steps is important.
                   Understanding the steps below will help make your overall visa
                   journey easier and organized.
                 </p>
 
-                <div className="mt-8 space-y-6 text-gray-600 text-sm sm:text-base">
+                <div className="mt-8 space-y-6 text-[#727272] text-sm sm:text-base">
                   <div>
                     <h3 className="font-semibold text-[#28535B]">
                       Step 1: Application Submission
@@ -398,13 +398,13 @@ Student Visa Australia
                   Visa?
                 </h2>
 
-                <p className="mt-4 text-gray-600 text-sm sm:text-base leading-relaxed">
+                <p className="mt-4 text-[#727272] text-sm sm:text-base leading-relaxed">
                   At Growmore Immigration, we understand the unique requirements
                   of each student and help make your Australian study journey
                   smooth and stress-free.
                 </p>
 
-                <ul className="list-disc pl-6 mt-6 space-y-4 text-gray-600 text-sm sm:text-base">
+                <ul className="list-disc pl-6 mt-6 space-y-4 text-[#727272] text-sm sm:text-base">
                   <li>
                     <strong>MARA-Registered Migration Guidance:</strong>{" "}
                     Licensed and reliable advice ensuring full compliance with

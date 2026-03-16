@@ -126,14 +126,14 @@ const IndividualVisaGsm = () => {
                 Australia{" "}
               </h3>
               <div>
-                <p className="text-gray-600 mt-4 leading-relaxed text-sm sm:text-base">
+                <p className="text-[#727272] mt-4 leading-relaxed text-sm sm:text-base">
                   Australian General Skilled Migration visa allows skilled
                   individuals to migrate to Australia and contribute to the
                   country’s economy. There are three main streams under this
                   visa category, including:
                 </p>
 
-                <ol className="list-decimal pl-6 mt-6 space-y-4 text-gray-600 text-sm sm:text-base">
+                <ol className="list-decimal pl-6 mb-3 space-y-4 text-[#727272] text-sm sm:text-base">
                   <li>
                     <strong>
                       {" "}
@@ -190,14 +190,14 @@ const IndividualVisaGsm = () => {
                   </li>
                 </ol>
 
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mb-3 leading-relaxed  text-justify text-sm sm:text-base">
                   Eligibility criteria for this visa include holding a relevant
                   provisional visa, having lived and worked in regional
                   Australia for at least three years, meeting the health and
                   character requirements, and having an occupation listed on the{" "}
                   <span className="text-black font-semibold">Skilled Occupation List</span>.
                 </p>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mb-3 leading-relaxed  text-justify text-sm sm:text-base">
                  <b>Note:{" "}</b> eligibility criteria and requirements for each stream are
                   subject to change, and it is always advisable to consult a
                   registered migration agent to understand the latest
@@ -207,7 +207,7 @@ const IndividualVisaGsm = () => {
                   </span>
                   to know about any of the mentioned visas.
                 </p>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mb-3 leading-relaxed  text-justify text-sm sm:text-base">
                   Our migration agent at{" "}
                   <span className="text-blue-500">Growmore Immigration </span>
                   can help you with the latest information and requirements for
@@ -217,7 +217,7 @@ const IndividualVisaGsm = () => {
                 </p>
               </div>
               <Link to="/book-consultation">
-                <button className="bg-[#6dc7d1] text-white  mt-6 rounded-full  hover:bg-black transition whitespace-nowrap px-7 py-4 font-base text-sm">
+                <button className="bg-[#6dc7d1] text-white  mb-3 rounded-full  hover:bg-black transition whitespace-nowrap px-7 py-4 font-base text-sm">
                   Book Consultation →
                 </button>
               </Link>

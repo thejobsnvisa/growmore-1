@@ -102,14 +102,14 @@ const EmployerVisaEmployer = () => {
                 <h3 className="text-xl sm:text-2xl font-semibold text-[#28535B] ">
                   Employer Nomination Scheme (Subclass 186){" "}
                 </h3>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
                   Employee Nomination is the second step in the
                   employer-sponsored visa process, after the employer has been
                   approved as a Standard Business Sponsor. Through the
                   nomination application, the employer is effectively sponsoring
                   an overseas worker to work for their business in Australia.
                 </p>
-                <p className="text-gray-500 mt-6 leading-relaxed text-justify  text-sm sm:text-base">
+                <p className="text-[#727272] mt-6 leading-relaxed text-justify  text-sm sm:text-base">
                   The nomination application must be made to the Department of
                   Home Affairs and must demonstrate that the nominated worker is
                   suitably qualified and experienced for the position offered,
@@ -117,7 +117,7 @@ const EmployerVisaEmployer = () => {
                   in line with industry standards.
                 </p>
                 <div>
-                  <h3 className="text-sm sm:text-base text-gray-500 mt-2">
+                  <h3 className="text-sm sm:text-base text-[#727272] mt-2">
                     Additionally, the nomination application must specify the
                     visa subclass for which the worker is being sponsored, such
                     as an
@@ -131,7 +131,7 @@ const EmployerVisaEmployer = () => {
                       <b>(subclass 186)</b>
                     </li>
                   </ul>
-                  <p className="text-gray-500 mt-6 leading-relaxed text-justify  text-sm sm:text-base">
+                  <p className="text-[#727272] mt-6 leading-relaxed text-justify  text-sm sm:text-base">
                     Once the nomination application is approved, the overseas
                     worker can then make a visa application under the{" "}
                     <b>Employer Nomination Visa</b>, which includes providing
@@ -139,13 +139,13 @@ const EmployerVisaEmployer = () => {
                     character, as well as undergoing health and character
                     checks.
                   </p>
-                  <p className="text-gray-500 mt-6 leading-relaxed text-justify  text-sm sm:text-base">
+                  <p className="text-[#727272] mt-6 leading-relaxed text-justify  text-sm sm:text-base">
                     It is important to note that the nomination and visa
                     application processes can be complex and time-consuming, and
                     it is advisable to seek professional advice to ensure a
                     successful outcome.
                   </p>
-                  <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                  <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
                     <span className="font-bold">Note: </span> eligibility
                     criteria and requirements for each stream are subject to
                     change, and it is always advisable to consult a registered
@@ -157,7 +157,7 @@ const EmployerVisaEmployer = () => {
                     </span>{" "}
                     to know about any of the mentioned visas.
                   </p>{" "}
-                  <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                  <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
                     Our migration agent at Growmore Immigration can help you
                     with the latest information and requirements for the
                     Business Innovation and Investment (Provisional) visa, and

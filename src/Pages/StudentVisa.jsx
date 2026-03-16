@@ -70,11 +70,11 @@ const StudentVisa = () => {
               Student Visa Requirements
             </h2>
 
-            <h3 className="text-xl sm:text-2xl font-semibold text-[#28535B] mt-6">
+            <h3 className="text-xl sm:text-2xl font-semibold text-[#28535B] mb-3">
               Get Your Student Visa to Start Your Study Abroad Adventure
             </h3>
 
-            <p className="text-gray-600 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+            <p className="text-[#727272] mb-3 leading-relaxed  text-justify text-sm sm:text-base">
               Are you dreaming of studying abroad at a place that offers
               top-quality education, global career potential, and life-changing
               experiences? Then, you are at the right place. At Growmore
@@ -83,13 +83,13 @@ const StudentVisa = () => {
               the best student visa service.
             </p>
 
-            <p className="text-gray-600 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+            <p className="text-[#727272] mb-3 leading-relaxed  text-justify text-sm sm:text-base">
               Whether you are heading for a Student Visa Australia, a Student
               Visa UK, or a Student Visa UAE, processing it perfectly is your
               first step on the pathway to making your dreams a reality.
             </p>
 
-            <p className="text-gray-600 mt-6 leading-relaxed text-justify  text-sm sm:text-base">
+            <p className="text-[#727272] mb-3 leading-relaxed text-justify  text-sm sm:text-base">
               By studying abroad, you won’t simply obtain a qualification but
               also gain global exposure, confidence, and a competitive advantage
               to build a successful international career.
@@ -100,7 +100,7 @@ const StudentVisa = () => {
               Reasons Why Studying Abroad Is the Smart Choice
             </h3>
 
-            <ul className="list-disc pl-6 mt-6 space-y-3 text-gray-600 text-sm sm:text-base">
+            <ul className="list-disc pl-6 mb-3 space-y-3 text-[#727272] text-sm sm:text-base">
               <li>Global Networking Opportunities</li>
               <li>Internationally Recognized Degrees & Niche Fields</li>
               <li>Hands-On Learning & Internships</li>
@@ -116,7 +116,7 @@ const StudentVisa = () => {
             <h4 className="text-lg sm:text-xl font-semibold text-[#28535B] mt-8">
               Australia
             </h4>
-            <ul className="list-disc pl-6 mt-3 space-y-2 text-gray-600 text-sm sm:text-base">
+            <ul className="list-disc pl-6 mt-3 space-y-2 text-[#727272] text-sm sm:text-base">
               <li>
                 Innovative teaching and research-based university education
               </li>
@@ -131,7 +131,7 @@ const StudentVisa = () => {
             <h4 className="text-lg sm:text-xl font-semibold text-[#28535B] mt-8">
               United Kingdom
             </h4>
-            <ul className="list-disc pl-6 mt-3 space-y-2 text-gray-600 text-sm sm:text-base">
+            <ul className="list-disc pl-6 mt-3 space-y-2 text-[#727272] text-sm sm:text-base">
               <li>3-year bachelor’s & 1-year master’s programs</li>
               <li>Graduate Route Visa post-study work option</li>
               <li>Home to Oxford, Cambridge & Imperial College</li>
@@ -141,7 +141,7 @@ const StudentVisa = () => {
             <h4 className="text-lg sm:text-xl font-semibold text-[#28535B] mt-8">
               United Arab Emirates
             </h4>
-            <ul className="list-disc pl-6 mt-3 space-y-2 text-gray-600 text-sm sm:text-base">
+            <ul className="list-disc pl-6 mt-3 space-y-2 text-[#727272] text-sm sm:text-base">
               <li>Branch campuses of world-class universities</li>
               <li>Tax-free career opportunities</li>
               <li>Safe and modern infrastructure</li>
@@ -152,13 +152,13 @@ const StudentVisa = () => {
               Our Approach for Every Student Visa
             </h3>
 
-            <p className="text-gray-600 mt-4 leading-relaxed text-sm sm:text-base">
+            <p className="text-[#727272] mt-4 leading-relaxed text-sm sm:text-base">
               We carefully understand the requirements of each student and
               follow a step-by-step, structured visa processing approach to
               ensure smooth and successful outcomes.
             </p>
 
-            <ol className="list-decimal pl-6 mt-6 space-y-4 text-gray-600 text-sm sm:text-base">
+            <ol className="list-decimal pl-6 mb-3 space-y-4 text-[#727272] text-sm sm:text-base">
               <li>
                 <strong>Initial Consultation</strong> – Understand your goals
                 and eligibility
@@ -186,13 +186,13 @@ const StudentVisa = () => {
               Why Growmore Immigration Stands Out in Student Visa Services
             </h3>
 
-            <p className="text-gray-600 mt-4 leading-relaxed text-sm sm:text-base">
+            <p className="text-[#727272] mt-4 leading-relaxed text-sm sm:text-base">
               We proudly stand as a trusted choice for students due to our
               quality service and personalized approach in securing student
               visas for top global destinations.
             </p>
 
-            <ul className="list-disc pl-6 mt-6 space-y-3 text-gray-600 text-sm sm:text-base">
+            <ul className="list-disc pl-6 mb-3 space-y-3 text-[#727272] text-sm sm:text-base">
               <li>
                 Strong partnerships with globally recognized universities and
                 institutions
@@ -208,7 +208,7 @@ const StudentVisa = () => {
               </li>
             </ul>
             <Link to="/book-consultation">
-              <button className="bg-[#6dc7d1] text-white  mt-6 rounded-full  hover:bg-black transition whitespace-nowrap px-7 py-4 font-base text-sm">
+              <button className="bg-[#6dc7d1] text-white  mb-3 rounded-full  hover:bg-black transition whitespace-nowrap px-7 py-4 font-base text-sm">
                 Book Consultation →
               </button>
             </Link>

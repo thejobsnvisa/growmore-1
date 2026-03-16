@@ -121,36 +121,36 @@ const IndividualVisaEmployer = () => {
             {/* Right Column */}
             <div className="md:col-span-2 pl-6 sm:pl-16 lg:pl-26">
               {" "}
-              <h3 className="text-xl sm:text-2xl font-semibold text-[#28535B] ">
+              <h3 className="text-xl sm:text-2xl font-[22px] font-semibold text-[#095256] ">
                 Employer Sponsored Visa Australia Requirements{" "}
               </h3>
               <div>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
                   The Australian Employer Sponsored Visas are a range of visa
                   options for skilled workers seeking to work in Australia under
                   sponsorship from an Australian employer.
                 </p>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
                   The three main visa subclasses in this category are the
                   Subclass 407 Training Visa, the Subclass 482 Skills in Demand
                   Visa (SID) Visa, and the Subclass 186 Employer Nomination
                   Scheme (ENS) visa.
                 </p>
-                <h2 className="text-2xl sm:text-2xl font-semibold text-black mt-6">
+                <h2 className="text-2xl sm:text-2xl font-[22px] font-semibold text-black mt-6">
                   Subclass 407 Training Visa:
                 </h2>
 
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
                   This visa is for individuals who are sponsored by their
                   employer to undertake structured training in their field in
                   Australia. This visa is valid for up to two years.
                 </p>
 
-                <h2 className="text-2xl sm:text-2xl font-semibold text-black mt-6">
+                <h2 className="text-2xl sm:text-2xl font-[22px] font-semibold text-black mt-6">
                   Skills in Demand Visa (subclass 482):
                 </h2>
 
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
                   The Skills in Demand Visa (Subclass 482) under the Core Skills
                   Stream is designed to address labor shortages in Australia by
                   allowing employers to sponsor skilled workers in occupations
@@ -160,20 +160,20 @@ const IndividualVisaEmployer = () => {
                   residency for eligible applicants.
                 </p>
 
-                <h2 className="text-2xl sm:text-2xl font-semibold text-black mt-6">
+                <h2 className="text-2xl sm:text-2xl font-[22px] font-semibold text-black mt-6">
                   Skilled Employer Sponsored Regional (provisional) visa
                   (subclass 494):{" "}
                 </h2>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
                   This visa is for individuals who are sponsored by an eligible
                   employer in a designated regional area of Australia. The
                   applicants must have a relevant skills assessment and meet the
                   English language requirements.
                 </p>
-                <h2 className="text-2xl sm:text-2xl font-semibold text-black mt-6">
+                <h2 className="text-2xl sm:text-2xl font-[22px] font-semibold text-black mt-6">
                   Using Government Powers:{" "}
                 </h2>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
                   In a landmark move, the Albanese Government is considering
                   employing its powers under Section 97 of the Education
                   Services for Overseas Students Act (ESOS Act) to issue
@@ -181,17 +181,17 @@ const IndividualVisaEmployer = () => {
                   action would prevent these providers from recruiting
                   international students.
                 </p>
-                <h2 className="text-2xl sm:text-2xl font-semibold text-black mt-6">
+                <h2 className="text-2xl sm:text-2xl font-[22px] font-semibold text-black mt-6">
                   Subclass 186 Employer Nomination Scheme (ENS) Visa:{" "}
                 </h2>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
                   This is a permanent visa option for skilled workers who are
                   sponsored by an Australian employer and nominated for a
                   permanent position in Australia. The applicant must meet
                   certain criteria including age, English language proficiency,
                   and qualifications relevant to the nominated position.
                 </p>
-               <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+               <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
                  <b>Note:{" "}</b> eligibility criteria and requirements for each stream are
                   subject to change, and it is always advisable to consult a
                   registered migration agent to understand the latest
@@ -201,7 +201,7 @@ const IndividualVisaEmployer = () => {
                   </span>
                   to know about any of the mentioned visas.
                 </p>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
                   Our migration agent at <span className="text-blue-500">Growmore Immigration </span>can help you with
                   the latest information and requirements for the Business
                   Innovation and Investment (Provisional) visa, and guide you

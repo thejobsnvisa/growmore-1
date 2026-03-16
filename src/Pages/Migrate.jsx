@@ -104,25 +104,25 @@ const Migrate = () => {
           </div>
           <div>
             {/* Small Heading */}
-            <p className="text-[#8FD07C] text-sm font-semibold tracking-widest mb-3">
+            <p className="text-[#8FD07C] font-[14px] font-semibold tracking-widest mb-3">
               Why Australia
             </p>
 
             {/* Main Heading */}
-            <h2 className="text-xl md:text-4xl normal text-gray-900 leading-tight mb-6 mt-8">
-              <span className="text-[#8FD07C] font-semibold">Benefits</span> of
+            <h2 className="text-xl md:text-4xl normal text-gray-900 leading-tight mb-6 mt-6">
+              <span className="text-[#8FD07C] font-[40px] font-semibold">Benefits</span> of
               Moving to Australia
             </h2>
 
-            {/* Description */}
-            <p className="text-gray-600 font-medium leading-relaxed mb-10 max-w-xl text-justify">
+            <p className="text-[#727272] font-medium leading-relaxed  max-w-xl text-justify">
               Australia is a land of endless opportunities, known for its high
               standard of living, multicultural society, and breathtaking
-              landscapes. If you’re wondering about the best way to get PR in
-              Australia, exploring the country’s skilled migration pathways,
-              family sponsorships, or student visas can open doors to permanent
-              residency and a prosperous future. Here’s why you should consider
-              Australia for your next big move.
+              landscapes. If you’re wondering about the{" "}
+              <b>best way to get PR in Australia</b>, exploring the country’s
+              skilled migration pathways, family sponsorships, or student visas
+              can open doors to permanent residency and a prosperous future.
+              Discover why Australia could be the perfect destination for your
+              next big move.
             </p>
 
             <div className="flex items-center gap-5 mt-8">
@@ -214,22 +214,20 @@ const Migrate = () => {
       </section>
       <PathwaySection />
       <States />
-        {/* Contact Section */}
+      {/* Contact Section */}
       <section className="bg-white py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-
           {/* IMAGE */}
-      <div className="w-full lg:w-1/2 flex justify-center lg:justify-start">
-  <img
-    src="/assets/krunal2.png"
-    alt="MARA Registration"
-    className="w-full max-w-sm h-[680px] object-cover rounded-2xl"
-  />
-</div>
+          <div className="w-full lg:w-1/2 flex justify-center lg:justify-start">
+            <img
+              src="/assets/krunal2.png"
+              alt="MARA Registration"
+              className="w-full max-w-sm h-[680px] object-cover rounded-2xl"
+            />
+          </div>
 
           {/* FORM */}
           <div className="w-full lg:w-1/2 flex flex-col">
-
             {/* Heading */}
             <div className="w-full mb-6 text-left">
               <p className="text-[#8fd07c] text-sm font-semibold">
@@ -242,9 +240,7 @@ const Migrate = () => {
 
             {/* Form Card */}
             <div className="bg-[#EFF9FB] rounded-3xl shadow-2xl w-full max-w-xl p-6 md:p-8">
-
               <form onSubmit={handleSubmit} className="space-y-4">
-
                 {/* Name + Email */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <input
@@ -265,7 +261,6 @@ const Migrate = () => {
 
                 {/* Phone Input */}
                 <div className="flex gap-3">
-
                   {/* Country Code */}
                   <div className="w-24 sm:w-28 bg-white rounded-lg border border-gray-300">
                     <PhoneInput
@@ -339,7 +334,6 @@ const Migrate = () => {
                 >
                   {loading ? "Submitting..." : "Submit →"}
                 </button>
-
               </form>
             </div>
           </div>

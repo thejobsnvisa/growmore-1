@@ -125,7 +125,7 @@ const IndividualVisaBusiness = () => {
                 Business Investment Visa & Innovation Visa{" "}
               </h3>
               <div>
-                <p className="text-gray-600 mt-4 leading-relaxed text-sm sm:text-base">
+                <p className="text-[#727272] mt-4 leading-relaxed text-sm sm:text-base">
                   Business Innovation and Investment (Provisional) visa, also
                   known as subclass 188, is a type of visa designed for
                   entrepreneurs, investors, and business owners who are
@@ -133,7 +133,7 @@ const IndividualVisaBusiness = () => {
                   Australia. The visa has 5 streams:
                 </p>
 
-                <ol className="list-decimal pl-6 mt-6 space-y-4 text-gray-600 text-sm sm:text-base">
+                <ol className="list-decimal pl-6 mb-3 space-y-4 text-[#727272] text-sm sm:text-base">
                   <li>
                     <strong>
                       {" "}
@@ -150,9 +150,9 @@ const IndividualVisaBusiness = () => {
                   </li>
                   <li>
                     <strong>
-                      <span className="text-black font-semibold">
+                      <h2 className="text-xl sm:text-xl font-semibold text-black mt-6 mb-3">
                         Investor Stream:
-                      </span>
+                      </h2>
                     </strong>
                     This stream is for individuals who are willing to make a
                     designated investment of at least AUD$1.5 million in an
@@ -164,9 +164,9 @@ const IndividualVisaBusiness = () => {
                   </li>
                   <li>
                     <strong>
-                      <span className="text-black font-semibold">
+                      <h2 className="text-xl sm:text-xl font-semibold text-black mt-6 mb-3">
                         Significant Investor Stream:
-                      </span>
+                      </h2>
                     </strong>
                     his stream is for individuals who are willing to make a
                     designated investment of at least<b className="text-black">AUD$5 million</b> into
@@ -176,9 +176,9 @@ const IndividualVisaBusiness = () => {
                   </li>
                   <li>
                     <strong>
-                      <span className="text-black font-semibold">
+                      <h2 className="text-xl sm:text-xl font-semibold text-black mt-6 mb-3">
                         Entrepreneur Stream:
-                      </span>
+                      </h2>
                     </strong>
                     This stream is for individuals who have a business idea and
                     access to funding to establish a new business in Australia.
@@ -187,9 +187,9 @@ const IndividualVisaBusiness = () => {
                   </li>
                   <li>
                     <strong>
-                      <span className="text-black font-semibold">
+                      <h2 className="text-xl sm:text-xl font-semibold text-black mt-6 mb-3">
                         Premium Investor Stream:
-                      </span>
+                      </h2>
                     </strong>
                     This stream is for high net worth individuals who are
                     willing to make a designated investment of at least{" "}
@@ -199,17 +199,17 @@ const IndividualVisaBusiness = () => {
                   </li>
                 </ol>
 
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mb-3 leading-relaxed  text-justify text-sm sm:text-base">
                   <b className="text-black">Note: </b> eligibility criteria and requirements for each
                   stream are subject to change, and it is always advisable to
                   consult a registered migration agent to understand the latest
                   immigration requirements. You can also check DHA website{" "}
-                  <span className="text-blue-500">
+                  <h2 className="text-blue-500">
                     https://immi.homeaffairs.gov.au/visas{" "}
-                  </span>
+                  </h2>
                   to know about any of the mentioned visas.
                 </p>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mb-3 leading-relaxed  text-justify text-sm sm:text-base">
                   Our migration agent at{" "}
                   <span className="text-blue-500">Growmore Immigration </span>
                   can help you with the latest information and requirements for
@@ -219,7 +219,7 @@ const IndividualVisaBusiness = () => {
                 </p>
               </div>
               <Link to="/book-consultation">
-                <button className="bg-[#6dc7d1] text-white  mt-6 rounded-full  hover:bg-black transition whitespace-nowrap px-7 py-4 font-base text-sm">
+                <button className="bg-[#6dc7d1] text-white  mb-3 rounded-full  hover:bg-black transition whitespace-nowrap px-7 py-4 font-base text-sm">
                   Book Consultation →
                 </button>
               </Link>

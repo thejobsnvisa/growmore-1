@@ -70,7 +70,7 @@ const StudentUk = () => {
                   Education
                 </h2>
 
-                <p className="mt-4 text-gray-600 text-sm sm:text-base text-justify leading-relaxed">
+                <p className="mt-4 text-[#727272] text-sm sm:text-base text-justify leading-relaxed">
                   Are you dreaming of studying abroad to get a world-class
                   education? Then the UK can become your ticket with some of the
                   world’s most remarkable universities, inspiring career
@@ -80,7 +80,7 @@ const StudentUk = () => {
                   a structured learning environment, so you are best prepared
                   for global success.
                 </p>
-                <p className="mt-4 text-gray-600 text-sm sm:text-base text-justify leading-relaxed">
+                <p className="mt-4 text-[#727272] text-sm sm:text-base text-justify leading-relaxed">
                   Studying in such an educational fast-forward country means you
                   are opening the door for personal growth by gaining valuable
                   experience in networking, internships, and career-building,
@@ -90,7 +90,7 @@ const StudentUk = () => {
                   interact with the global workplace, and adapt to the demands
                   of a constantly changing profession.
                 </p>
-                <p className="mt-4 text-gray-600 text-sm sm:text-base text-justify leading-relaxed">
+                <p className="mt-4 text-[#727272] text-sm sm:text-base text-justify leading-relaxed">
                   We understand the excitement & challenges of this journey and
                   always stay by your side to complete the whole United Kingdom
                   student visa process straightforward and stress-free. We
@@ -98,7 +98,7 @@ const StudentUk = () => {
                   submitted in a timely manner for peace of mind for your new
                   study adventure.
                 </p>
-                <p className="mt-4 text-gray-600 text-sm sm:text-base text-justify leading-relaxed">
+                <p className="mt-4 text-[#727272] text-sm sm:text-base text-justify leading-relaxed">
                   But your experience of <b>studying in the UK</b> only starts
                   So, your future in the UK is waiting with world-class
                   education, plenty of opportunities, and a rich, lively
@@ -114,7 +114,7 @@ const StudentUk = () => {
                   Why Is It Best to Study in the UK?
                 </h2>
 
-                <ul className="list-disc pl-6 mt-6 space-y-3 text-gray-600 text-sm sm:text-base">
+                <ul className="list-disc pl-6 mt-6 space-y-3 text-[#727272] text-sm sm:text-base">
                   <li>
                     <strong>Shorter Course Duration:</strong> Most of the UK
                     degrees are completed in a shorter duration of time; 1 year
@@ -174,12 +174,12 @@ const StudentUk = () => {
                 <h2 className="text-2xl sm:text-3xl font-semibold text-[#28535B]">
                   Top Courses to Study in the UK
                 </h2>
-                <p className="mt-4 text-gray-600 text-sm sm:text-base text-justify leading-relaxed">
+                <p className="mt-4 text-[#727272] text-sm sm:text-base text-justify leading-relaxed">
                   The universities in the UK offer a diverse range of courses
                   for undergraduate and postgraduate students covering every
                   stream. It includes:
                 </p>
-                <ul className="list-disc pl-6 mt-6 space-y-2 text-gray-600 text-sm sm:text-base">
+                <ul className="list-disc pl-6 mt-6 space-y-2 text-[#727272] text-sm sm:text-base">
                   <li>Business & Management</li>
                   <li>Data Science & Artificial Intelligence</li>
                   <li>Public Health & Healthcare Management</li>
@@ -194,11 +194,11 @@ const StudentUk = () => {
                 <h2 className="text-2xl sm:text-3xl font-semibold text-[#28535B]">
                   Important Documents Checklist
                 </h2>
-                <p className="mt-4 text-gray-600 text-sm sm:text-base text-justify leading-relaxed">
+                <p className="mt-4 text-[#727272] text-sm sm:text-base text-justify leading-relaxed">
                   To apply for a UK student visa, it is important to prepare and
                   organize all the required documents in advance.
                 </p>
-                <ul className="list-disc pl-6 mt-6 space-y-2 text-gray-600 text-sm sm:text-base">
+                <ul className="list-disc pl-6 mt-6 space-y-2 text-[#727272] text-sm sm:text-base">
                   <li>Valid Passport (Front & Back Pages)</li>
                   <li>Academic Transcripts (10th, 12th, Degree)</li>
                   <li>IELTS / PTE / TOEFL Scorecard or MOI</li>
@@ -224,7 +224,7 @@ const StudentUk = () => {
                 <h4 className="mt-6 font-semibold text-[#28535B]">
                   Here is the educational requirement that one should fulfil:
                 </h4>
-                <ul className="list-disc pl-6 mt-4 space-y-4 text-gray-600 text-sm sm:text-base">
+                <ul className="list-disc pl-6 mt-4 space-y-4 text-[#727272] text-sm sm:text-base">
                   <li>
                     <strong>Undergraduate (UG):</strong> Students usually
                     require a minimum of 60% in Class 12 (depending on which
@@ -240,7 +240,7 @@ const StudentUk = () => {
                     PTE or TOEFL scores are also accepted.
                   </li>
                 </ul>
-                <p className="mt-4 text-gray-600 text-sm sm:text-base text-justify leading-relaxed">
+                <p className="mt-4 text-[#727272] text-sm sm:text-base text-justify leading-relaxed">
                   In some cases, IELTS can be waived if you have strong academic
                   English scores (65%–70%+) and a Medium of Instruction (MOI)
                   letter.
@@ -252,7 +252,7 @@ const StudentUk = () => {
                 <h3 className="text-2xl font-semibold text-[#28535B]">
                   Financial Requirements
                 </h3>
-                <p className="mt-4 text-gray-600 text-sm sm:text-base text-justify leading-relaxed">
+                <p className="mt-4 text-[#727272] text-sm sm:text-base text-justify leading-relaxed">
                   If you are thinking of studying in the UK, you will need to
                   provide evidence of being able to support your living
                   accommodations (and, for dependents, also, if applicable)
@@ -356,7 +356,7 @@ const StudentUk = () => {
                   Visa and Financial Overview
                 </h2>
 
-                <p className="mt-4 text-gray-600 text-sm sm:text-base leading-relaxed">
+                <p className="mt-4 text-[#727272] text-sm sm:text-base leading-relaxed">
                   Here’s a breakdown of the key visa-related costs you should
                   also be aware of when planning your finances:
                 </p>
@@ -378,13 +378,13 @@ const StudentUk = () => {
                     applicable)
                   </p>
                 </li>
-                <div className="mt-8 space-y-6 text-gray-600 text-sm sm:text-base leading-relaxed">
+                <div className="mt-8 space-y-6 text-[#727272] text-sm sm:text-base leading-relaxed">
                   <div>
-                    <p className="mt-4 text-gray-600 text-sm sm:text-base leading-relaxed">
+                    <p className="mt-4 text-[#727272] text-sm sm:text-base leading-relaxed">
                       Receiving your UK student visa is a straightforward
                       process if you take one step at a time.
                     </p>
-                    <p className="mt-4 text-gray-600 text-xl sm:text-xl font-semibold leading-relaxed">
+                    <p className="mt-4 text-[#727272] text-xl sm:text-xl font-semibold leading-relaxed">
                       So, follow the given appropriate steps to have a
                       successful student visa process:
                     </p>
@@ -475,12 +475,12 @@ const StudentUk = () => {
                   Why Choose Growmore Immigration?
                 </h2>
 
-                <p className="mt-4 text-gray-600 text-sm sm:text-base leading-relaxed">
+                <p className="mt-4 text-[#727272] text-sm sm:text-base leading-relaxed">
                   We are not just another normal consultancy. We go above and
                   beyond to make your UK study journey a success.
                 </p>
 
-                <p className="mt-4 text-gray-600 text-sm sm:text-base leading-relaxed">
+                <p className="mt-4 text-[#727272] text-sm sm:text-base leading-relaxed">
                   Here’s what makes us stand out for a{" "}
                   <span className="text-blue-600 font-medium">
                     student visa:
@@ -488,7 +488,7 @@ const StudentUk = () => {
                 </p>
 
                 {/* Bullet Section */}
-                <ul className="mt-8 space-y-6 list-disc ml-6 text-gray-600 text-sm sm:text-base leading-relaxed">
+                <ul className="mt-8 space-y-6 list-disc ml-6 text-[#727272] text-sm sm:text-base leading-relaxed">
                   <li>
                     <span className="font-semibold text-[#28535B]">
                       Expert Counsellor:

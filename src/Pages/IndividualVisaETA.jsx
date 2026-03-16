@@ -125,13 +125,13 @@ const IndividualVisaETA = () => {
                 What is the Electronic Travel Authority ETA for e-Visa?{" "}
               </h3>
               <div>
-                <p className="text-gray-600 mt-4 leading-relaxed text-sm sm:text-base">
+                <p className="text-[#727272] mt-4 leading-relaxed text-sm sm:text-base">
                   Australian Visitor/Transit/ETA visas are designed for people
                   who want to visit or transit through in Australia. The
                   following are the main visa subclasses under this category:
                 </p>
 
-                <ol className="list-decimal pl-6 mt-6 space-y-4 text-gray-600 text-sm sm:text-base">
+                <ol className="list-decimal pl-6 mb-3 space-y-4 text-[#727272] text-sm sm:text-base">
                   <li>
                     <strong>
                       {" "}
@@ -179,10 +179,10 @@ const IndividualVisaETA = () => {
                     eligibility criteria and conditions.
                   </li>
                 </ol>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-xl sm:text-xl">
+                <p className="text-[#727272] mb-3 leading-relaxed  text-justify text-xl sm:text-xl">
                   These subclasses include:
                 </p>
-                <ol className="list-disc pl-8 mt-6 space-y-4 text-gray-600 text-sm sm:text-base">
+                <ol className="list-disc pl-8 mb-3 space-y-4 text-[#727272] text-sm sm:text-base">
                   <li>
                     <strong>
                       <span className="text-black font-semibold">
@@ -221,14 +221,14 @@ const IndividualVisaETA = () => {
                     and meet health and character requirements.
                   </li>
                 </ol>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mb-3 leading-relaxed  text-justify text-sm sm:text-base">
                   In general, all applicants for a Visitor visa (subclass 600)
                   must have a valid passport, an incentive to return and
                   sufficient funds to support themselves while in Australia.
                   It’s also important to note that this visa does not allow
                   individuals to work in Australia during their stay.{" "}
                 </p>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base font-normal">
+                <p className="text-[#727272] mb-3 leading-relaxed  text-justify text-sm sm:text-base font-normal">
                   <b>Note: </b> eligibility criteria and requirements for each
                   stream are subject to change, and it is always advisable to
                   consult a registered migration agent to understand the latest
@@ -238,7 +238,7 @@ const IndividualVisaETA = () => {
                   </span>
                   to know about any of the mentioned visas.
                 </p>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mb-3 leading-relaxed  text-justify text-sm sm:text-base">
                   Our migration agent at{" "}
                   <span className="text-blue-500">Growmore Immigration </span>
                   can help you with the latest information and requirements for
@@ -248,7 +248,7 @@ const IndividualVisaETA = () => {
                 </p>
               </div>
               <Link to="/book-consultation">
-                <button className="bg-[#6dc7d1] text-white  mt-6 rounded-full  hover:bg-black transition whitespace-nowrap px-7 py-4 font-base text-sm">
+                <button className="bg-[#6dc7d1] text-white  mb-3 rounded-full  hover:bg-black transition whitespace-nowrap px-7 py-4 font-base text-sm">
                   Book Consultation →
                 </button>
               </Link>

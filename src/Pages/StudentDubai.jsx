@@ -69,7 +69,7 @@ const StudentDubai = () => {
                   Shape Your Future with World-Class Education in Dubai
                 </h2>
 
-                <p className="mt-4 text-gray-600 text-sm sm:text-base text-justify leading-relaxed">
+                <p className="mt-4 text-[#727272] text-sm sm:text-base text-justify leading-relaxed">
                   Dubai is rapidly becoming a global education hub for students
                   who seek international exposure, real-world skills, and
                   career-driven education, along with a degree. It currently
@@ -77,20 +77,20 @@ const StudentDubai = () => {
                   that can provide you with world-class academics and
                   internationally recognized qualifications.
                 </p>
-                <p className="mt-4 text-gray-600 text-sm sm:text-base text-justify leading-relaxed">
+                <p className="mt-4 text-[#727272] text-sm sm:text-base text-justify leading-relaxed">
                   Studying in such a country becomes simpler when it comes to
                   numerous study options, easy visa processing, and a high visa
                   acceptance rate. No matter whether you wish to pursue an
                   undergraduate or a postgraduate degree, Dubai offers direct
                   and practical paths for studying international education.
                 </p>
-                <p className="mt-4 text-gray-600 text-sm sm:text-base text-justify leading-relaxed">
+                <p className="mt-4 text-[#727272] text-sm sm:text-base text-justify leading-relaxed">
                   If you want to study in this advanced country, then now is the
                   right time to take the next step toward your international
                   education. So, obtain a student visa for Dubai with a
                   stress-free process from us.
                 </p>
-                <p className="mt-4 text-gray-600 text-sm sm:text-base text-justify leading-relaxed">
+                <p className="mt-4 text-[#727272] text-sm sm:text-base text-justify leading-relaxed">
                   At Growmore Immigration, we take pride in saying that we
                   provide personalised student visa services throughout all
                   stages of the visa-processing procedure. From your initial
@@ -105,7 +105,7 @@ const StudentDubai = () => {
                   What Makes Dubai a Top Education Destination
                 </h2>
 
-                <ul className="list-disc pl-6 mt-6 space-y-3 text-gray-600 text-sm sm:text-base">
+                <ul className="list-disc pl-6 mt-6 space-y-3 text-[#727272] text-sm sm:text-base">
                   <li>
                     <strong>Study at Global Campuses:</strong> BDubai hosts
                     international branch campuses of many leading universities
@@ -173,14 +173,14 @@ const StudentDubai = () => {
                 <h2 className="text-2xl sm:text-3xl font-semibold text-[#28535B]">
                   Discover the Best Courses to Study in Dubai
                 </h2>
-                <p className="mt-4 text-gray-600 text-sm sm:text-base text-justify leading-relaxed">
+                <p className="mt-4 text-[#727272] text-sm sm:text-base text-justify leading-relaxed">
                   The highly ranked universities in Dubai have a huge range of
                   academic programs that are proactively designed for the
                   current job market. All of these courses open doors for
                   diverse industries and prepare you to succeed in your
                   preferred field.<b>Here are some popular sectors:</b>
                 </p>
-                <ul className="list-disc pl-6 mt-6 space-y-2 text-gray-600 text-sm sm:text-base">
+                <ul className="list-disc pl-6 mt-6 space-y-2 text-[#727272] text-sm sm:text-base">
                   <li>Business & Entrepreneurship</li>
                   <li>Media & Communication</li>
                   <li>Artificial Intelligence</li>
@@ -194,13 +194,13 @@ const StudentDubai = () => {
                 <h2 className="text-2xl sm:text-3xl font-semibold text-[#28535B]">
                   Essential Document Checklist for Dubai Student Visa
                 </h2>
-                <p className="mt-4 text-gray-600 text-sm sm:text-base text-justify leading-relaxed">
+                <p className="mt-4 text-[#727272] text-sm sm:text-base text-justify leading-relaxed">
                   It is crucial to prepare and upload the required documents
                   properly for the Dubai student visa. So, gather the below
                   given complete checklist of documents at the time of applying
                   for your student visa to Dubai:
                 </p>
-                <ul className="list-disc pl-6 mt-6 space-y-2 text-gray-600 text-sm sm:text-base">
+                <ul className="list-disc pl-6 mt-6 space-y-2 text-[#727272] text-sm sm:text-base">
                   <li>Valid Passport (6+ months)</li>
                   <li>Passport-size Photos</li>
                   <li>Unconditional Admission Letter</li>
@@ -227,7 +227,7 @@ const StudentDubai = () => {
                 <h4 className="mt-6 font-semibold text-[#28535B]">
                   Here is the educational requirement that one should fulfil:
                 </h4>
-                <ul className="list-disc pl-6 mt-4 space-y-4 text-gray-600 text-sm sm:text-base">
+                <ul className="list-disc pl-6 mt-4 space-y-4 text-[#727272] text-sm sm:text-base">
                   <li>
                     <strong>Undergraduate (UG):</strong> If you want to pursue
                     an undergraduate program, then you must have a minimum of
@@ -320,14 +320,14 @@ const StudentDubai = () => {
                   Dubai Student Visa Process & Timeline
                 </h2>
 
-                <p className="mt-4 text-gray-600 text-sm sm:text-base leading-relaxed">
+                <p className="mt-4 text-[#727272] text-sm sm:text-base leading-relaxed">
                   Getting a student visa should not seem confusing. By following
                   a few simple steps, you can secure your Dubai student visa in
                   a very smooth and timely manner. Here is the breakdown of the
                   full process:
                 </p>
 
-                <div className="mt-8 space-y-6 text-gray-600 text-sm sm:text-base leading-relaxed">
+                <div className="mt-8 space-y-6 text-[#727272] text-sm sm:text-base leading-relaxed">
                   <div>
                     <p className="font-semibold text-[#28535B]">
                       Step 1: Secure University Admission
@@ -395,7 +395,7 @@ const StudentDubai = () => {
                   </div>
                 </div>
 
-                <p className="mt-6 text-gray-600 text-lg sm:text-lg font-bold">
+                <p className="mt-6 text-[#727272] text-lg sm:text-lg font-bold">
                   Based on the documentation and university timelines, this
                   entire visa process typically takes around 2 to 3 weeks.
                 </p>
@@ -467,7 +467,7 @@ const StudentDubai = () => {
                   Visa
                 </h2>
 
-                <p className="mt-4 text-gray-600 text-sm sm:text-base leading-relaxed">
+                <p className="mt-4 text-[#727272] text-sm sm:text-base leading-relaxed">
                   At Growmore Immigration, we are always with you from start to
                   finish. Whether you want help in picking the right university
                   or getting settled in Dubai, our team ensures that your entire
@@ -475,7 +475,7 @@ const StudentDubai = () => {
                   students choose us for their student visa process:
                 </p>
 
-                <div className="mt-8 space-y-6 text-gray-600 text-sm sm:text-base leading-relaxed">
+                <div className="mt-8 space-y-6 text-[#727272] text-sm sm:text-base leading-relaxed">
                   <div>
                     <p className="font-semibold text-[#28535B]">
                       Direct University Tie-Ups

@@ -18,7 +18,7 @@ const GSMPage = () => {
       {/* ================= MAIN CONTENT ================= */}
       <section className="max-w-[1400px] mx-auto px-6 py-10 md:px-15 py-16">
         {/* Title */}
-        <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 leading-snug">
+        <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-3 leading-snug">
           Migrate to Australia with the General Skilled Migration (GSM) Program
           –<span className="text-[#28535B]"> No Sponsorship Needed</span>
         </h2>
@@ -29,7 +29,7 @@ const GSMPage = () => {
         </h3>
 
         {/* Description */}
-        <p className="text-gray-600 leading-relaxed mb-10 text-justify">
+        <p className="text-[#727272] leading-relaxed mb-10 text-justify">
           Are you a skilled professional dreaming of a new life in Australia?
           The General Skilled Migration (GSM) program offers a direct,
           points-based pathway to permanent residency – no employer sponsorship
@@ -73,7 +73,7 @@ const GSMPage = () => {
             Ready to Begin Your General Skilled Migration (GSM) Process?
           </h3>
 
-          <p className="text-gray-600 mb-6 text-justify">
+          <p className="text-[#727272] mb-3 text-justify">
             Take the first step towards securing your general skilled migration
             without the need for sponsorship and building a new life in
             Australia. Get a free GSM eligibility assessment now. It only takes
@@ -109,7 +109,7 @@ Strong connections with Australian employers</li>
             Stay Connected with Us
           </h4>
 
-          <p className="text-gray-600 mb-6 text-justify">
+          <p className="text-[#727272] mb-3 text-justify">
          Stay connected with Growmore Immigration for the latest tips, news, and expert insights on migrating to Australia. Follow us on social media and be a valuable part of our community.
           </p>
 

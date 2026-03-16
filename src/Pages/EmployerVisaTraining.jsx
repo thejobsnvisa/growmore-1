@@ -104,13 +104,13 @@ const EmployerVisaTraining = () => {
               <h1 className="text-2xl sm:text-3xl font-semibold text-black mt-6">
                 What We Offer:{" "}
               </h1>
-              <ul className=" list-disc pl-6 mt-2 text-gray-500 text-sm sm:text-base">
+              <ul className=" list-disc pl-6 mt-2 text-[#727272] text-sm sm:text-base">
                 <li>
                   The SC407 Training Visa is designed for businesses aiming to
                   upskill their staff or provide structured workplace-based
                   training to international employees.
                 </li>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
                   At <span className="text-blue-500">Growmore Immigration</span>, we craft detailed and
                   customized training plans that meet the specific requirements
                   of this visa category. This includes:
@@ -127,7 +127,7 @@ const EmployerVisaTraining = () => {
               <h1 className="text-2xl sm:text-3xl font-semibold text-black mt-6">
                 How It Helps:
               </h1>
-              <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+              <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
                 Our training plans not only meet visa requirements but also
                 ensure that your business builds a skilled and qualified
                 workforce to drive operational excellence.

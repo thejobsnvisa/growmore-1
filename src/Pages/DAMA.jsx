@@ -26,7 +26,7 @@ const DAMA = () => {
         </h3>
 
         {/* Description */}
-        <p className="text-gray-600 leading-relaxed mb-10 text-justify">
+        <p className="text-[#727272] leading-relaxed mb-10 text-justify">
           Are you a skilled professional dreaming of a new life in Australia?
           Looking to live and work in Australia, but don’t meet the usual
           skilled visa criteria? Don’t worry, the Designated Area Migration
@@ -75,7 +75,7 @@ const DAMA = () => {
             Want to Start Your DAMA Visa Process Today?
           </h3>
 
-          <p className="text-gray-600 mb-6 text-justify">
+          <p className="text-[#727272] mb-6 text-justify">
             Don’t miss this unique chance to migrate under DAMA’s flexible terms
             and begin your smooth migration process now. Fill out this checklist
             to know your eligibility and begin your application with confidence.
@@ -104,7 +104,7 @@ const DAMA = () => {
           <h4 className="text-lg font-semibold text-gray-800 mb-3">
             Keep in Touch with Us
           </h4>
-          <p className="text-gray-600 mb-6 text-justify">
+          <p className="text-[#727272] mb-6 text-justify">
             If you want to stay ahead of every Australian migration news, follow
             us on social media and get the reliable tips that you can trust.
           </p>

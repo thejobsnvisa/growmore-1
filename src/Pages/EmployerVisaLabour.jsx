@@ -99,20 +99,20 @@ const EmployerVisaLabour = () => {
               <h3 className="text-xl sm:text-2xl font-semibold text-[#28535B] ">
                 Nominating a Position List of Current Labour Agreements{" "}
               </h3>
-              <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+              <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
                 Labour Agreement Negotiations are a part of the
                 employer-sponsored visa process in Australia. A Labour Agreement
                 is a written agreement between the Australian government and an
                 Australian employer that outlines the terms and conditions for
                 employing foreign workers in the country.
               </p>
-              <p className="text-gray-500 mt-6 leading-relaxed text-justify  text-sm sm:text-base">
+              <p className="text-[#727272] mt-6 leading-relaxed text-justify  text-sm sm:text-base">
                 The negotiation of a Labour Agreement is required for employers
                 who want to sponsor a large number of foreign workers for a
                 specific project or program, and who are unable to find enough
                 Australian workers to fill the required positions.
               </p>
-              <p className="text-gray-500 mt-6 leading-relaxed text-justify  text-sm sm:text-base">
+              <p className="text-[#727272] mt-6 leading-relaxed text-justify  text-sm sm:text-base">
                 The negotiation process for a Labour Agreement typically
                 involves the employer submitting a proposal to the Department of
                 Home Affairs, outlining the need for foreign workers, the skills
@@ -122,7 +122,7 @@ const EmployerVisaLabour = () => {
                 agreement with the employer.
               </p>
               <div>
-                <h3 className="text-sm sm:text-base text-gray-500 mt-2">
+                <h3 className="text-sm sm:text-base text-[#727272] mt-2">
                   Once a Labour Agreement is in place, the employer can then
                   nominate individual foreign workers for a provided they meet
                   the other eligibility criteria for the visa:{" "}
@@ -134,7 +134,7 @@ const EmployerVisaLabour = () => {
                     <b>(subclass 186)</b>
                   </li>
                 </ul>
-                <p className="text-gray-500 mt-6 leading-relaxed text-justify  text-sm sm:text-base">
+                <p className="text-[#727272] mt-6 leading-relaxed text-justify  text-sm sm:text-base">
                   Labour Agreements are a complex process and require the
                   support of experienced migration lawyers and agents to ensure
                   the proposal is compliant with the Department’s requirements
@@ -143,7 +143,7 @@ const EmployerVisaLabour = () => {
                   arrangements between employers and third-party providers
                   supplying foreign workers.
                 </p>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
                   <span className="font-bold">Note: </span> eligibility criteria
                   and requirements for each stream are subject to change, and it
                   is always advisable to consult a registered migration agent to
@@ -155,7 +155,7 @@ const EmployerVisaLabour = () => {
                   </span>{" "}
                   to know about any of the mentioned visas.
                 </p>{" "}
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
                   Our migration agent at Growmore Immigration can help you with
                   the latest information and requirements for the Business
                   Innovation and Investment (Provisional) visa, and guide you

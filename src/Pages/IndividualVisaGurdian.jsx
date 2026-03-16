@@ -123,16 +123,16 @@ const IndividualVisaGurdian = () => {
                 How to Apply Student Guardian Visa in Australia{" "}
               </h3>
               <div>
-                <p className="text-gray-600 mt-4 leading-relaxed text-sm sm:text-base">
+                <p className="text-[#727272] mt-4 leading-relaxed text-sm sm:text-base">
                   The student and Guardian visas are intended for those seeking
                   to study full-time in Australia. These visas permit
                   individuals to remain in the country for the length of their
                   course and grant specific work rights.
                 </p>
-                <p className="text-gray-600 mt-4 leading-relaxed text-sm sm:text-xl">
+                <p className="text-[#727272] mt-4 leading-relaxed text-sm sm:text-xl">
                   <b>STUDENT VISA (SUBCLASS 500)</b>
                 </p>
-                <p className="text-gray-600 mt-4 leading-relaxed text-sm sm:text-base">
+                <p className="text-[#727272] mt-4 leading-relaxed text-sm sm:text-base">
                   The Subclass 500 Visa, commonly known as the Student Visa,
                   allows international students to study full-time at a
                   registered educational institution in Australia for up to 5
@@ -141,10 +141,10 @@ const IndividualVisaGurdian = () => {
                   course, demonstrating adequate financial support, and proving
                   English language proficiency.
                 </p>
-                <p className="text-gray-600 mt-4 leading-relaxed text-sm sm:text-xl">
+                <p className="text-[#727272] mt-4 leading-relaxed text-sm sm:text-xl">
                   <b>To be Eligible for a Student Visa, Individuals Must:</b>
                 </p>
-                <ol className="list-disc pl-6 mt-6 space-y-4 text-gray-600 text-sm sm:text-base">
+                <ol className="list-disc pl-6 mb-3 space-y-4 text-[#727272] text-sm sm:text-base">
                   <li>
                     Be enrolled in a registered course of study in Australia
                   </li>
@@ -168,10 +168,10 @@ const IndividualVisaGurdian = () => {
                   <li>Meet our character requirements</li>
                   <li>Not had a visa canceled or an application refused</li>
                 </ol>
-                <p className="text-gray-600 mt-4 leading-relaxed text-sm sm:text-xl">
+                <p className="text-[#727272] mt-4 leading-relaxed text-sm sm:text-xl">
                   <b>Key Features of the Subclass 500 Visa:</b>
                 </p>
-                <ol className="list-disc pl-6 mt-6 space-y-4 text-gray-600 text-sm sm:text-base">
+                <ol className="list-disc pl-6 mb-3 space-y-4 text-[#727272] text-sm sm:text-base">
                   <li>
                     <strong>
                       {" "}
@@ -200,23 +200,23 @@ const IndividualVisaGurdian = () => {
                     duration of your stay.
                   </li>
                 </ol>
-                <p className="text-gray-600 mt-4 leading-relaxed text-sm sm:text-xl">
+                <p className="text-[#727272] mt-4 leading-relaxed text-sm sm:text-xl">
                   <b>STUDENT GUARDIAN VISA (SUBCLASS 590)</b>
                 </p>
-                <p className="text-gray-600 mt-4 leading-relaxed text-sm sm:text-base">
+                <p className="text-[#727272] mt-4 leading-relaxed text-sm sm:text-base">
                   The Subclass 590 Visa, also known as the Student Guardian
                   Visa, is intended for parents, guardians, or relatives of
                   international students under 18 years of age who are studying
                   in Australia. In certain cases, it may also apply to guardians
                   of students over 18 requiring special care.
                 </p>
-                <p className="text-gray-600 mt-4 leading-relaxed text-sm sm:text-xl">
+                <p className="text-[#727272] mt-4 leading-relaxed text-sm sm:text-xl">
                   <b>
                     To be eligible for a Student Guardian Visa, individuals
                     must:
                   </b>
                 </p>
-                <ol className="list-disc pl-6 mt-6 space-y-4 text-gray-600 text-sm sm:text-base">
+                <ol className="list-disc pl-6 mb-3 space-y-4 text-[#727272] text-sm sm:text-base">
                   <li>
                     Be a parent, legal guardian, or relative (21 years or older)
                     of the student visa holder
@@ -236,10 +236,10 @@ const IndividualVisaGurdian = () => {
                   </li>
                   <li>Hold an eligible substantive visa, if in Australia</li>
                 </ol>
-                <p className="text-gray-600 mt-4 leading-relaxed text-sm sm:text-xl">
+                <p className="text-[#727272] mt-4 leading-relaxed text-sm sm:text-xl">
                   <b>Key Features of the Subclass 590 Visa:</b>
                 </p>
-                <ol className="list-decimal pl-6 mt-6 space-y-4 text-gray-600 text-sm sm:text-base">
+                <ol className="list-decimal pl-6 mb-3 space-y-4 text-[#727272] text-sm sm:text-base">
                   <li>
                     <strong>
                       {" "}
@@ -289,20 +289,20 @@ const IndividualVisaGurdian = () => {
                     provided they meet the requirements.
                   </li>
                 </ol>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mb-3 leading-relaxed  text-justify text-sm sm:text-base">
                   <b>Note: </b> eligibility criteria and requirements for each
                   stream are subject to change, and it is always advisable to
                   consult a registered migration agent to understand the latest
                   immigration requirements.{" "}
                 </p>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mb-3 leading-relaxed  text-justify text-sm sm:text-base">
                 You can also check the DHA website
                   <span className="text-blue-500">
                     https://immi.homeaffairs.gov.au/visas{" "}
                   </span>
                   to know about any of the mentioned visas.
                 </p>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mb-3 leading-relaxed  text-justify text-sm sm:text-base">
                   Our migration agent at{" "}
                   <span className="text-blue-500">Growmore Immigration </span>
                   can help you with the latest information and requirements for
@@ -312,7 +312,7 @@ const IndividualVisaGurdian = () => {
                 </p>
               </div>
               <Link to="/book-consultation">
-                <button className="bg-[#6dc7d1] text-white  mt-6 rounded-full  hover:bg-black transition whitespace-nowrap px-7 py-4 font-base text-sm">
+                <button className="bg-[#6dc7d1] text-white  mb-3 rounded-full  hover:bg-black transition whitespace-nowrap px-7 py-4 font-base text-sm">
                   Book Consultation →
                 </button>
               </Link>

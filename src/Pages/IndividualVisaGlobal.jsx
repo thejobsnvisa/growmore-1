@@ -125,13 +125,13 @@ const IndividualVisaGlobal = () => {
                 Apply For the Global Talent Visa{" "}
               </h3>
               <div>
-                <p className="text-gray-600 mt-4 leading-relaxed text-sm sm:text-base">
+                <p className="text-[#727272] mt-4 leading-relaxed text-sm sm:text-base">
                   The Global Talent visa <b>(subclass 858)</b> is an Australian
                   visa category for individuals who possess unique and special
                   talents and skills in science, research, academia, arts and
                   culture, and digital technology.
                 </p>
-                <p className="text-gray-600 mt-4 leading-relaxed text-sm sm:text-base">
+                <p className="text-[#727272] mt-4 leading-relaxed text-sm sm:text-base">
                   This visa is designed to attract highly skilled individuals
                   who can make significant contributions to the Australian
                   economy and society.
@@ -139,7 +139,7 @@ const IndividualVisaGlobal = () => {
                 <h2 className="text-xl sm:text-2xl font-semibold text-black ">
                   Eligibility Criteria:{" "}
                 </h2>
-                <ol className="list-decimal pl-6 mt-6 space-y-4 text-gray-600 text-sm sm:text-base">
+                <ol className="list-decimal pl-6 mb-3 space-y-4 text-[#727272] text-sm sm:text-base">
                   <li>
                     Have a nomination from an eligible organization or have been
                     identified as a highly talented individual by a designated
@@ -158,7 +158,7 @@ const IndividualVisaGlobal = () => {
                   </li>
                 </ol>
                
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mb-3 leading-relaxed  text-justify text-sm sm:text-base">
                  <b>Note:{" "}</b> eligibility criteria and requirements for each stream are
                   subject to change, and it is always advisable to consult a
                   registered migration agent to understand the latest
@@ -168,7 +168,7 @@ const IndividualVisaGlobal = () => {
                   </span>
                   to know about any of the mentioned visas.
                 </p>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mb-3 leading-relaxed  text-justify text-sm sm:text-base">
                   Our migration agent at{" "}
                   <span className="text-blue-500">Growmore Immigration </span>
                   can help you with the latest information and requirements for
@@ -178,7 +178,7 @@ const IndividualVisaGlobal = () => {
                 </p>
               </div>
               <Link to="/book-consultation">
-                <button className="bg-[#6dc7d1] text-white  mt-6 rounded-full  hover:bg-black transition whitespace-nowrap px-7 py-4 font-base text-sm">
+                <button className="bg-[#6dc7d1] text-white  mb-3 rounded-full  hover:bg-black transition whitespace-nowrap px-7 py-4 font-base text-sm">
                   Book Consultation →
                 </button>
               </Link>

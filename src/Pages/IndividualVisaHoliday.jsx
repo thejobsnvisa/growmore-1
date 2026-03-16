@@ -125,21 +125,21 @@ const IndividualVisaHoliday = () => {
                 Work and Holiday Visa (Subclass 462){" "}
               </h3>
               <div>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mb-3 leading-relaxed  text-justify text-sm sm:text-base">
                   Working holiday visas are designed for young individuals who
                   are interested in traveling to Australia and working to
                   support their travels
                 </p>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mb-3 leading-relaxed  text-justify text-sm sm:text-base">
                   IThere are two main <b>types of working holiday visas:</b> the
                   Work and Holiday visa <b>(subclass 462)</b> and the Working
                   Holiday visa <b>(subclass 417)</b>.
                 </p>
 
-                <h2 className="text-2xl sm:text-2xl font-semibold text-black mt-6">
+                <h2 className="text-2xl sm:text-2xl font-semibold text-black mb-3">
                   Work and Holiday Visa (Subclass 462){" "}
                 </h2>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mb-3 leading-relaxed  text-justify text-sm sm:text-base">
                   is available to citizens of specific countries, including the
                   United States, Canada, and several countries in Europe and
                   Asia. To be eligible for the Working Holiday Visa Australia,
@@ -147,30 +147,30 @@ const IndividualVisaHoliday = () => {
                   passport from an eligible country, and meet English language
                   and health requirements.
                 </p>
-                <h2 className="text-2xl sm:text-2xl font-semibold text-black mt-6">
+                <h2 className="text-2xl sm:text-2xl font-semibold text-black mb-3">
                   Working Holiday visa (subclass 417)
                 </h2>
 
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mb-3 leading-relaxed  text-justify text-sm sm:text-base">
                   is available to citizens of specific countries, including the
                   United Kingdom, Ireland, Canada, and several countries in
                   Europe and Asia. To be eligible, individuals must be between
                   the ages of 18 and 30, hold a passport from an eligible
                   country, and meet English language and health requirements.
                 </p>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mb-3 leading-relaxed  text-justify text-sm sm:text-base">
                   Both of these visas allow individuals to stay in Australia for
                   up to 12 months, work and study while in the country, and
                   travel to and from Australia as many times as they wish during
                   the visa validity period.
                 </p>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mb-3 leading-relaxed  text-justify text-sm sm:text-base">
                   However, they are not intended to be used on the Working
                   Holiday Visa Australia as a means of obtaining long-term or
                   permanent employment.
                 </p>
 
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mb-3 leading-relaxed  text-justify text-sm sm:text-base">
                   <b>Note: </b> eligibility criteria and requirements for each
                   stream are subject to change, and it is always advisable to
                   consult a registered migration agent to understand the latest
@@ -180,7 +180,7 @@ const IndividualVisaHoliday = () => {
                   </span>
                   to know about any of the mentioned visas.
                 </p>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mb-3 leading-relaxed  text-justify text-sm sm:text-base">
                   Our migration agent at{" "}
                   <span className="text-blue-500">Growmore Immigration </span>
                   can help you with the latest information and requirements for
@@ -190,7 +190,7 @@ const IndividualVisaHoliday = () => {
                 </p>
               </div>
               <Link to="/book-consultation">
-                <button className="bg-[#6dc7d1] text-white  mt-6 rounded-full  hover:bg-black transition whitespace-nowrap px-7 py-4 font-base text-sm">
+                <button className="bg-[#6dc7d1] text-white  mb-3 rounded-full  hover:bg-black transition whitespace-nowrap px-7 py-4 font-base text-sm">
                   Book Consultation →
                 </button>
               </Link>

@@ -29,7 +29,7 @@ const Footer = () => {
       ></div>
       {/* CTA SECTION */}
       <div className="border-b border-white/20 py-8 px-4 sm:px-6 relative z-10">
-        <div className="max-w-[1350px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="max-w-[1300px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex flex-col sm:flex-row items-start gap-4 text-center md:text-left">
             <div className="bg-[#6dc7d1] rounded-full p-2">
               <img
@@ -58,7 +58,7 @@ const Footer = () => {
         </div>
       </div>
       {/* MAIN FOOTER */}
-      <div className="max-w-[1400px] mx-auto py-12 px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-10 relative z-10">
+      <div className="max-w-[1350px] mx-auto py-12 px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-10 relative z-10">
         {/* Logo & About */}
         <div className="flex flex-col items-start">
           <img
@@ -66,7 +66,7 @@ const Footer = () => {
             alt="Growmore"
             className="h-10 sm:h-12 mb-4 sm:mb-6"
           />
-          <p className="text-white text-[14px] leading-relaxed mb-4 sm:mb-6 max-w-sm text-justify">
+          <p className="text-white text-[14px] font-semibold leading-relaxed mb-4 sm:mb-6 w-70 text-justify">
             We are specialised in providing seamless visa solutions for
             individuals, students, and employers looking to make Australia their
             home.
@@ -104,7 +104,7 @@ const Footer = () => {
           <h3 className="text-[20px] sm:text-[22px] font-semibold mb-4 sm:mb-6">
             Services
           </h3>
-          <ul className="space-y-2 sm:space-y-3 text-[16px] text-white">
+          <ul className="space-y-2 sm:space-y-3 text-[16px] text-white font-semibold">
             <li>
               <Link
                 to="/our-services/individual"
@@ -131,7 +131,7 @@ const Footer = () => {
           <h3 className="text-[20px] sm:text-[22px] font-semibold mb-4 sm:mb-6">
             Quick Links
           </h3>
-          <ul className="space-y-2 sm:space-y-3 text-[16px] text-white">
+          <ul className="space-y-2 sm:space-y-3 text-[16px] text-white font-semibold">
             <li>
               <Link
                 to="/points-calculator"
@@ -166,7 +166,7 @@ const Footer = () => {
           <h3 className="text-[20px] sm:text-[22px] font-semibold mb-4 sm:mb-6">
             Useful Links
           </h3>
-          <ul className="space-y-2 sm:space-y-3 text-[16px] text-white">
+          <ul className="space-y-2 sm:space-y-3 text-[16px] text-white font-semibold">
             <li>
               <Link to="/terms-services" className="hover:text-gray-400 transition">
                 Terms & Services

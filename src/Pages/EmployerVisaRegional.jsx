@@ -102,7 +102,7 @@ const EmployerVisaRegional = () => {
                 <h3 className="text-xl sm:text-2xl font-semibold text-[#28535B] ">
                   Regional Certifying Bodies for Subclass 494{" "}
                 </h3>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
                   Regional Certifying Body Approval (RCB) application process is
                   a key aspect of the <b>Subclass 494</b> Skilled Employer
                   Sponsored Regional (Provisional) visa <b>(SC494)</b> program.
@@ -113,13 +113,13 @@ const EmployerVisaRegional = () => {
                     <span className="text-blue-300"> skilled labor</span>
                   </Link>
                 </p>
-                <p className="text-gray-500 mt-6 leading-relaxed text-justify  text-sm sm:text-base">
+                <p className="text-[#727272] mt-6 leading-relaxed text-justify  text-sm sm:text-base">
                   The RCB is responsible for assessing and certifying the
                   employer’s sponsorship application, as well as the employee’s
                   nomination application, to ensure that the job being offered
                   is genuine and meets the requirements of the visa program..
                 </p>
-                <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
                   To apply for RCB certification, the employer must first become
                   a Standard Business Sponsor and then
                   <Link to="/our-services/employers/nomination-application/">
@@ -134,7 +134,7 @@ const EmployerVisaRegional = () => {
                   meets the requirements of the visa program.
                 </p>
                 <div>
-                  <p className="text-gray-500 mt-6 leading-relaxed text-justify  text-sm sm:text-base">
+                  <p className="text-[#727272] mt-6 leading-relaxed text-justify  text-sm sm:text-base">
                     The RCB will also assess the skilled worker’s nomination
                     application to ensure that they have the required skills,
                     qualifications, and work experience to perform the job.
@@ -144,7 +144,7 @@ const EmployerVisaRegional = () => {
                     meeting the
                     <b>494 visa requirements.</b>
                   </p>
-                  <p className="text-gray-500 mt-6 leading-relaxed text-justify  text-sm sm:text-base">
+                  <p className="text-[#727272] mt-6 leading-relaxed text-justify  text-sm sm:text-base">
                     Once the RCB has approved the sponsorship and nomination
                     applications, the skilled worker can then apply for the
                     <b>SC494</b> visa. The RCB will provide the approved applications
@@ -152,7 +152,7 @@ const EmployerVisaRegional = () => {
                     the visa application and make a final decision on the visa
                     grant.
                   </p>
-                  <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                  <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
                     <span className="font-bold">Note: </span> eligibility
                     criteria and requirements for each stream are subject to
                     change, and it is always advisable to consult a registered
@@ -164,7 +164,7 @@ const EmployerVisaRegional = () => {
                     </span>{" "}
                     to know about any of the mentioned visas.
                   </p>{" "}
-                  <p className="text-gray-500 mt-6 leading-relaxed  text-justify text-sm sm:text-base">
+                  <p className="text-[#727272] mt-6 leading-relaxed  text-justify text-sm sm:text-base">
                     Our migration agent at Growmore Immigration can help you
                     with the latest information and requirements for the
                     Business Innovation and Investment (Provisional) visa, and
