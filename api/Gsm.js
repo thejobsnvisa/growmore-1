@@ -16,56 +16,58 @@ export default async function handler(req, res) {
     });
   }
 
+  const form = new formidable.IncomingForm({
+    multiples: false,
+    keepExtensions: true,
+  });
+
   try {
-    const form = new formidable.IncomingForm();
-    form.parse(req, async (err, fields, files) => {
-      if (err) {
-        return res.status(500).json({
-          success: false,
-          message: "Form parsing error",
-        });
-      }
+    const [fields, files] = await form.parse(req);
 
-      const {
-        fullName,
-        email,
-        phone,
-        country,
-        location,
-        age,
-        qualification,
-        occupation,
-        skillsAssessment,
-        overseasExperience,
-        australiaExperience,
-        englishTest,
-        estimatedPoints,
-        partnerSkills,
-        studiedInAustralia,
-        professionalYear,
-        regionalWork,
-        comments,
-      } = fields;
+    // Handle array values from formidable
+    const getValue = (value) => (Array.isArray(value) ? value[0] : value);
 
-      if (!fullName || !email) {
-        return res.status(400).json({
-          success: false,
-          message: "Name and email are required",
-        });
-      }
+    const fullName = getValue(fields.fullName);
+    const email = getValue(fields.email);
+    const phone = getValue(fields.phone);
+    const country = getValue(fields.country);
+    const location = getValue(fields.location);
+    const age = getValue(fields.age);
+    const qualification = getValue(fields.qualification);
+    const occupation = getValue(fields.occupation);
+    const skillsAssessment = getValue(fields.skillsAssessment);
+    const overseasExperience = getValue(fields.overseasExperience);
+    const australiaExperience = getValue(fields.australiaExperience);
+    const englishTest = getValue(fields.englishTest);
+    const estimatedPoints = getValue(fields.estimatedPoints);
+    const partnerSkills = getValue(fields.partnerSkills);
+    const studiedInAustralia = getValue(fields.studiedInAustralia);
+    const professionalYear = getValue(fields.professionalYear);
+    const regionalWork = getValue(fields.regionalWork);
+    const comments = getValue(fields.comments);
 
-      /* ================= CRM API ================= */
-
-      const body = new URLSearchParams({
-        Name: fullName,
-        Email: email,
-        Phone: phone || "",
-        Country: country || "",
-        Inquiries: "GSM Visa Eligibility Assessment",
-        Source: "Website GSM Form",
-        Message: comments || "",
+    if (!fullName || !email) {
+      return res.status(400).json({
+        success: false,
+        message: "Name and email are required",
       });
+    }
 
+    /* ================= CRM API ================= */
+
+    const body = new URLSearchParams({
+      Name: fullName,
+      Email: email,
+      Phone: phone || "",
+      Country: country || "",
+      Inquiries: "GSM Visa Eligibility Assessment",
+      Source: "Website GSM Form",
+      Message: comments || "",
+    });
+
+    let crmData = null;
+
+    try {
       const crmResponse = await fetch(
         "https://case.growmore.one/api/webhooks/website-form",
         {
@@ -77,32 +79,39 @@ export default async function handler(req, res) {
         }
       );
 
-      const crmData = await crmResponse.json();
+      crmData = await crmResponse.json();
+    } catch (err) {
+      console.error("CRM error:", err);
+    }
 
-      /* ================= Nodemailer ================= */
+    /* ================= Nodemailer ================= */
 
-      const transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
         user: "upadhyayriddhi445@gmail.com",
         pass: "rodq fksy juyo tvlm"
       },
+    });
+
+    let attachments = [];
+
+    if (files.resume) {
+      const resume = Array.isArray(files.resume)
+        ? files.resume[0]
+        : files.resume;
+
+      attachments.push({
+        filename: resume.originalFilename,
+        content: fs.createReadStream(resume.filepath),
       });
+    }
 
-      let attachments = [];
-
-      if (files.resume) {
-        attachments.push({
-          filename: files.resume.originalFilename,
-          content: fs.createReadStream(files.resume.filepath),
-        });
-      }
-
-      await transporter.sendMail({
-        from: `"Growmore Immigration"`,
-        to: "growmoreimmigration@gmail.com",
-        subject: "New GSM Visa Eligibility Assessment",
-        html: `
+    await transporter.sendMail({
+      from: `"Growmore Immigration"`,
+      to: "growmoreimmigration@gmail.com",
+      subject: "New GSM Visa Eligibility Assessment",
+      html: `
         <h2>GSM Visa Eligibility Assessment</h2>
 
         <h3>Basic Info</h3>
@@ -135,14 +144,13 @@ export default async function handler(req, res) {
         <h3>Comments</h3>
         <p>${comments}</p>
       `,
-        attachments,
-      });
+      attachments,
+    });
 
-      return res.status(200).json({
-        success: true,
-        crmResponse: crmData,
-        message: "Form submitted successfully",
-      });
+    return res.status(200).json({
+      success: true,
+      crmResponse: crmData,
+      message: "Form submitted successfully",
     });
   } catch (error) {
     console.error(error);
