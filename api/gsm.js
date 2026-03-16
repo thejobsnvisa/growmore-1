@@ -30,6 +30,7 @@ export default async function handler(req, res) {
       `.trim(),
     });
 
+    // Fire and forget CRM update
     fetch("https://leads.growmore.one/api/website-form", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -41,29 +42,29 @@ export default async function handler(req, res) {
       service: "gmail",
       auth: {
         user: "upadhyayriddhi445@gmail.com",
-        pass: "rodq fksy juyo tvlm" // Warning: Use Environment Variables for production
+        pass: "rodq fksy juyo tvlm" // Reminder: Move this to process.env.EMAIL_PASS
       },
     });
 
     const emailHtml = `
-      <div style="font-family: sans-serif; line-height: 1.6; color: #333;">
+      <div style="font-family: sans-serif; line-height: 1.6; color: #333; max-width: 600px; border: 1px solid #eee; padding: 20px;">
         <h2 style="color: #28535B;">New GSM Assessment Lead</h2>
         <p><b>Name:</b> ${data.fullName}</p>
         <p><b>Email:</b> ${data.email}</p>
         <p><b>Phone:</b> ${data.phone}</p>
         <p><b>Residence:</b> ${data.country}</p>
         <p><b>Currently in Australia:</b> ${data.location}</p>
-        <hr/>
-        <h3>Eligibility Profile</h3>
-        <ul>
+        <hr style="border: 0; border-top: 1px solid #eee;"/>
+        <h3 style="color: #28535B;">Eligibility Profile</h3>
+        <ul style="list-style: none; padding: 0;">
           <li><b>Age Range:</b> ${data.age}</li>
           <li><b>Occupation:</b> ${data.occupation}</li>
           <li><b>Qualification:</b> ${data.qualification}</li>
           <li><b>Skills Assessment:</b> ${data.skillsAssessment}</li>
           <li><b>English Test Taken:</b> ${data.englishTest}</li>
         </ul>
-        <h3>Points & Experience</h3>
-        <ul>
+        <h3 style="color: #28535B;">Points & Experience</h3>
+        <ul style="list-style: none; padding: 0;">
           <li><b>Overseas Exp:</b> ${data.overseasExperience}</li>
           <li><b>Australian Exp:</b> ${data.australiaExperience}</li>
           <li><b>Estimated Points:</b> ${data.estimatedPoints}</li>
@@ -77,8 +78,9 @@ export default async function handler(req, res) {
 
     await transporter.sendMail({
       from: `"Growmore Immigration"`,
-      to: "growmoreimmigration@gmail.com",
-      subject: ` GSM Assessment Inquiry: ${data.fullName}`,
+      to: "info@growmore.one", // Primary destination
+      bcc: "info@growmoreimmigration.com", // Optional backup
+      subject: `🚨 GSM Assessment: ${data.fullName} (${data.estimatedPoints} pts)`,
       html: emailHtml,
     });
 
