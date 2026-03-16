@@ -208,59 +208,62 @@ const Checklistgsm = () => {
               />
             </div>
             {/* Qualification */}
-            <div>
-              <p className="label">Do you have a valid Skills Assessment?</p>
-              <div className="flex gap-6 mt-2">
-                {["Yes", "No", "In Process"].map((item) => (
-                  <label key={item}>
-                    <input
-                      type="radio"
-                      name="skillsAssessment"
-                      value={item}
-                      onChange={handleChange}
-                    />{" "}
-                    {item}
-                  </label>
-                ))}
-              </div>
-            </div>
-            <h2 className="mb-3  text-xl font-normal">
-              Work Experience in Nominated Occupation
-            </h2>
+        <div>
+  <p className="label">Do you have a valid Skills Assessment?</p>
+  <div className="flex gap-6 mt-2">
+    {["Yes", "No", "In Process"].map((item) => (
+      <label key={item}>
+        <input
+          type="radio"
+          name="skillsAssessment"
+          value={item}
+          onChange={handleChange}
+        />{" "}
+        {item}
+      </label>
+    ))}
+  </div>
+</div>
 
-            <div>
-              <p className="label">Overseas </p>
-              <div className="flex gap-6 mt-2">
-                {["0-1", "1-3", "3-5", "5+"].map((item) => (
-                  <label key={item}>
-                    <input
-                      type="radio"
-                      name="skillsAssessment"
-                      value={item}
-                      onChange={handleChange}
-                    />{" "}
-                    {item}
-                  </label>
-                ))}
-              </div>
-            </div>
+<h2 className="mb-3 text-xl font-normal">
+  Work Experience in Nominated Occupation
+</h2>
 
-            <div>
-              <p className="label">Australia </p>
-              <div className="flex gap-6 mt-2">
-                {["0-1", "1-3", "3-5", "5+"].map((item) => (
-                  <label key={item}>
-                    <input
-                      type="radio"
-                      name="skillsAssessment"
-                      value={item}
-                      onChange={handleChange}
-                    />{" "}
-                    {item}
-                  </label>
-                ))}
-              </div>
-            </div>
+{/* Overseas Experience */}
+<div>
+  <p className="label">Overseas</p>
+  <div className="flex gap-6 mt-2">
+    {["0-1", "1-3", "3-5", "5+"].map((item) => (
+      <label key={item}>
+        <input
+          type="radio"
+          name="overseasExperience"
+          value={item}
+          onChange={handleChange}
+        />{" "}
+        {item}
+      </label>
+    ))}
+  </div>
+</div>
+
+{/* Australia Experience */}
+<div>
+  <p className="label">Australia</p>
+  <div className="flex gap-6 mt-2">
+    {["0-1", "1-3", "3-5", "5+"].map((item) => (
+      <label key={item}>
+        <input
+          type="radio"
+          name="australiaExperience"
+          value={item}
+          onChange={handleChange}
+        />{" "}
+        {item}
+      </label>
+    ))}
+  </div>
+</div>
 
             {/* Experience */}
             <div>
