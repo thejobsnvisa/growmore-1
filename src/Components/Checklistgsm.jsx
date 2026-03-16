@@ -5,426 +5,334 @@ import { Link } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
 
 const Checklistgsm = () => {
-  const recaptchaRef = useRef(null);
-  const [loading, setLoading] = useState(false);
-  const [dialCode, setDialCode] = useState("91");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    phone: "",
-    country: "",
-    location: "",
-    age: "",
-    qualification: "",
-    occupation: "",
-    skillsAssessment: "",
-    overseasExperience: "",
-    australiaExperience: "",
-    englishTest: "",
-    estimatedPoints: "",
-    partnerSkills: "",
-    studiedInAustralia: "",
-    professionalYear: "",
-    regionalWork: "",
-    comments: "",
-    resume: null,
-  });
+const recaptchaRef = useRef(null);
+const [loading, setLoading] = useState(false);
+const [dialCode, setDialCode] = useState("91");
+const [phoneNumber, setPhoneNumber] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value, files } = e.target;
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    setFormData((prev) => ({
-      ...prev,
-      [name]: files ? files[0] : value,
-    }));
-  };
+  const token = recaptchaRef.current?.getValue();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  if (!token) {
+    alert("Please verify the captcha");
+    return;
+  }
 
-    const captchaValue = recaptchaRef.current.getValue();
-    if (!captchaValue) {
-      alert("Please verify reCAPTCHA");
-      return;
-    }
+  if (!phoneNumber) {
+    alert("Please enter phone number");
+    return;
+  }
 
-    setLoading(true);
+  setLoading(true);
 
-    const formPayload = new FormData();
+  try {
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
 
-    Object.keys(formData).forEach((key) => {
-      formPayload.append(key, formData[key]);
+    const finalPhone = `+${dialCode}${phoneNumber}`;
+
+    const payload = {
+      fullName: data.fullName,
+      email: data.email,
+      phone: finalPhone,
+      country: data.country,
+      location: data.location,
+      age: data.age,
+      qualification: data.qualification,
+      occupation: data.occupation,
+      skillsAssessment: data.skillsAssessment,
+      overseasExperience: data.overseasExperience,
+      australiaExperience: data.australiaExperience,
+      englishTest: data.englishTest,
+      estimatedPoints: data.estimatedPoints,
+      partnerSkills: data.partnerSkills,
+      studiedInAustralia: data.studiedInAustralia,
+      professionalYear: data.professionalYear,
+      regionalWork: data.regionalWork,
+      comments: data.comments,
+      captchaToken: token,
+      source: "GSM Visa Assessment Form",
+    };
+
+    const response = await fetch("/api/lead", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
     });
 
-    formPayload.append("phone", `+${dialCode}${phoneNumber}`);
+    const result = await response.json();
 
-    try {
-      const response = await fetch("/api/gsm.js", {
-        method: "POST",
-        body: formPayload,
-      });
-
-      if (!response.ok) {
-        throw new Error("Server error");
-      }
-
-      const data = await response.json();
-
-      if (data.success) {
-        alert("Form submitted successfully!");
-
-        // Reset form
-        setFormData({
-          fullName: "",
-          email: "",
-          country: "",
-          location: "",
-          age: "",
-          qualification: "",
-          occupation: "",
-          skillsAssessment: "",
-          overseasExperience: "",
-          australiaExperience: "",
-          englishTest: "",
-          estimatedPoints: "",
-          partnerSkills: "",
-          studiedInAustralia: "",
-          professionalYear: "",
-          regionalWork: "",
-          comments: "",
-          resume: null,
-        });
-
-        setPhoneNumber("");
-
-        if (recaptchaRef.current) {
-          recaptchaRef.current.reset();
-        }
-      } else {
-        alert(data.message || "Something went wrong");
-      }
-    } catch (error) {
-      console.error("Submit error:", error);
-      alert("Failed to submit form. Please try again.");
-    } finally {
-      setLoading(false);
+    if (!result.success) {
+      throw new Error("Submission failed");
     }
-  };
+
+    alert("Thank you! Our team will contact you shortly.");
+
+    e.target.reset();
+    setPhoneNumber("");
+    recaptchaRef.current.reset();
+
+  } catch (error) {
+    console.error("Submit Error:", error);
+    alert("Something went wrong. Please try again.");
+  } finally {
+    setLoading(false);
+  }
+
+};
+
+
   return (
-    <div>
-      <section className="bg-[#28535B] py-16 md:py-20">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-15">
-          <h1 className="text-3xl md:text-5xl font-semibold text-white mb-3">
-            GSM Visa Eligibility Assessment Form
-          </h1>
-        </div>
-      </section>{" "}
-      <section className="bg-gray-100 py-16 px-4">
-        <div className="max-w-3xl mx-auto p-8 md:p-10 rounded-2xl shadow-md bg-[#eff9fb]">
-          <h2 className="text-xl font-normal mb-3  p-1">Basic Info:</h2>
-
-          <form onSubmit={handleSubmit} className="space-y-5">
-            {/* Name & Email */}
-            <div className="grid md:grid-cols-2 gap-4">
-              <input
-                type="text"
-                name="fullName"
-                placeholder="Full Name"
-                onChange={handleChange}
-                className="input-style"
-                required
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Enter Email"
-                onChange={handleChange}
-                className="input-style"
-                required
-              />
-            </div>
-
-            {/* 🔥 Updated Phone Section */}
-            <div className="flex gap-3">
-              {/* Country Code */}
-              <div className="w-32">
-                <PhoneInput
-                  country={"au"}
-                  enableSearch={true}
-                  disableCountryCode={false}
-                  value={dialCode}
-                  onChange={(value, data) => {
-                    setDialCode(data.dialCode);
-                  }}
-                  inputProps={{ readOnly: true }}
-                  containerClass="w-full"
-                  inputClass="!w-full !h-[46px] !rounded-md !border !border-gray-300"
-                  buttonClass="!border !border-gray-300 !rounded-md"
-                />
-              </div>
-
-              {/* Phone Number */}
-              <div className="flex-1">
-                <input
-                  type="tel"
-                  placeholder="Contact Number"
-                  value={phoneNumber}
-                  onChange={(e) => setPhoneNumber(e.target.value)}
-                  className="w-full h-[46px] px-4 rounded-md border border-gray-300 focus:outline-none bg-white"
-                  required
-                />
-              </div>
-            </div>
-
-            {/* Country */}
-            <input
-              type="text"
-              name="country"
-              placeholder="Country of Residence"
-              onChange={handleChange}
-              className="input-style"
-            />
-
-            {/* Current Location */}
-            <div>
-              <p className="label">Are you currently in Australia?</p>
-              <div className="flex gap-6 mt-2">
-                <label>
-                  <input
-                    type="radio"
-                    name="location"
-                    value="yes"
-                    onChange={handleChange}
-                  />{" "}
-                  yes
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="location"
-                    value="No"
-                    onChange={handleChange}
-                  />{" "}
-                  No
-                </label>
-              </div>
-            </div>
-            <div>
-              <h2 className="mb-3  text-xl font-normal">
-                Eligibility Criteria:
-              </h2>
-              <label className="mb-2 p-2 mt-3">
-                Age
-                <select
-                  name="Age"
-                  required
-                  className="bg-white rounded-lg px-4 py-3 w-full border border-gray-300 mt-3"
-                >
-                  <option value="">Select Age</option>
-                  <option>18-24</option>
-                  <option>25-32</option>
-                  <option>40-44</option>
-                  <option>45+</option>
-                </select>
-              </label>
-              <input
-                type="text"
-                name="Highest Eduction Qualification"
-                placeholder="Highest Eduction Qualification"
-                onChange={handleChange}
-                className="input-style mb-3 mt-3"
-                required
-              />
-              <input
-                type="text"
-                name="Field of Study/ Nominated Occupation"
-                placeholder="Field of Study/ Nominated Occupation"
-                onChange={handleChange}
-                className="input-style mb-3 mt-1"
-                required
-              />
-            </div>
-            {/* Qualification */}
-            <div>
-              <p className="label">Do you have a valid Skills Assessment?</p>
-              <div className="flex gap-6 mt-2">
-                {["Yes", "No", "In Process"].map((item) => (
-                  <label key={item}>
-                    <input
-                      type="radio"
-                      name="skillsAssessment"
-                      value={item}
-                      onChange={handleChange}
-                    />{" "}
-                    {item}
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            <h2 className="mb-3 text-xl font-normal">
-              Work Experience in Nominated Occupation
-            </h2>
-
-            {/* Overseas Experience */}
-            <div>
-              <p className="label">Overseas</p>
-              <div className="flex gap-6 mt-2">
-                {["0-1", "1-3", "3-5", "5+"].map((item) => (
-                  <label key={item}>
-                    <input
-                      type="radio"
-                      name="overseasExperience"
-                      value={item}
-                      onChange={handleChange}
-                    />{" "}
-                    {item}
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            {/* Australia Experience */}
-            <div>
-              <p className="label">Australia</p>
-              <div className="flex gap-6 mt-2">
-                {["0-1", "1-3", "3-5", "5+"].map((item) => (
-                  <label key={item}>
-                    <input
-                      type="radio"
-                      name="australiaExperience"
-                      value={item}
-                      onChange={handleChange}
-                    />{" "}
-                    {item}
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            {/* Experience */}
-            <div>
-              <p className="label">English Test Taken?</p>
-              <div className="flex flex-wrap gap-6 mt-2">
-                {["yes", "no"].map((item) => (
-                  <label key={item}>
-                    <input
-                      type="radio"
-                      name="experience"
-                      value={item}
-                      onChange={handleChange}
-                    />{" "}
-                    {item}
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            <h2 className="mb-3  text-xl font-normal">Points Related:</h2>
-            {/* Skills Assessment */}
-            <div className="grid gap-4">
-              <input
-                type="text"
-                name="Estimated Points Score(if known)"
-                placeholder="Estimated Points Score(if known)"
-                onChange={handleChange}
-                className="input-style"
-                required
-              />
-              <input
-                type="text"
-                name="Are you claiming partner skills or qualifications?"
-                placeholder="Are you claiming partner skills or qualifications?"
-                onChange={handleChange}
-                className="input-style"
-                required
-              />
-            </div>
-            <div>
-              <p className="label">Have you studied in Australia?</p>
-              <div className="flex gap-6 mt-2">
-                {["Yes", "No"].map((item) => (
-                  <label key={item}>
-                    <input
-                      type="radio"
-                      name="skillsAssessment"
-                      value={item}
-                      onChange={handleChange}
-                    />{" "}
-                    {item}
-                  </label>
-                ))}
-              </div>
-            </div>
-            <div>
-              <p className="label">Have you done NAATI or Professional Year?</p>
-              <div className="flex gap-6 mt-2">
-                {["Yes", "No"].map((item) => (
-                  <label key={item}>
-                    <input
-                      type="radio"
-                      name="jobOffer"
-                      value={item}
-                      onChange={handleChange}
-                    />{" "}
-                    {item}
-                  </label>
-                ))}
-              </div>
-            </div>
-            <div>
-              <p className="label">
-                Are you currently working in a regional area?
-              </p>
-              <div className="flex flex-wrap gap-6 mt-2">
-                {["Yes", "No"].map((item) => (
-                  <label key={item}>
-                    <input
-                      type="radio"
-                      name="experience"
-                      value={item}
-                      onChange={handleChange}
-                    />{" "}
-                    {item}
-                  </label>
-                ))}
-              </div>
-            </div>
-            {/* Resume Upload */}
-            <div>
-              <p className="label">Upload Resume</p>
-              <input
-                type="file"
-                name="resume"
-                onChange={handleChange}
-                className="input-style file:bg-gray-200 file:border-0 file:px-4 file:py-2 file:rounded-md"
-              />
-            </div>
-            {/* Comments */}
-            <textarea
-              name="comments"
-              placeholder="Your Comments"
-              className="input-style h-24"
-              onChange={handleChange}
-            />
-
-            <ReCAPTCHA
-              sitekey="6Lcb_HEsAAAAAJESdQwpfYltspCpspxJPbCyM58Z"
-              ref={recaptchaRef}
-            />
-            {/* Submit */}
-            <button
-              type="submit"
-              disabled={loading}
-              className="bg-[#6dc7d1] hover:border-[#6dc7d1] hover:border-2  px-8 py-2 text-white rounded-full hover:bg-black transition disabled:opacity-50"
-            >
-              {loading ? "Submitting..." : "Submit →"}
-            </button>
-          </form>
-        </div>
-      </section>
+<div>
+  <section className="bg-[#28535B] py-16 md:py-20">
+    <div className="max-w-[1400px] mx-auto px-6 md:px-15">
+      <h1 className="text-3xl md:text-5xl font-semibold text-white mb-3">
+        GSM Visa Eligibility Assessment Form
+      </h1>
     </div>
+  </section>
+
+  <section className="bg-gray-100 py-16 px-4">
+    <div className="max-w-3xl mx-auto p-8 md:p-10 rounded-2xl shadow-md bg-[#eff9fb]">
+
+      <h2 className="text-xl mb-4">Basic Info</h2>
+
+      <form onSubmit={handleSubmit} className="space-y-5">
+
+        {/* Name + Email */}
+        <div className="grid md:grid-cols-2 gap-4">
+          <input
+            type="text"
+            name="fullName"
+            placeholder="Full Name"
+            className="input-style"
+            required
+          />
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter Email"
+            className="input-style"
+            required
+          />
+        </div>
+
+        {/* Phone */}
+        <div className="flex gap-3">
+          <div className="w-32">
+            <PhoneInput
+              country={"au"}
+              enableSearch
+              value={dialCode}
+              onChange={(value, data) => setDialCode(data.dialCode)}
+              inputProps={{ readOnly: true }}
+              containerClass="w-full"
+              inputClass="!w-full !h-[46px] !rounded-md !border !border-gray-300"
+            />
+          </div>
+
+          <input
+            type="tel"
+            placeholder="Contact Number"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+            className="flex-1 h-[46px] px-4 !rounded-md !border !border-gray-300 bg-white"
+            required
+          />
+        </div>
+
+        {/* Country */}
+        <input
+          type="text"
+          name="country"
+          placeholder="Country of Residence"
+          className="input-style"
+        />
+
+        {/* Location */}
+        <div>
+          <p className="label">Are you currently in Australia?</p>
+          <div className="flex gap-6 mt-2">
+            <label>
+              <input type="radio" name="location" value="Yes" /> Yes
+            </label>
+
+            <label>
+              <input type="radio" name="location" value="No" /> No
+            </label>
+          </div>
+        </div>
+
+        {/* Eligibility */}
+        <h2 className="text-xl">Eligibility Criteria</h2>
+
+        <select name="age" required className="input-style">
+          <option value="">Select Age</option>
+          <option>18-24</option>
+          <option>25-32</option>
+          <option>33-39</option>
+          <option>40-44</option>
+          <option>45+</option>
+        </select>
+
+        <input
+          type="text"
+          name="qualification"
+          placeholder="Highest Education Qualification"
+          className="input-style"
+          required
+        />
+
+        <input
+          type="text"
+          name="occupation"
+          placeholder="Field of Study / Nominated Occupation"
+          className="input-style"
+          required
+        />
+
+        {/* Skills Assessment */}
+        <div>
+          <p className="label">Do you have a valid Skills Assessment?</p>
+          <div className="flex gap-6">
+            {["Yes","No","In Process"].map((item)=>(
+              <label key={item}>
+                <input type="radio" name="skillsAssessment" value={item}/> {item}
+              </label>
+            ))}
+          </div>
+        </div>
+
+        {/* Work Experience */}
+        <h2 className="text-xl">Work Experience in Nominated Occupation</h2>
+
+        <div>
+          <p className="label">Overseas</p>
+          <div className="flex gap-6">
+            {["0-1","1-3","3-5","5+"].map((item)=>(
+              <label key={item}>
+                <input type="radio" name="overseasExperience" value={item}/> {item}
+              </label>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <p className="label">Australia</p>
+          <div className="flex gap-6">
+            {["0-1","1-3","3-5","5+"].map((item)=>(
+              <label key={item}>
+                <input type="radio" name="australiaExperience" value={item}/> {item}
+              </label>
+            ))}
+          </div>
+        </div>
+
+        {/* English */}
+        <div>
+          <p className="label">English Test Taken?</p>
+          <div className="flex gap-6">
+            {["Yes","No"].map((item)=>(
+              <label key={item}>
+                <input type="radio" name="englishTest" value={item}/> {item}
+              </label>
+            ))}
+          </div>
+        </div>
+
+        {/* Points */}
+        <h2 className="text-xl">Points Related</h2>
+
+        <input
+          type="text"
+          name="estimatedPoints"
+          placeholder="Estimated Points Score (if known)"
+          className="input-style"
+        />
+
+        <input
+          type="text"
+          name="partnerSkills"
+          placeholder="Are you claiming partner skills or qualifications?"
+          className="input-style"
+        />
+
+        {/* Study */}
+        <div>
+          <p className="label">Have you studied in Australia?</p>
+          <div className="flex gap-6">
+            {["Yes","No"].map((item)=>(
+              <label key={item}>
+                <input type="radio" name="studiedInAustralia" value={item}/> {item}
+              </label>
+            ))}
+          </div>
+        </div>
+
+        {/* Professional Year */}
+        <div>
+          <p className="label">Have you done NAATI or Professional Year?</p>
+          <div className="flex gap-6">
+            {["Yes","No"].map((item)=>(
+              <label key={item}>
+                <input type="radio" name="professionalYear" value={item}/> {item}
+              </label>
+            ))}
+          </div>
+        </div>
+
+        {/* Regional Work */}
+        <div>
+          <p className="label">Working in Regional Area?</p>
+          <div className="flex gap-6">
+            {["Yes","No"].map((item)=>(
+              <label key={item}>
+                <input type="radio" name="regionalWork" value={item}/> {item}
+              </label>
+            ))}
+          </div>
+        </div>
+
+        {/* Resume */}
+        <div>
+          <p className="label">Upload Resume</p>
+          <input
+            type="file"
+            name="resume"
+            className="input-style file:bg-gray-200 file:border-0 file:px-4 file:py-2"
+          />
+        </div>
+
+        {/* Comments */}
+        <textarea
+          name="comments"
+          placeholder="Your Comments"
+          className="input-style h-24"
+        />
+
+        <ReCAPTCHA
+          sitekey="6Lcb_HEsAAAAAJESdQwpfYltspCpspxJPbCyM58Z"
+          ref={recaptchaRef}
+        />
+
+        <button
+          type="submit"
+          disabled={loading}
+          className="bg-[#6dc7d1] px-8 py-2 text-white rounded-full"
+        >
+          {loading ? "Submitting..." : "Submit →"}
+        </button>
+
+      </form>
+    </div>
+  </section>
+</div>
+
   );
 };
 
