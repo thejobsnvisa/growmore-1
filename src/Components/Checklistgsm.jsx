@@ -292,7 +292,7 @@ const Checklistgsm = () => {
                 required
               />
               <input
-                type="email"
+                type="text"
                 name="Are you claiming partner skills or qualifications?"
                 placeholder="Are you claiming partner skills or qualifications?"
                 onChange={handleChange}
