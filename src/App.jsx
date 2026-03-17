@@ -48,6 +48,7 @@ import IndividualVisaGurdian from "./Pages/IndividualVisaGurdian";
 import Terms from "./Pages/Terms";
 import Policy from "./Pages/Policy";
 import Refund from "./Pages/Refund";
+import News1 from "./Pages/News1";
 
 
 function App() {
@@ -179,6 +180,10 @@ function App() {
           path="/our-services/individual/student-guardian-visa/"
           element={< IndividualVisaGurdian />}
         />
+        <Route 
+    path="/tasmania-state-nomination-program-final-quarter/" 
+    element={<News1 />} 
+  />
       </Routes>
       <Footer />
     </Router>

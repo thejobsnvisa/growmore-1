@@ -1,13 +1,14 @@
 import React from "react";
 import { FaCalendar } from "react-icons/fa";
-
+import { Link } from "react-router-dom";
 
 const blogs = [
   {
     id: 1,
-    title: "Tasmania 190 & 491 State Nomination – 26 February 2026 Invitation Round Update",
-    date: "February 26, 2026",
-    image: "/assets/blog4.jpg",
+    slug:"tasmania-state-nomination-program-final-quarter",
+    title: "Tasmania State Nomination Program Enters Its Final Quarter",
+    date: "March 13, 2026",
+    image: "/assets/bg1.jpg",
   },
   {
     id: 2,
@@ -66,10 +67,8 @@ const blogs = [
 
 const NewsSection = () => {
   return (
-    <section className="bg-white py-20">
+   <section className="bg-white py-20">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-
-        {/* Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogs.map((blog) => (
             <div
@@ -95,27 +94,24 @@ const NewsSection = () => {
                   <FaCalendar className="h-4 w-4 text-[#7cc576]" /> {blog.date}
                 </p>
 
-                {/* Push button to bottom */}
                 <div className="mt-auto">
-                  <button className="group text-[#6dc7d1] font-semibold flex items-center gap-2 justify-end w-full transition-all duration-300">
-                    
-                    <span className="relative">
-                      READ MORE
-                      <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#6dc7d1] transition-all duration-300 group-hover:w-full"></span>
-                    </span>
-
-                    <span className="transition-transform duration-300 group-hover:translate-x-1">
-                      →
-                    </span>
-
-                  </button>
+                  {/* 2. Wrap the button in a Link using the slug or ID */}
+                  <Link to={`/${blog.slug}/`}>
+                    <button className="group text-[#6dc7d1] font-semibold flex items-center gap-2 justify-end w-full transition-all duration-300">
+                      <span className="relative">
+                        READ MORE
+                        <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#6dc7d1] transition-all duration-300 group-hover:w-full"></span>
+                      </span>
+                      <span className="transition-transform duration-300 group-hover:translate-x-1">
+                        →
+                      </span>
+                    </button>
+                  </Link>
                 </div>
-
               </div>
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );
