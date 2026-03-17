@@ -40,9 +40,11 @@ export default async function handler(req, res) {
     /* ========= Nodemailer Notification ========= */
     const transporter = nodemailer.createTransport({
       service: "gmail",
-        auth: {
-    user: import.meta.env.VITE_USER,
-    pass: import.meta.env.VITE_PASS,
+       auth: {
+    // eslint-disable-next-line no-undef
+    user: process.env.EMAIL_USER,
+    // eslint-disable-next-line no-undef
+    pass: process.env.EMAIL_PASS,
   },
     });
 
