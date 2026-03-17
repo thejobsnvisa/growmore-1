@@ -46,10 +46,7 @@ export default async function handler(req, res) {
     });
 
     const emailHtml = `
-      <div style="font-family: sans-serif; max-width: 600px; border: 1px solid #28535B;">
-        <div style="background: #28535B; color: white; padding: 20px;">
-          <h2>DAMA Pre-Screening Request</h2>
-        </div>
+      <div>
         <div style="padding: 20px; line-height: 1.5;">
           <p><strong>Name:</strong> ${data.fullName}</p>
           <p><strong>Email:</strong> ${data.email}</p>
@@ -70,8 +67,9 @@ export default async function handler(req, res) {
     `;
 
     await transporter.sendMail({
-      from: `"DAMA Checklist" <upadhyayriddhi445@gmail.com>`,
-      to: "info@growmore.one",
+       from: `"Growmore Immigration"`,
+      to: "info@growmore.one", // Primary destination
+      bcc: "info@growmoreimmigration.com", // Optional backup
       subject: `DAMA Interest: ${data.fullName} (${data.occupation})`,
       html: emailHtml,
     });

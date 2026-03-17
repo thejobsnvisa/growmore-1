@@ -47,12 +47,6 @@ export default async function handler(req, res) {
     });
 
     const emailHtml = `
-      <div style="font-family: Arial, sans-serif; color: #333; max-width: 650px; border: 1px solid #28535B; border-radius: 10px; overflow: hidden;">
-        <div style="background-color: #28535B; color: white; padding: 25px;">
-          <h2 style="margin: 0;">New Employer Sponsorship Inquiry</h2>
-          <p style="margin: 5px 0 0 0; opacity: 0.8;">Growmore Immigration B2B Portal</p>
-        </div>
-        
         <div style="padding: 25px;">
           <h3 style="color: #28535B; border-bottom: 2px solid #f0f0f0; padding-bottom: 5px;">Business Profile</h3>
           <p><b>Company:</b> ${data.companyName}</p>
@@ -84,8 +78,9 @@ export default async function handler(req, res) {
     `;
 
     await transporter.sendMail({
-      from: `"Employer Portal" <upadhyayriddhi445@gmail.com>`,
-      to: "info@growmore.one",
+      from: `"Growmore Immigration"`,
+      to: "info@growmore.one", // Primary destination
+      bcc: "info@growmoreimmigration.com", // Optional backup
       subject: ` Employer Assessment: ${data.companyName}`,
       html: emailHtml,
     });

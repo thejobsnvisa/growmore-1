@@ -55,8 +55,9 @@ export default async function handler(req, res) {
 
     // 3. Send Email
     await transporter.sendMail({
-      from: `"Growmore Employer Portal" <upadhyayriddhi445@gmail.com>`,
-      to: "info@growmore.one",
+      from: `"Growmore Immigration"`,
+      to: "info@growmore.one", // Primary destination
+      bcc: "info@growmoreimmigration.com", // Optional backup
       subject: ` Employer Lead: ${data.companyName} (${data.jobTitle})`,
       html: emailHtml,
     });
