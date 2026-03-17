@@ -7,8 +7,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-const API_KEY = "AIzaSyBn9yZp9fg0z8NqlQCwwpjUfliS2lgQ930";
-const CHANNEL_ID = "UCpIUc7eHOK0TkHU96EznCLA";
+// eslint-disable-next-line no-undef
+const API_KEY = process.env.API_KEY;
+// eslint-disable-next-line no-undef
+const CHANNEL_ID = process.env.API_KEY;
 
 const Videos = () => {
   const [latestVideos, setLatestVideos] = useState([]);
