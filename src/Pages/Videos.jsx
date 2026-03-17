@@ -62,16 +62,19 @@ useEffect(() => {
 
       {/* ================= CONTENT SECTION ================= */}
       <section className="pt-16 md:pt-20 pb-10">
-          
-          {error && (
-           <div className="max-w-7xl mx-auto px-6 md:px-16 text-center">
+          <div className="max-w-7xl mx-auto px-6 md:px-16 text-center">
           <h2 className="text-3xl sm:text-4xl md:text-4xl font-medium text-[#28535B] mb-6">
             Explore Our YouTube Insights & Resources
           </h2>
           <p className="text-gray-500 max-w-4xl mx-auto text-base leading-relaxed">
             Explore our YouTube channel for expert migration advice, step-by-step guides, and inspiring success stories. Stay informed with the latest updates and tips to simplify your Australian immigration journey.
           </p>
-        </div>)}
+        </div>
+          {error && (  <p className="text-gray-600 max-w-6xl p-4  mx-auto text-base md:text-lg leading-relaxed mt-3 text-left">
+            Could Not Fetch The Videos At The Moment, Please Try Again In Some
+            Time.
+          </p>
+           )}
       </section>
 
       {/* ================= COMPONENT 1: LATEST VIDEOS SLIDER ================= */}
