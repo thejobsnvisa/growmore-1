@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import CommentSection from "../Components/CommentSection";
 
 const New5 = () => {
   return (

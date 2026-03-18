@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import CommentSection from "../Components/CommentSection";
 
 const News7 = () => {
   return (
@@ -276,7 +277,7 @@ const News7 = () => {
                 </button>
               </Link>
                 </div>
-            <CommentSection />
+            <CommentSection/>
           </div>
         </div>
       </section>

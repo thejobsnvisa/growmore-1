@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import CommentSection from "../Components/CommentSection";
 
 const News3 = () => {
   // Invitation Data Array
@@ -444,7 +445,7 @@ const News3 = () => {
                 </button>
               </Link>
                </div>
-            <CommentSection />
+            <CommentSection/>
           </div>
         </div>
       </section>
