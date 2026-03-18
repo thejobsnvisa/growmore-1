@@ -242,9 +242,9 @@ const News3 = () => {
       {/* Hero Section */}
       <section className="bg-[#28535B] py-12 sm:py-16">
           <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white">
             VIC Invitation Round 17 Mar 2026: Who Got Invited This Time?
-          </h1>
+          </h2>
         </div>
       </section>
 
