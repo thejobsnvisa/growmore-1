@@ -6,7 +6,7 @@ At **Growmore Immigration**, as a team of **Registered Migration Agents (RMAs)**
 
 The Australian government has recently provided clear guidance on how AI can and cannot be used in migration services to ensure that all applicants are properly protected. Here is the full information:
 
----
+
 
 ## Who Can Legally Provide Immigration Assistance?
 
@@ -22,7 +22,7 @@ If anyone outside of this category gives this immigration assistance, including 
 
 **The law is clear:** AI cannot replace the expertise and legal responsibility of a qualified RMA or legal practitioner.
 
----
+
 
 ## Key Legal and Ethical Rules for RMAs Using AI
 
@@ -34,7 +34,7 @@ Our practice ensures that AI is used ethically and securely, fully complying wit
 - Not adding any personal details of our clients to any AI tools  
 - Ensuring all advice is professional, competent, and reliable  
 
----
+
 
 ## Guidance for Visa Applicants
 
