@@ -1,4 +1,7 @@
 import nodemailer from "nodemailer";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -11,6 +14,7 @@ export default async function handler(req, res) {
   try {
     const { name, email, phone, visaType, message, source } = req.body;
 
+    // ✅ Validation
     if (!name || !email || !phone) {
       return res.status(400).json({
         success: false,
@@ -18,13 +22,13 @@ export default async function handler(req, res) {
       });
     }
 
-    // Clean phone number
+    // ✅ Clean phone number
     const cleanPhone = phone.replace("+", "");
     const countryCodeMatch = cleanPhone.match(/^\d{1,3}/);
     const countryCode = countryCodeMatch ? countryCodeMatch[0] : "";
     const phoneNumber = cleanPhone.replace(countryCode, "");
 
-    // Prepare CRM payload
+    // ✅ Prepare CRM payload
     const body = new URLSearchParams({
       Name: name,
       Email: email,
@@ -35,7 +39,7 @@ export default async function handler(req, res) {
       Message: message || "",
     });
 
-    // Send data to CRM
+    // ✅ Send data to CRM
     const response = await fetch(
       "https://case.growmore.one/api/webhooks/website-form",
       {
@@ -49,27 +53,43 @@ export default async function handler(req, res) {
 
     const crmData = await response.json();
 
-    // Setup Nodemailer transporter
+    // ✅ DEBUG (remove after testing)
+    console.log("EMAIL_USER:", process.env.EMAIL_USER);
+    console.log("EMAIL_PASS:", process.env.EMAIL_PASS);
+
+    // ❌ Stop if email config missing
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      return res.status(500).json({
+        success: false,
+        message: "Email configuration missing",
+      });
+    }
+
+    // ✅ Setup Nodemailer (FIXED)
     const transporter = nodemailer.createTransport({
-      service: "gmail",
-        auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
     });
 
-    // Send Email
+    // ✅ Send Email
     await transporter.sendMail({
-      from: `"Growmore Immigration"`,
-      to: "info@growmore.one", // Primary destination
-      bcc: "info@growmoreimmigration.com", // Optional backup
+      from: `"Growmore Immigration" <${process.env.EMAIL_USER}>`,
+      to: "info@growmore.one",
+      bcc: "info@growmoreimmigration.com",
       subject: "Appointment Booking from the website",
       html: `
-        <p>Name: ${name}</p>
-        <p>Email:${email}</p>
-        <p>Phone: +${countryCode} ${phoneNumber}</p>
-        <p>Visa Type:${visaType || "General Inquiry"}</p>
-        <p>Message:${message || "N/A"}</p>
+        <h3>New Lead Received</h3>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> +${countryCode} ${phoneNumber}</p>
+        <p><strong>Visa Type:</strong> ${visaType || "General Inquiry"}</p>
+        <p><strong>Message:</strong> ${message || "N/A"}</p>
+        <p><strong>Source:</strong> ${source || "Website Form"}</p>
       `,
     });
 
