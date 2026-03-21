@@ -29,15 +29,15 @@ const Navbar = () => {
 
   return (
     <nav ref={navRef} className="sticky top-0 z-50 bg-white shadow-md">
-      <div className="max-w-8xl mx-auto px-6 lg:px-10">
+      <div className="max-w-8xl mx-auto px-4 lg:px-6 xl:px-10">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" onClick={closeAll}>
-            <img src="/assets/logo.png" alt="Logo" className="h-10 w-auto" />
+            <img src="/assets/logo.png" alt="Logo" className="h-8 lg:h-9 xl:h-10 w-auto" />
           </Link>
 
           {/* Desktop Menu */}
-          <ul className="hidden lg:flex items-center space-x-8 text-base font-[14px] font-medium text-[#1F4E55]">
+          <ul className="hidden lg:flex  items-center lg:space-x-2 xl:space-x-8 lg:text-[13px] xl:text-[15px] text-base font-medium text-[#1F4E55]">
             {" "}
             <li>
               <Link to="/" onClick={closeAll} className="hover:text-[#8FD07D]">
