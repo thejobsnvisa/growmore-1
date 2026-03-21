@@ -41,10 +41,6 @@ export default async function handler(req, res) {
       body: body.toString(),
     });
 
-    // ✅ ENV check
-    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-      throw new Error("Email ENV missing");
-    }
 
     // ✅ transporter
     const transporter = nodemailer.createTransport({
@@ -52,14 +48,14 @@ export default async function handler(req, res) {
       port: 587,
       secure: false,
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: "upadhyayriddhi445@gmail.com",
+        pass: "rodqfksyjuyotvlm"
       },
     });
 
     // ✅ email
     await transporter.sendMail({
-      from: `"Growmore Immigration" <${process.env.EMAIL_USER}>`,
+      from: `"Growmore Immigration" <upadhyayriddhi445@gmail.com>`,
       to: "info@growmore.one",
       bcc: "info@growmoreimmigration.com",
       subject: "Appointment Booking from Website",
