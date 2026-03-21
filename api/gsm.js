@@ -76,6 +76,7 @@ const transporter = nodemailer.createTransport({
     `;
 
     await transporter.sendMail({
+     from: `"Growmore Immigration"`,
      to: "info@growmore.one", // Primary destination
       bcc: "info@growmoreimmigration.com", // Optional backup
       subject: ` GSM Assessment Inquiry: ${data.fullName}`,
