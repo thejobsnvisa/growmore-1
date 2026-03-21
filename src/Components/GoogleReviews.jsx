@@ -59,7 +59,7 @@ export default function GoogleStyleReviews() {
               {/* Top Row */}
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-semibold">
+                  <div className="w-9 h-9 rounded-full bg-[#28535b] text-white flex items-center justify-center text-sm font-semibold">
                     {review.name
                       .split(" ")
                       .map((n) => n[0])
