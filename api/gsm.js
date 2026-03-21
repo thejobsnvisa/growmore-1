@@ -1,10 +1,11 @@
 import nodemailer from "nodemailer";
-import dotenv from "dotenv";
-dotenv.config();
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
-    return res.status(405).json({ success: false, message: "Method not allowed" });
+    return res.status(405).json({
+      success: false,
+      message: "Method not allowed",
+    });
   }
 
   try {
@@ -15,14 +16,6 @@ export default async function handler(req, res) {
       return res.status(400).json({
         success: false,
         message: "Missing required fields",
-      });
-    }
-
-    // ✅ ENV CHECK (IMPORTANT)
-    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-      return res.status(500).json({
-        success: false,
-        message: "Email configuration missing",
       });
     }
 
@@ -58,7 +51,7 @@ export default async function handler(req, res) {
 
     /* ========= SEND EMAIL ========= */
     await transporter.sendMail({
-      from: `"Growmore Immigration" <${process.env.EMAIL_USER}>`, // ✅ FIXED
+      from: `"Growmore Immigration" <upadhyayriddhi445@gmail.com>`, // ✅ FIXED
       to: "info@growmore.one",
       bcc: "info@growmoreimmigration.com",
       subject: `GSM Inquiry: ${data.fullName}`,
