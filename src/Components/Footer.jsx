@@ -44,17 +44,24 @@ const Footer = () => {
               For Your Visa?
             </h2>
           </div>
-          <div className="flex sm:flex-row -ml-42 items-start  gap-4 mt-4 md:mt-0">
-            {" "}
-            {[FaEnvelope, FaWhatsapp, FaPhoneAlt].map((Icon, i) => (
-              <div
-                key={i}
-                className="bg-[#6dc7d1] p-3 sm:p-4 rounded-full hover:bg-white hover:text-[#28535B] transition cursor-pointer"
-              >
-                <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
-              </div>
-            ))}
-          </div>
+          <div className="flex sm:flex-row items-start gap-4 mt-4 md:mt-0">
+  {[
+    { Icon: FaEnvelope, href: "mailto:india@growmore.one" },
+    { Icon: FaWhatsapp, href: "https://wa.me/+61434202021" },
+    { Icon: FaPhoneAlt, href: "tel:(03)87643334" }
+  ].map(({ Icon, href }, i) => (
+    <a
+      key={i}
+      href={href}
+      target={href.startsWith("http") ? "_blank" : "_self"}
+      rel="noopener noreferrer"
+      className="bg-[#6dc7d1] p-3 sm:p-4 rounded-full text-white hover:bg-white hover:text-[#28535B] transition shadow-sm cursor-pointer flex items-center justify-center"
+    >
+      {/* ✅ Rendering the component here tells ESLint the variable is being used */}
+      <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
+    </a>
+  ))}
+</div>
         </div>
       </div>
       {/* MAIN FOOTER */}
