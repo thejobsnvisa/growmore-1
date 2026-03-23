@@ -2,27 +2,21 @@ import nodemailer from "nodemailer";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
-    return res.status(405).json({ success: false, message: "Method not allowed" });
+    return res.status(405).json({
+      success: false,
+      message: "Method not allowed",
+    });
   }
 
   try {
-    const { name, email, phone, visaType, message, source, captchaToken } =
+    const { name, email, phone, visaType, message, source } =
       typeof req.body === "string" ? JSON.parse(req.body) : req.body;
 
-    // 1. Verify reCAPTCHA first
-    const captchaResponse = await fetch(
-      `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SITE_KEY}&response=${captchaToken}`,
-      { method: "POST" }
-    );
-    const captchaData = await captchaResponse.json();
-
-    if (!captchaData.success) {
-      return res.status(400).json({ success: false, message: "Captcha verification failed" });
-    }
-
-    // 2. Validate required fields
     if (!name || !email || !phone) {
-      return res.status(400).json({ success: false, message: "Name, email and phone are required" });
+      return res.status(400).json({
+        success: false,
+        message: "Name, email and phone are required",
+      });
     }
 
     // ✅ Phone parsing
@@ -30,7 +24,7 @@ export default async function handler(req, res) {
     const countryCode = cleanPhone.slice(0, 3);
     const phoneNumber = cleanPhone.slice(3);
 
-    // ✅ CRM Webhook
+    // ✅ CRM
     const body = new URLSearchParams({
       Name: name,
       Email: email,
@@ -46,6 +40,7 @@ export default async function handler(req, res) {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: body.toString(),
     });
+
 
     // ✅ Transporter using ENV variables
     const transporter = nodemailer.createTransport({
@@ -74,10 +69,17 @@ export default async function handler(req, res) {
       `,
     });
 
-    return res.status(200).json({ success: true, message: "Success" });
+    return res.status(200).json({
+      success: true,
+      message: "Success",
+    });
 
   } catch (error) {
     console.error("ERROR:", error);
-    return res.status(500).json({ success: false, message: error.message });
+
+    return res.status(500).json({
+      success: false,
+      message: error.message, // ✅ important
+    });
   }
 }
