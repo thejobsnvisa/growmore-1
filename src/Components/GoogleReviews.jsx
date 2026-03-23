@@ -5,23 +5,16 @@ import { reviewsData } from "../data/reviewsData";
 export default function GoogleStyleReviews() {
   const [current, setCurrent] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(3);
-  const [sortBy, setSortBy] = useState("relevant");
 
+  // ✅ 1. Silent Backend-style filtering & sorting
+  // Filters out anything below 4 stars and sorts by relevance automatically
   const sortedReviews = useMemo(() => {
-    let data = [...reviewsData];
-    switch (sortBy) {
-      case "newest":
-        return data.sort((a, b) => new Date(b.date) - new Date(a.date));
-      case "highest":
-        return data.sort((a, b) => b.rating - a.rating);
-      case "lowest":
-        return data.sort((a, b) => a.rating - b.rating);
-      case "relevant":
-      default:
-        return data.sort((a, b) => b.relevance - a.relevance);
-    }
-  }, [sortBy]);
+    return reviewsData
+      .filter((review) => review.rating >= 4)
+      .sort((a, b) => b.relevance - a.relevance);
+  }, []);
 
+  // ✅ 2. Handle Responsive Viewports
   useEffect(() => {
     const updateView = () => {
       if (window.innerWidth < 640) setItemsPerView(1);
@@ -33,63 +26,38 @@ export default function GoogleStyleReviews() {
     return () => window.removeEventListener("resize", updateView);
   }, []);
 
+  // ✅ 3. Auto Slider Logic
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) =>
-        prev + 1 > sortedReviews.length - itemsPerView ? 0 : prev + 1,
+        prev + 1 > sortedReviews.length - itemsPerView ? 0 : prev + 1
       );
-    }, 3500);
+    }, 4000);
     return () => clearInterval(interval);
-  }, [itemsPerView, sortedReviews.length, sortBy]);
+  }, [itemsPerView, sortedReviews.length]);
 
   return (
-    <section className="py-16 sm:py-20 bg-gray-50/30">
+    <section className="py-16 sm:py-24 bg-gray-50/30 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-4">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
-          <div className="text-left">
-            <h2 className="text-3xl font-bold text-gray-900 tracking-tight">
-              Customer Reviews
-            </h2>
-            <div className="flex items-center gap-3 mt-2">
-              <span className="text-2xl font-bold text-gray-800">4.9</span>
-              <div className="flex text-yellow-400">
-                {[...Array(5)].map((_, i) => (
-                  <span key={i}>★</span>
-                ))}
-              </div>
-              <span className="text-gray-500 text-sm">
-                (120+ Google Reviews)
-              </span>
+        
+        {/* Header: Centered & Clean (No Filter UI) */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">
+            Client Success Stories
+          </h2>
+          <div className="flex items-center justify-center gap-3 mt-3">
+            <span className="text-2xl font-bold text-gray-800">4.9</span>
+            <div className="flex text-yellow-400 text-xl">
+              {[...Array(5)].map((_, i) => <span key={i}>★</span>)}
             </div>
-          </div>
-
-          {/* Filter Bar */}
-          <div className="flex items-center gap-2 bg-white p-1 rounded-lg border border-gray-200 shadow-sm">
-            <select
-              value={sortBy}
-              onChange={(e) => {
-                setSortBy(e.target.value);
-                setCurrent(0);
-              }}
-              className="w-full md:w-auto text-sm bg-transparent pl-3 pr-8 py-3 text-gray-700 outline-none cursor-pointer font-semibold appearance-none"
-              style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236B7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`,
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "right 0.75rem center",
-                backgroundSize: "1rem",
-              }}
-            >
-              <option value="relevant">Most Relevant</option>
-              <option value="newest">Newest First</option>
-              <option value="highest">Highest Rating</option>
-              <option value="lowest">Lowest Rating</option>
-            </select>
+            <span className="text-gray-500 text-sm font-medium">
+              (Based on 120+ Google Reviews)
+            </span>
           </div>
         </div>
 
         {/* Slider Container */}
-        <div className="overflow-hidden relative pb-4">
+        <div className="relative">
           <div
             className="flex transition-transform duration-700 ease-in-out"
             style={{
@@ -99,24 +67,22 @@ export default function GoogleStyleReviews() {
             {sortedReviews.map((review) => (
               <div
                 key={review.id}
-                className="flex-shrink-0 px-3" // Using padding for the "gap" to keep math simple
+                className="flex-shrink-0 px-3"
                 style={{ width: `${100 / itemsPerView}%` }}
               >
-                <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col justify-between group">
+                <div className="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col justify-between group">
                   <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-[#28535b] text-white flex items-center justify-center text-sm font-bold shadow-inner">
-                          {review.name
-                            .split(" ")
-                            .map((n) => n[0])
-                            .join("")}
+                    {/* Profile Header */}
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 rounded-full bg-[#28535b] text-white flex items-center justify-center text-base font-bold shadow-inner uppercase">
+                          {review.name.split(" ").map((n) => n[0]).join("")}
                         </div>
                         <div>
                           <h4 className="text-sm font-bold text-gray-900 group-hover:text-[#28535b] transition-colors">
                             {review.name}
                           </h4>
-                          <p className="text-[11px] uppercase tracking-wider text-gray-400 font-medium">
+                          <p className="text-[10px] uppercase tracking-widest text-gray-400 font-bold">
                             {review.time}
                           </p>
                         </div>
@@ -124,11 +90,12 @@ export default function GoogleStyleReviews() {
                       <img
                         src="https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png"
                         alt="google"
-                        className="w-5 h-5 opacity-80"
+                        className="w-5 h-5  transition-all"
                       />
                     </div>
 
-                    <div className="flex gap-0.5 mb-3">
+                    {/* Star Rating */}
+                    <div className="flex gap-0.5 mb-4">
                       {[...Array(5)].map((_, i) => (
                         <span
                           key={i}
@@ -139,10 +106,12 @@ export default function GoogleStyleReviews() {
                       ))}
                     </div>
 
-                    <p className="text-gray-600 text-[14px] leading-relaxed italic">
+                    {/* Review Text */}
+                    <p className="text-gray-600 text-[15px] leading-relaxed italic">
                       "{review.text}"
                     </p>
                   </div>
+                  
                 </div>
               </div>
             ))}
