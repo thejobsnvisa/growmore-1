@@ -62,8 +62,9 @@ With strengthened documentation and salary evidence properly structured, we lodg
  
 On 15th January 2026, we received a Request for Further Information (RFI) from TRA. We acted promptly and submitted additional payslips and a well-structured submission letter as required on 19th January 2026.  
  
-**And finally, the result came, which we all been waiting for.** On 20th January 2026, just one day after responding to the RFI, he received his: 
-**Positive TRA Skills Assessment for Glazier (ANZSCO 333111).** ---
+And finally, the result came, which we all been waiting for.
+**On 20th January 2026**, just one day after responding to the RFI, he received his: 
+**Positive TRA Skills Assessment for Glazier (ANZSCO 333111).** 
 
 ## Key Takeaways for Skilled Migrants 
  
