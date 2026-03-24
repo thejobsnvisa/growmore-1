@@ -110,8 +110,10 @@ const Migrate = () => {
 
             {/* Main Heading */}
             <h2 className="text-xl md:text-4xl normal text-gray-900 leading-tight mb-6 mt-6">
-              <span className="text-[#8FD07C] font-[40px] font-semibold">Benefits</span> of
-              Moving to Australia
+              <span className="text-[#8FD07C] font-[40px] font-semibold">
+                Benefits
+              </span>{" "}
+              of Moving to Australia
             </h2>
 
             <p className="text-[#727272] font-medium leading-relaxed  max-w-xl text-justify">
@@ -321,7 +323,7 @@ const Migrate = () => {
                 {/* CAPTCHA */}
                 <div className="flex justify-start">
                   <ReCAPTCHA
-                    sitekey="6Lcb_HEsAAAAAJESdQwpfYltspCpspxJPbCyM58Z"
+                    sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
                     ref={recaptchaRef}
                   />
                 </div>
