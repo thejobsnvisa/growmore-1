@@ -19,13 +19,13 @@ export default async function handler(req, res) {
       });
     }
 
-    // ✅ Phone parsing
-    const cleanPhone = phone.replace("+", "");
-    const countryCode = cleanPhone.slice(0, 3);
-    const phoneNumber = cleanPhone.slice(3);
+    // ✅ Better phone parsing
+    const cleanPhone = phone.replace(/\D/g, ""); // remove all non-digits
+    const countryCode = cleanPhone.slice(0, 2); // safer default
+    const phoneNumber = cleanPhone.slice(2);
 
-    // ✅ CRM
-    const body = new URLSearchParams({
+    // ✅ CRM PAYLOAD (JSON)
+    const crmPayload = {
       Name: name,
       Email: email,
       Phone: phoneNumber,
@@ -33,16 +33,31 @@ export default async function handler(req, res) {
       Inquiries: visaType || "General Inquiry",
       Source: source || "Website Form",
       Message: message || "",
-    });
+    };
 
-    await fetch("https://case.growmore.one/api/webhooks/website-form", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: body.toString(),
-    });
+    console.log("📤 Sending to CRM:", crmPayload);
 
+    // ✅ CRM CALL
+    const crmResponse = await fetch(
+      "https://case.growmore.one/api/webhooks/website-form",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(crmPayload),
+      }
+    );
 
-    // ✅ Transporter using ENV variables
+    const crmText = await crmResponse.text(); // capture raw response
+
+    console.log("📥 CRM Response:", crmText);
+
+    if (!crmResponse.ok) {
+      throw new Error(`CRM Error: ${crmText}`);
+    }
+
+    // ✅ Email (unchanged)
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 587,
@@ -53,7 +68,6 @@ export default async function handler(req, res) {
       },
     });
 
-    // ✅ Send Email
     await transporter.sendMail({
       from: `"Growmore Immigration"`,
       to: "info@growmore.one",
@@ -75,11 +89,11 @@ export default async function handler(req, res) {
     });
 
   } catch (error) {
-    console.error("ERROR:", error);
+    console.error("❌ ERROR:", error);
 
     return res.status(500).json({
       success: false,
-      message: error.message, // ✅ important
+      message: error.message,
     });
   }
 }
