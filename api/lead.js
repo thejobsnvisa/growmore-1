@@ -119,9 +119,7 @@ export default async function handler(req, res) {
     });
 
     return res.status(200).json({
-      success: true,
-      message: "Form submitted successfully",
-      crm: crmData, // 👈 useful for debugging
+      crm: crmData
     });
   } catch (error) {
     console.error("❌ ERROR:", error);
