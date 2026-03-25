@@ -20,7 +20,6 @@ const Home = () => {
       <Labour />
       <BlogSection />
       <Testimonials />
-      <GoogleReviews />
       <FAQ />
     </div>
   );
