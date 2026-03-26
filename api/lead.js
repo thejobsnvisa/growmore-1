@@ -1,98 +1,102 @@
 import nodemailer from "nodemailer";
 
 export default async function handler(req, res) {
-  // ✅ CORS
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-
-  // ✅ Preflight
-  if (req.method === "OPTIONS") {
-    return res.status(200).end();
-  }
-
-  // ✅ Health check
+  // ✅ Allow GET for testing (optional)
   if (req.method === "GET") {
     return res.status(200).json({
       success: true,
-      message: "API Active 🚀",
+      message: "API is running 🚀",
     });
   }
 
-  // ❌ Only POST
   if (req.method !== "POST") {
     return res.status(405).json({
       success: false,
-      message: "Method Not Allowed",
+      message: "Method not allowed",
     });
   }
 
   try {
-    const {
-      name,
-      email,
-      phone,
-      visaType,
-      message,
-      source,
-      captchaToken,
-    } = req.body;
+    const body =
+      typeof req.body === "string" ? JSON.parse(req.body) : req.body;
 
-    // ==============================
-    // ✅ 1. VERIFY CAPTCHA (NON-BLOCKING)
-    // ==============================
-    let captchaSuccess = false;
+    const { name, email, phone, visaType, message, source } = body;
+
+    if (!name || !email || !phone) {
+      return res.status(400).json({
+        success: false,
+        message: "Name, email and phone are required",
+      });
+    }
+
+    // ✅ Improved phone parsing (handles +91, spaces, etc.)
+    const cleanPhone = phone.replace(/\D/g, "");
+
+    let countryCode = "91"; // default India
+    let phoneNumber = cleanPhone;
+
+    if (cleanPhone.length > 10) {
+      countryCode = cleanPhone.slice(0, cleanPhone.length - 10);
+      phoneNumber = cleanPhone.slice(-10);
+    }
+
+    // ✅ CRM Payload
+    const crmPayload = {
+      Name: name,
+      Email: email,
+      Phone: phoneNumber,
+      Country_Code: countryCode,
+      Inquiries: visaType || "General Inquiry",
+      Source: source || "Website Form",
+      Message: message || "",
+    };
+
+    console.log("📤 Sending to CRM:", crmPayload);
+
+    // ✅ Timeout controller (important in production)
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10000); // 10 sec
+
+    let crmData = null;
 
     try {
-      const captchaRes = await fetch(
-        "https://www.google.com/recaptcha/api/siteverify",
+      const crmResponse = await fetch(
+        "https://case.growmore.one/api/webhooks/website-form",
         {
           method: "POST",
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
+            "Content-Type": "application/json",
           },
-          body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${captchaToken}`,
+          body: JSON.stringify(crmPayload),
+          signal: controller.signal,
         }
       );
 
-      const captchaData = await captchaRes.json();
-      console.log("Captcha result:", captchaData);
+      clearTimeout(timeout);
 
-      captchaSuccess = captchaData.success;
+      const text = await crmResponse.text();
+
+      console.log("📥 CRM Raw Response:", text);
+
+      try {
+        crmData = JSON.parse(text);
+      } catch {
+        crmData = { raw: text };
+      }
+
+      if (!crmResponse.ok) {
+        throw new Error(text);
+      }
     } catch (err) {
-      console.error("Captcha error:", err);
+      console.error("❌ CRM ERROR:", err.message);
+
+      // ❗ Don't fail entire API if CRM fails
+      crmData = { error: err.message };
     }
 
-    // ==============================
-    // ✅ 2. SEND TO CRM (ALWAYS RUNS)
-    // ==============================
-    const cleanPhone = phone ? phone.replace(/\D/g, "") : "";
-
-    try {
-      await fetch("https://case.growmore.one/api/webhooks/website-form", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          Name: name,
-          Email: email,
-          Phone: cleanPhone,
-          Inquiries: visaType || "General Inquiry",
-          Source: source || "Website",
-          Message: message || "",
-          CaptchaVerified: captchaSuccess ? "Yes" : "No", // ✅ IMPORTANT
-        }),
-      });
-    } catch (err) {
-      console.error("CRM Webhook failed:", err);
-    }
-
-    // ==============================
-    // ✅ 3. SEND EMAIL
-    // ==============================
+    // ✅ Email Transport
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      service: "gmail", // cleaner
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
@@ -100,35 +104,31 @@ export default async function handler(req, res) {
     });
 
     await transporter.sendMail({
-      from: `"Growmore Website" <${process.env.EMAIL_USER}>`,
+      from: `"Growmore Immigration" <${process.env.EMAIL_USER}>`,
       to: "info@growmore.one",
-      subject: `New Lead: ${name}`,
+      bcc: "info@growmoreimmigration.com",
+      subject: "Appointment Booking from Website",
       html: `
+        <h3>New Lead</h3>
         <p><b>Name:</b> ${name}</p>
         <p><b>Email:</b> ${email}</p>
-        <p><b>Phone:</b> ${phone}</p>
-        <p><b>Visa Type:</b> ${visaType}</p>
-        <p><b>Message:</b> ${message}</p>
-        <p><b>Captcha Verified:</b> ${captchaSuccess ? "Yes" : "No"}</p>
+        <p><b>Phone:</b> +${countryCode} ${phoneNumber}</p>
+        <p><b>Inquiry:</b> ${visaType || "N/A"}</p>
+        <p><b>Message:</b> ${message || "N/A"}</p>
       `,
     });
 
-    // ==============================
-    // ✅ SUCCESS RESPONSE
-    // ==============================
     return res.status(200).json({
       success: true,
-      message: captchaSuccess
-        ? "Lead submitted successfully ✅"
-        : "Lead submitted (captcha failed ⚠️)",
+      message: "Form submitted successfully",
+      crm: crmData
     });
-
   } catch (error) {
-    console.error("API ERROR:", error);
+    console.error("❌ ERROR:", error);
 
     return res.status(500).json({
       success: false,
-      message: "Internal Server Error",
+      message: error.message || "Something went wrong",
     });
   }
 }
