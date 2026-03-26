@@ -1,11 +1,15 @@
 import nodemailer from "nodemailer";
-import dotenv from "dotenv";
-dotenv.config();
+
 export default async function handler(req, res) {
-    // ✅ CORS (IMPORTANT for GitHub Pages)
+  // ✅ CORS (GitHub Pages support)
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  // ✅ IMPORTANT: Handle preflight
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
 
   if (req.method !== "POST") {
     return res
@@ -16,28 +20,29 @@ export default async function handler(req, res) {
   try {
     const data = req.body;
 
-    // 1. Basic Validation
+    // ✅ Validation
     if (!data.companyName || !data.abn || !data.contactPerson) {
-      return res
-        .status(400)
-        .json({ success: false, message: "Required business fields missing" });
+      return res.status(400).json({
+        success: false,
+        message: "Required business fields missing",
+      });
     }
 
-    /* ========= CRM Integration (Background) ========= */
+    /* ========= CRM Integration ========= */
     const crmBody = new URLSearchParams({
       Name: data.contactPerson,
       Company: data.companyName,
-      Email: "Employer Inquiry", // Or add email field to form if preferred
+      Email: "Employer Inquiry",
       Phone: data.abn,
       Inquiries: "Employer-Sponsored Visa Assessment",
       Source: "Website Employer Form",
       Message: `
-        ABN: ${data.abn}
-        Staff: ${data.totalEmployees}
-        Revenue: ${data.turnoverRange}
-        Job Title: ${data.jobTitle}
-        ANZSCO: ${data.anzscoCode}
-        DAMA Status: ${data.dama}
+ABN: ${data.abn}
+Staff: ${data.totalEmployees}
+Revenue: ${data.turnoverRange}
+Job Title: ${data.jobTitle}
+ANZSCO: ${data.anzscoCode}
+DAMA Status: ${data.dama}
       `.trim(),
     });
 
@@ -47,7 +52,7 @@ export default async function handler(req, res) {
       body: crmBody.toString(),
     }).catch((err) => console.error("CRM Error:", err));
 
-    /* ========= Nodemailer Notification ========= */
+    /* ========= EMAIL ========= */
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 587,
@@ -59,38 +64,38 @@ export default async function handler(req, res) {
     });
 
     const emailHtml = `
-          <p><b>Company:</b> ${data.companyName}</p>
-          <p><b>ABN:</b> ${data.abn}</p>
-          <p><b>Website:</b> ${data.website || "N/A"}</p>
-          <p><b>Address:</b> ${data.businessAddress}</p>
-          <p><b>Employees:</b> ${data.totalEmployees} | <b>Operation:</b> ${data.yearsOfOperation}</p>
-          <p><b>Annual Turnover:</b> ${data.turnoverRange}</p>
-          <p><b>Existing Labour Agreement:</b> ${data.labourAgreementApproved}</p>
-          <p><b>DAMA Status:</b> ${data.dama}</p>
-          <p><b>Role:</b> ${data.jobTitle}</p>
-          <p><b>ANZSCO Code:</b> ${data.anzscoCode}</p>
-          <p><b>Employment Type:</b> ${data.employmentType === "Other" ? data.otherEmploymentType : data.employmentType}</p>
-          <p><b>PAYG Arrangement:</b> ${data.paygArrangement === "Other" ? data.otherPaygArrangement : data.paygArrangement}</p>
-          <p><b>LMT Conducted:</b> ${data.labourMarketTesting}</p>
-          <p><b>Previous Applications:</b> ${data.previousLabourAgreement}</p>
-          <p><b>Current Overseas Workers:</b> ${data.overseasWorkers || "0"}</p>
-          <p><b>Contact Person:</b> ${data.contactPerson}</p>
-  
-      </div>
+      <h3>Employer Lead</h3>
+      <p><b>Company:</b> ${data.companyName}</p>
+      <p><b>ABN:</b> ${data.abn}</p>
+      <p><b>Website:</b> ${data.website || "N/A"}</p>
+      <p><b>Address:</b> ${data.businessAddress}</p>
+      <p><b>Employees:</b> ${data.totalEmployees}</p>
+      <p><b>Turnover:</b> ${data.turnoverRange}</p>
+      <p><b>DAMA:</b> ${data.dama}</p>
+      <p><b>Job Title:</b> ${data.jobTitle}</p>
+      <p><b>ANZSCO:</b> ${data.anzscoCode}</p>
+      <p><b>Contact Person:</b> ${data.contactPerson}</p>
     `;
 
- await transporter.sendMail({
-  from: `"Growmore Immigration" <${process.env.EMAIL_USER}>`,
-  to: "info@growmore.one", // Primary destination
-  bcc: "info@growmoreimmigration.com", // Optional backup
-  subject: `DAMA Interest: ${data.fullName} (${data.occupation})`,
-  html: emailHtml,
-});
-    return res
-      .status(200)
-      .json({ success: true, message: "Employer assessment submitted" });
+    await transporter.sendMail({
+      from: `"Growmore Immigration" <${process.env.EMAIL_USER}>`,
+      to: "info@growmore.one",
+      bcc: "info@growmoreimmigration.com",
+      subject: `DAMA Interest: ${data.contactPerson}`, // ✅ FIXED
+      html: emailHtml,
+    });
+
+    return res.status(200).json({
+      success: true,
+      message: "Employer assessment submitted",
+    });
+
   } catch (error) {
     console.error("Employer API Error:", error);
-    return res.status(500).json({ success: false, error: error.message });
+
+    return res.status(500).json({
+      success: false,
+      message: error.message,
+    });
   }
 }
