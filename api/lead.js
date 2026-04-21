@@ -18,7 +18,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    /* ========= SAFE BODY PARSE ========= */
+    /* ========= SAFE BODY ========= */
     let body;
     try {
       body = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
@@ -27,28 +27,15 @@ export default async function handler(req, res) {
     }
 
     const { name, email, phone, visaType, message } = body;
-    const leadSource = body.source || "Website Form";
 
     if (!name || !email) {
       return res.status(400).json({
         success: false,
-        message: "Name and Email are required",
+        message: "Name & Email required",
       });
     }
 
-    /* ========= PHONE PARSE ========= */
-    const cleanPhone = phone ? phone.replace(/\D/g, "") : "";
-    let countryCode = "91";
-    let phoneNumber = cleanPhone;
-
-    if (cleanPhone.length > 10) {
-      countryCode = cleanPhone.slice(0, cleanPhone.length - 10);
-      phoneNumber = cleanPhone.slice(-10);
-    }
-
-    /* ========= CRM SYNC ========= */
-    console.log("[CRM] Sending data for:", email);
-
+    /* ========= CRM (SAFE, NON-BLOCKING) ========= */
     try {
       const controller = new AbortController();
       const timeout = setTimeout(() => controller.abort(), 8000);
@@ -61,10 +48,8 @@ export default async function handler(req, res) {
           body: JSON.stringify({
             Name: name,
             Email: email,
-            Phone: phoneNumber,
-            Country_Code: countryCode,
+            Phone: phone || "",
             Inquiries: visaType || "General Inquiry",
-            Source: leadSource,
             Message: message || "",
           }),
           signal: controller.signal,
@@ -72,20 +57,17 @@ export default async function handler(req, res) {
       );
 
       clearTimeout(timeout);
-
-      const crmText = await crmResponse.text();
-      console.log("[CRM STATUS]:", crmResponse.status);
-      console.log("[CRM RESPONSE]:", crmText);
+      console.log("CRM STATUS:", crmResponse.status);
     } catch (err) {
-      console.error("[CRM ERROR FULL]:", err);
+      console.error("CRM ERROR:", err.message);
     }
 
-    /* ========= EMAIL CONFIG CHECK ========= */
+    /* ========= EMAIL CHECK ========= */
     if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-      console.error("Missing EMAIL env variables");
+      console.error("❌ EMAIL ENV MISSING");
       return res.status(500).json({
         success: false,
-        message: "Email service not configured",
+        message: "Email config missing",
       });
     }
 
@@ -101,32 +83,39 @@ export default async function handler(req, res) {
     });
 
     /* ========= SEND EMAIL ========= */
-    await transporter.sendMail({
-      from: `"Growmore" <${process.env.EMAIL_USER}>`,
-      to: "info@growmore.one",
-      bcc: "info@growmoreimmigration.com",
-      subject: "New Appointment Booking",
-      html: `
-        <h3>New Lead Details</h3>
-        <p><b>Name:</b> ${name}</p>
-        <p><b>Email:</b> ${email}</p>
-        <p><b>Phone:</b> ${phone || "N/A"}</p>
-        <p><b>Visa Type:</b> ${visaType || "Not specified"}</p>
-        <p><b>Message:</b> ${message || "No message"}</p>
-      `,
-    });
+    try {
+      await transporter.sendMail({
+        from: `"Growmore" <${process.env.EMAIL_USER}>`,
+        to: "info@growmore.one",
+        subject: "New Lead",
+        html: `
+          <h3>Lead Details</h3>
+          <p><b>Name:</b> ${name}</p>
+          <p><b>Email:</b> ${email}</p>
+          <p><b>Phone:</b> ${phone || "N/A"}</p>
+          <p><b>Visa:</b> ${visaType || "N/A"}</p>
+          <p><b>Message:</b> ${message || "N/A"}</p>
+        `,
+      });
+    } catch (emailError) {
+      console.error("EMAIL ERROR FULL:", emailError);
+      return res.status(500).json({
+        success: false,
+        message: "Email failed",
+        error: emailError.message,
+      });
+    }
 
-    /* ========= SUCCESS ========= */
     return res.status(200).json({
       success: true,
-      message: "Thank you! Our team will contact you shortly.",
+      message: "Submitted successfully",
     });
 
   } catch (error) {
-    console.error("CRITICAL ERROR FULL:", error);
+    console.error("CRITICAL ERROR:", error);
     return res.status(500).json({
       success: false,
-      message: "Internal Server Error",
+      message: "Server crashed",
       error: error.message,
     });
   }
