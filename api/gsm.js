@@ -68,7 +68,7 @@ Comments: ${data.comments || "None"}
         `.trim(),
       });
 
-      await fetch("https://leads.growmore.one/api/website-form", {
+      await fetch("https://case.growmore.one/api/webhooks/website-form", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
