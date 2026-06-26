@@ -103,7 +103,7 @@ export default async function handler(req, res) {
     /* ========= SEND EMAIL ========= */
     await transporter.sendMail({
       from: `"Growmore" <${process.env.EMAIL_USER}>`,
-      to: ["info@growmore.one", "info@growmoreimmigration.com"],
+      to: ["info@growmore.one"],
       subject: "New Appointment Booking",
       html: `
         <h3>New Lead Details</h3>
