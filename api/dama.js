@@ -91,7 +91,6 @@ Location: ${data.location}
     await transporter.sendMail({
       from: `"Growmore Immigration" <${process.env.EMAIL_USER}>`,
       to: "info@growmore.one",
-      bcc: "info@growmoreimmigration.com",
       subject: `DAMA Lead: ${data.fullName} (${data.occupation})`,
       html: `
         <h2>New DAMA Lead</h2>
