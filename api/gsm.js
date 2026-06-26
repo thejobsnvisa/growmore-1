@@ -124,7 +124,6 @@ Comments: ${data.comments || "None"}
     await transporter.sendMail({
       from: `"Growmore Immigration" <${process.env.EMAIL_USER}>`,
       to: "info@growmore.one",
-      bcc: "info@growmoreimmigration.com",
       subject: `GSM Lead: ${data.fullName} (${data.occupation})`,
       html: emailHtml,
     });
