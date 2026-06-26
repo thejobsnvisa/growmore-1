@@ -108,7 +108,6 @@ DAMA Status: ${data.dama}
     await transporter.sendMail({
       from: `"Growmore Immigration" <${process.env.EMAIL_USER}>`,
       to: "info@growmore.one",
-      bcc: "info@growmoreimmigration.com",
       subject: `DAMA Interest: ${data.contactPerson}`,
       html: emailHtml,
     });
