@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import ScrollToTop from "./Components/ScrollToTop";
+import PageTracker from "../api/PageTracker"
 
 // Pages
 import Home from "./Pages/Home";
@@ -66,6 +67,7 @@ function App() {
   return (
     <Router>
       <Navbar />
+      <PageTracker/>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
