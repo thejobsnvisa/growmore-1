@@ -31,19 +31,20 @@ export default async function handler(req, res) {
       return res.status(400).json({ success: false, message: "Invalid JSON" });
     }
 
-    const { pagePath, userId, timestamp } = body;
+    // Extracted 'action' to represent the click event
+    const { pagePath, userId, timestamp, action } = body;
 
     if (!pagePath) {
       return res.status(400).json({ success: false, message: "pagePath is required" });
     }
 
-    // Format the identifier output (will show the real ID, or state Unauthenticated)
     const userIdentifier = userId ? `UID: ${userId}` : "Unauthenticated User";
     const logTimestamp = timestamp || new Date().toISOString();
+    const eventAction = action ? `[Action: ${action}]` : "[Action: Page View]";
 
     /* ========= PRINT ANALYTICS LOGS WITH ORIGINAL TIMESTAMPS ========= */
-    // This logs cleanly in your live Vercel Dashboard log stream
-    console.log(`[TRACKING] [Time: ${logTimestamp}] | [User: ${userIdentifier}] | [Page: ${pagePath}]`);
+    // Will output: [TRACKING] [Time: ...] | [User: ...] | [Page: /about] | [Action: Clicked Voice Widget Start]
+    console.log(`[TRACKING] [Time: ${logTimestamp}] | [User: ${userIdentifier}] | [Page: ${pagePath}] | ${eventAction}`);
 
     return res.status(200).json({
       success: true,
