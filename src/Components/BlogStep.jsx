@@ -167,7 +167,7 @@ const BlogStep = () => {
       <div className="max-w-[1600px] mx-auto px-6 md:px-12">
         <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div className="flex flex-row flex-wrap items-end gap-3">
-            <label className="flex flex-col gap-2 w-[365px] text-sm font-medium text-[#163c3d]">
+            <label className="flex flex-col gap-2 xl:w-[425px] w-[365px] text-sm font-medium text-[#163c3d]">
               Category
               <select
                 value={selectedCategory}
@@ -184,7 +184,7 @@ const BlogStep = () => {
             </label>
 
             {availableSubcategories.length > 0 && (
-              <label className="flex flex-col gap-2 ml-5 w-[365px] text-sm font-medium text-[#163c3d]">
+              <label className="flex flex-col gap-2 ml-6 xl:w-[425px] w-[365px] text-sm font-medium text-[#163c3d]">
                 Subcategory
                 <select
                   value={selectedSubcategory}
@@ -202,7 +202,7 @@ const BlogStep = () => {
             )}
           </div>
 
-          <label className="flex flex-col gap-2 w-[365px] text-sm font-medium text-[#163c3d]">
+          <label className="flex flex-col gap-2 xl:w-[425px] w-[365px] text-sm font-medium text-[#163c3d]">
             Search news
             <input
               type="search"
