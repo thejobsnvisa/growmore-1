@@ -5,6 +5,8 @@ export const blogs = [
     title: "Which Australian Visa Is Right? 3 Questions to Decide",
     date: "March 31, 2026",
     image: `${import.meta.env.BASE_URL}assets/bg.jpg`,
+    category:"Labour Agreements & DAMA",
+    subcategory:"Skills Assessment",
   },
   {
     id: 2,
@@ -12,6 +14,8 @@ export const blogs = [
     title:"Partner Visa Guide: Onshore & Offshore Australia",
     date: "March 30, 2026",
     image: `${import.meta.env.BASE_URL}assets/bg.1.jpg`,
+    category:"Bridging Visa",
+    subcategory:"Subclass 186",
   },
   {
     id: 3,
