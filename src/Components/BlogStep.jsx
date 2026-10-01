@@ -1,7 +1,9 @@
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { FaCalendar } from "react-icons/fa";
 import { blogs } from "../data/blogsData";
 import { Link } from "react-router-dom";
+import { VscRefresh } from "react-icons/vsc";
+import { CiSearch } from "react-icons/ci";
 
 const BlogStep = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -227,6 +229,13 @@ const BlogStep = () => {
     setCurrentPage(1);
   };
 
+  const handleResetFilters = () => {
+    setSearchTerm("");
+    setSelectedCategory("");
+    setSelectedSubcategory("");
+    setCurrentPage(1);
+  };
+
   return (
     <section className="w-full bg-white py-12 sm:py-16 lg:py-20">
       <div className="mx-auto w-full max-w-[1600px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
@@ -234,35 +243,84 @@ const BlogStep = () => {
         {/* =========================
             RESPONSIVE FILTER SECTION
         ========================== */}
-        <div className="mb-8 w-full">
-          <div
-            className="
-              grid w-full grid-cols-1 gap-4
-              sm:grid-cols-2
-              lg:grid-cols-3
-              xl:flex xl:flex-wrap xl:items-end
-              xl:gap-4
-            "
-          >
+        <div className="mb-8 flex w-full flex-col items-center gap-3">
+          <div className="flex w-full max-w-[900px] flex-col gap-3">
 
-            {/* Category */}
+            {/* Search */}
             <label
-              className="
-                flex w-full flex-col gap-2
-                text-sm font-medium text-[#163c3d]
-                xl:w-[425px]
-                2xl:w-[475px]
-              "
+              className="flex w-full flex-col gap-2 text-sm font-medium text-[#163c3d]"
             >
-              <span>Category</span>
+              <span className="sr-only">Search</span>
 
-              <select
+              <div className="relative w-full">
+                <CiSearch
+                  aria-hidden="true"
+                  className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400"
+                />
+                <input
+                  type="search"
+                  value={searchTerm}
+                  onChange={(event) =>
+                    handleSearchChange(event.target.value)
+                  }
+                  placeholder="Search"
+                  className="
+                    h-11 w-full rounded-lg border border-gray-300
+                    bg-white pl-11 pr-4 text-sm font-normal text-gray-700
+                    outline-none transition-all duration-200
+                    placeholder:text-gray-400 focus:border-[#6dc7d1]
+                    focus:ring-2 focus:ring-[#6dc7d1]/20
+                  "
+                />
+              </div>
+            </label>
+
+             <div className="flex w-full flex-col gap-3 sm:flex-row sm:items-center sm:gap-3">
+                {/* Category */}
+            <select
+              aria-label="Category"
+              className="
+                h-11 w-full min-w-0
+                sm:w-auto sm:flex-1
+                rounded-lg
+                border border-gray-300
+                bg-white
+                px-4
+                text-sm font-normal
+                text-gray-700
+                outline-none
+                transition-all
+                duration-200
+                focus:border-[#6dc7d1]
+                focus:ring-2
+                focus:ring-[#6dc7d1]/20
+              "
                 value={selectedCategory}
                 onChange={(event) =>
                   handleCategoryChange(event.target.value)
                 }
+              >
+                <option value="">
+                  Category
+                </option>
+
+                {categories.map((category) => (
+                  <option
+                    key={category}
+                    value={category}
+                  >
+                    {category}
+                  </option>
+                ))}
+            </select>
+
+            {/* Subcategory */}
+            {availableSubcategories.length > 0 && (
+              <select
+                aria-label="Subcategory"
                 className="
-                  h-11 w-full
+                  h-11 w-full min-w-0
+                  sm:w-auto sm:flex-1
                   rounded-lg
                   border border-gray-300
                   bg-white
@@ -276,61 +334,15 @@ const BlogStep = () => {
                   focus:ring-2
                   focus:ring-[#6dc7d1]/20
                 "
-              >
-                <option value="">
-                  All categories
-                </option>
-
-                {categories.map((category) => (
-                  <option
-                    key={category}
-                    value={category}
-                  >
-                    {category}
-                  </option>
-                ))}
-              </select>
-            </label>
-
-            {/* Subcategory */}
-            {availableSubcategories.length > 0 && (
-              <label
-                className="
-                  flex w-full flex-col gap-2
-                  text-sm font-medium text-[#163c3d]
-                  xl:w-[425px]
-                  xl:ml-0.5
-                  2xl:w-[475px]
-                  2xl:ml-2.5  
-                "
-              >
-                <span>Subcategory</span>
-
-                <select
                   value={selectedSubcategory}
                   onChange={(event) =>
                     handleSubcategoryChange(
                       event.target.value
                     )
                   }
-                  className="
-                    h-11 w-full
-                    rounded-lg
-                    border border-gray-300
-                    bg-white
-                    px-4
-                    text-sm font-normal
-                    text-gray-700
-                    outline-none
-                    transition-all
-                    duration-200
-                    focus:border-[#6dc7d1]
-                    focus:ring-2
-                    focus:ring-[#6dc7d1]/20
-                  "
                 >
                   <option value="">
-                    All subcategories
+                    Subcategory
                   </option>
 
                   {availableSubcategories.map(
@@ -343,50 +355,20 @@ const BlogStep = () => {
                       </option>
                     )
                   )}
-                </select>
-              </label>
+              </select>
             )}
 
-            {/* Search */}
-            <label
-              className="
-                flex w-full flex-col gap-2
-                text-sm font-medium text-[#163c3d]
-                xl:ml-auto
-                xl:w-[425px]
-                2xl:w-[475px]
-              "
-            >
-              <span>Search news</span>
 
-              <input
-                type="search"
-                value={searchTerm}
-                onChange={(event) =>
-                  handleSearchChange(
-                    event.target.value
-                  )
-                }
-                placeholder="Search by title..."
-                className="
-                  h-11 w-full
-                  rounded-lg
-                  border border-gray-300
-                  bg-white
-                  px-4
-                  text-sm font-normal
-                  text-gray-700
-                  outline-none
-                  transition-all
-                  duration-200
-                  placeholder:text-gray-400
-                  focus:border-[#6dc7d1]
-                  focus:ring-2
-                  focus:ring-[#6dc7d1]/20
-                "
-              />
-            </label>
-          </div>
+          <button
+            type="button"
+            onClick={handleResetFilters}
+            className="inline-flex h-11 w-full shrink-0 items-center justify-center gap-2 rounded-lg bg-[#e8eef5] px-4 text-sm font-medium text-[#163c3d] transition-colors hover:bg-[#dce6ef] sm:w-auto"
+          >
+            <VscRefresh className="h-4 w-4" />
+            <span>Reset filters</span>
+          </button>
+             </div>
+           </div>
         </div>
 
         {/* =========================
