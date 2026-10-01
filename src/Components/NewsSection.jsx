@@ -1,5 +1,7 @@
 import { useMemo, useState } from "react";
 import { FaCalendar } from "react-icons/fa";
+import { CiSearch } from "react-icons/ci";
+import { VscRefresh } from "react-icons/vsc";
 import { Link } from "react-router-dom";
 import { blogs } from "../data/newsData";
 
@@ -10,7 +12,7 @@ const NewsSection = () => {
   const [selectedSubcategory, setSelectedSubcategory] = useState("");
 
   const categoryOptions = [
-    "Bridging Visa",
+    "Skilled Migration Visas",
     "Employer Sponsored Visas",
     "Employer Sponsored Visas & Skilled Migration Visas",
     "Family and partner visas",
@@ -24,12 +26,7 @@ const NewsSection = () => {
     "Working Holiday Visas"
   ];
 
-  const subcategoryMap = {
-    "Bridging Visa": [
-      "Bridging Visa",
-      "Subclass 186",
-      "Subclass 494",
-    ],
+  const subcategoryMap = useMemo(() => ({
     "Employer Sponsored Visas": [
       "DAMA",
       "Subclass 190",
@@ -105,7 +102,7 @@ const NewsSection = () => {
       "Subclass 866",
       "Subclass 491"
     ]
-  };
+  }), []);
 
   const categories = [...new Set([
     ...categoryOptions,
@@ -129,7 +126,7 @@ const NewsSection = () => {
       ...Object.values(subcategoryMap).flat(),
       ...blogs.map((blog) => blog.subcategory).filter(Boolean),
     ])];
-  }, [selectedCategory]);
+  }, [selectedCategory, subcategoryMap]);
 
   const filteredBlogs = useMemo(() => {
     const query = searchTerm.trim().toLowerCase();
@@ -162,60 +159,149 @@ const NewsSection = () => {
     setCurrentPage(1);
   };
 
+  const handleSearchChange = (value) => {
+    setSearchTerm(value);
+    setCurrentPage(1);
+  };
+
+  const handleResetFilters = () => {
+    setSearchTerm("");
+    setSelectedCategory("");
+    setSelectedSubcategory("");
+    setCurrentPage(1);
+  };
+
   return (
     <section className="bg-white py-20">
       <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-        <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div className="flex flex-row flex-wrap items-end gap-3">
-            <label className="flex flex-col gap-2 w-[365px] text-sm font-medium text-[#163c3d]">
-              Category
-              <select
-                value={selectedCategory}
-                onChange={(event) => handleCategoryChange(event.target.value)}
-                className="rounded-lg border border-gray-300 px-4 py-2"
-              >
-                <option value="">All categories</option>
-                {categories.map((category) => (
-                  <option key={category} value={category}>
-                    {category}
-                  </option>
-                ))}
-              </select>
-            </label>
-
-            {availableSubcategories.length > 0 && (
-              <label className="flex flex-col gap-2 ml-5 w-[365px] text-sm font-medium text-[#163c3d]">
-                Subcategory
-                <select
-                  value={selectedSubcategory}
-                  onChange={(event) => handleSubcategoryChange(event.target.value)}
-                  className="rounded-lg border border-gray-300 px-4 py-2"
-                >
-                  <option value="">All subcategories</option>
-                  {availableSubcategories.map((subcategory) => (
-                    <option key={subcategory} value={subcategory}>
-                      {subcategory}
-                    </option>
-                  ))}
-                </select>
-              </label>
-            )}
-          </div>
-
-          <label className="flex flex-col gap-2 w-[365px] text-sm font-medium text-[#163c3d]">
-            Search news
-            <input
-              type="search"
-              value={searchTerm}
-              onChange={(event) => {
-                setSearchTerm(event.target.value);
-                setCurrentPage(1);
-              }}
-              placeholder="Search by title..."
-              className="rounded-lg border border-gray-300 px-4 py-2 font-normal outline-none focus:border-[#6dc7d1] w-full"
-            />
-          </label>
-        </div>
+        <div className="mb-8 flex w-full flex-col items-center gap-3">
+                  <div className="flex w-full max-w-[900px] flex-col gap-3">
+        
+                    {/* Search */}
+                    <label
+                      className="flex w-full flex-col gap-2 text-sm font-medium text-[#163c3d]"
+                    >
+                      <span className="sr-only">Search</span>
+        
+                      <div className="relative w-full">
+                        <CiSearch
+                          aria-hidden="true"
+                          className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400"
+                        />
+                        <input
+                          type="search"
+                          value={searchTerm}
+                          onChange={(event) =>
+                            handleSearchChange(event.target.value)
+                          }
+                          placeholder="Search"
+                          className="
+                            h-11 w-full rounded-lg border border-gray-300
+                            bg-white pl-11 pr-4 text-sm font-normal text-gray-700
+                            outline-none transition-all duration-200
+                            placeholder:text-gray-400 focus:border-[#6dc7d1]
+                            focus:ring-2 focus:ring-[#6dc7d1]/20
+                          "
+                        />
+                      </div>
+                    </label>
+        
+                     <div className="flex w-full flex-col gap-3 sm:flex-row sm:items-center sm:gap-3">
+                        {/* Category */}
+                    <select
+                      aria-label="Category"
+                      className="
+                        h-11 w-full min-w-0
+                        sm:w-auto sm:flex-1
+                        rounded-lg
+                        border border-gray-300
+                        bg-white
+                        px-4
+                        text-sm font-normal
+                        text-gray-700
+                        outline-none
+                        transition-all
+                        duration-200
+                        focus:border-[#6dc7d1]
+                        focus:ring-2
+                        focus:ring-[#6dc7d1]/20
+                      "
+                        value={selectedCategory}
+                        onChange={(event) =>
+                          handleCategoryChange(event.target.value)
+                        }
+                      >
+                        <option value="">
+                          Category
+                        </option>
+        
+                        {categories.map((category) => (
+                          <option
+                            key={category}
+                            value={category}
+                          >
+                            {category}
+                          </option>
+                        ))}
+                    </select>
+        
+                    {/* Subcategory */}
+                    {availableSubcategories.length > 0 && (
+                      <select
+                        aria-label="Subcategory"
+                        className="
+                          h-11 w-full min-w-0
+                          sm:w-auto sm:flex-1
+                          rounded-lg
+                          border border-gray-300
+                          bg-white
+                          px-4
+                          text-sm font-normal
+                          text-gray-700
+                          outline-none
+                          transition-all
+                          duration-200
+                          focus:border-[#6dc7d1]
+                          focus:ring-2
+                          focus:ring-[#6dc7d1]/20
+                        "
+                          value={selectedSubcategory}
+                          onChange={(event) =>
+                            handleSubcategoryChange(
+                              event.target.value
+                            )
+                          }
+                        >
+                          <option value="">
+                            Subcategory
+                          </option>
+        
+                          {availableSubcategories.map(
+                            (subcategory) => (
+                              <option
+                                key={subcategory}
+                                value={subcategory}
+                              >
+                                {subcategory}
+                              </option>
+                            )
+                          )}
+                      </select>
+                    )}
+        
+        
+                  <button
+                    type="button"
+                    onClick={handleResetFilters}
+                    className="inline-flex h-11 w-full shrink-0 items-center justify-center gap-2 rounded-lg bg-[#e8eef5] px-4 text-sm font-medium text-[#163c3d] transition-colors hover:bg-[#dce6ef] sm:w-auto"
+                  >
+                    <VscRefresh className="h-4 w-4" />
+                    <span>Reset filters</span>
+                  </button>
+                     </div>
+                   </div>
+                </div>
+        
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {currentBlogs.map((blog) => (
