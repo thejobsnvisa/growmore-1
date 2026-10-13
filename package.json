@@ -6,7 +6,7 @@
   "homepage": "https://growmore.au",
   "type": "module",
 "scripts": {
-  "sync-excel": "pip install -r requirements.txt && python update_blogs.py",
+  "sync-excel": "\"C:\\Users\\USER-28\\AppData\\Local\\Programs\\Python\\Python315\\python.exe\" update_blogs.py",
   "dev": "npm run sync-excel && vite",
   "build": "npm run sync-excel && vite build",
   "lint": "eslint .",
