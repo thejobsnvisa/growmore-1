@@ -2,7 +2,7 @@ import pandas as pd
 import json
 import os
 
-# Paste your published Google Sheets CSV link here
+# Published Google Sheets CSV link
 SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTfCADNaqCMcaESgrna8M0VwWc7WTQDUSFGLVqbKOzllPErGMacpR5pUM27sB4sEzw0HDd2IUSOh7y_/pub?output=csv"
 output_file = "./src/data/blogsData.js"
 
@@ -36,11 +36,14 @@ for index, row in df.iterrows():
         try:
             parsed_date = pd.to_datetime(raw_date, errors='coerce')
             if pd.notna(parsed_date):
-                formatted_date = parsed_date.strftime('%d')
+                # Format options:
+                # '%B %d, %Y' -> October 03, 2026
+                # '%d %b %Y'   -> 03 Oct 2026
+                formatted_date = parsed_date.strftime('%B %d, %Y')
             else:
-                formatted_date = str(raw_date).strip().split(' ')[0]
+                formatted_date = str(raw_date).strip()
         except Exception:
-            formatted_date = str(raw_date).strip().split(' ')[0]
+            formatted_date = str(raw_date).strip()
     else:
         formatted_date = ""
 
