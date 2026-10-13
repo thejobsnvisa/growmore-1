@@ -1,66 +1,38 @@
-name: Sync & Deploy to GitHub Pages
+name: Auto-Sync Blogs from Google Sheets
 
 on:
-  push:
-    branches: ["master"]
-  workflow_dispatch: # Allows manual triggering from the Actions tab
-
-permissions:
-  contents: write # Needed so the workflow can commit the updated blogsData.js if needed (or read-only if you just fetch and build)
-  pages: write
-  id-token: write
+  schedule:
+    # Runs automatically every day at midnight UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Allows you to manually trigger it anytime from GitHub
 
 jobs:
-  build_site:
+  sync:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write # Required to push the updated blogsData.js back to master
+
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 1. Set up Python for running the Google Sheets sync script
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
-      # 2. Install Python dependencies (pandas, requests, etc.)
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
           pip install pandas requests
 
-      # 3. Run the sync script to pull latest blogs from Google Sheets into src/data/blogsData.js
-      - name: Run Google Sheets Sync
+      - name: Run Google Sheets Sync Script
         run: python update_blogs.py
 
-      # 4. Set up Node.js for building the React app
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'npm'
-
-      # 5. Install Node dependencies
-      - name: Install Node dependencies
-        run: npm install
-
-      # 6. Build the React project (which now includes the latest synced blogs)
-      - name: Build
-        run: npm run build
-
-      # 7. Upload compiled assets for GitHub Pages
-      - name: Upload Artifacts
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './dist'
-
-  deploy:
-    needs: build_site
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Commit and push if blogsData.js changed
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ./src/data/blogsData.js
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-sync: update blogsData.js from Google Sheets" && git push)
