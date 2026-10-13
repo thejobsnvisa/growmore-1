@@ -91,69 +91,52 @@ const BlogStep = () => {
 
   const indexOfLastBlog = safeCurrentPage * blogsPerPage;
   const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
-
   const currentBlogs = filteredBlogs.slice(indexOfFirstBlog, indexOfLastBlog);
 
   return (
-    <section className="bg-white py-20">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+    <section className="bg-white py-16 md:py-20">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12">
+        
         {/* =========================
             RESPONSIVE FILTER SECTION
         ========================== */}
-        <div className="mb-8 flex w-full flex-col items-center gap-3">
-          <div className="flex w-full max-w-[900px] flex-col gap-3">
+        <div className="mb-12 flex w-full flex-col items-center">
+          <div className="flex w-full max-w-[1000px] flex-col gap-4">
 
             {/* Search Input */}
-            <label className="flex w-full flex-col gap-2 text-sm font-medium text-[#163c3d]">
-              <span className="sr-only">Search</span>
+            <div className="relative w-full">
+              <CiSearch
+                aria-hidden="true"
+                className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400"
+              />
+              <input
+                type="search"
+                value={searchTerm}
+                onChange={(event) => handleSearchChange(event.target.value)}
+                placeholder="Search articles by title, category, or keyword..."
+                className="
+                  h-12 w-full rounded-xl border border-gray-300
+                  bg-white pl-12 pr-4 text-sm font-normal text-gray-700
+                  outline-none transition-all duration-200
+                  placeholder:text-gray-400 focus:border-[#6dc7d1]
+                  focus:ring-2 focus:ring-[#6dc7d1]/20 shadow-sm
+                "
+              />
+            </div>
 
-              <div className="relative w-full">
-                <CiSearch
-                  aria-hidden="true"
-                  className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400"
-                />
-                <input
-                  type="search"
-                  value={searchTerm}
-                  onChange={(event) =>
-                    handleSearchChange(event.target.value)
-                  }
-                  placeholder="Search articles..."
-                  className="
-                    h-11 w-full rounded-lg border border-gray-300
-                    bg-white pl-11 pr-4 text-sm font-normal text-gray-700
-                    outline-none transition-all duration-200
-                    placeholder:text-gray-400 focus:border-[#6dc7d1]
-                    focus:ring-2 focus:ring-[#6dc7d1]/20
-                  "
-                />
-              </div>
-            </label>
-
-            <div className="flex w-full flex-col gap-3 sm:flex-row sm:items-center sm:gap-3">
+            {/* Filters Row */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {/* Category Select */}
               <select
                 aria-label="Category"
                 className="
-                  h-11 w-full min-w-0
-                  sm:w-auto sm:flex-1
-                  rounded-lg
-                  border border-gray-300
-                  bg-white
-                  px-4
-                  text-sm font-normal
-                  text-gray-700
-                  outline-none
-                  transition-all
-                  duration-200
-                  focus:border-[#6dc7d1]
-                  focus:ring-2
-                  focus:ring-[#6dc7d1]/20
+                  h-11 w-full rounded-xl border border-gray-300
+                  bg-white px-4 text-sm font-normal text-gray-700
+                  outline-none transition-all duration-200
+                  focus:border-[#6dc7d1] focus:ring-2 focus:ring-[#6dc7d1]/20 shadow-sm
                 "
                 value={selectedCategory}
-                onChange={(event) =>
-                  handleCategoryChange(event.target.value)
-                }
+                onChange={(event) => handleCategoryChange(event.target.value)}
               >
                 <option value="">All Categories</option>
                 {categories.map((category) => (
@@ -164,44 +147,36 @@ const BlogStep = () => {
               </select>
 
               {/* Subcategory Select */}
-              {availableSubcategories.length > 0 && (
-                <select
-                  aria-label="Subcategory"
-                  className="
-                    h-11 w-full min-w-0
-                    sm:w-auto sm:flex-1
-                    rounded-lg
-                    border border-gray-300
-                    bg-white
-                    px-4
-                    text-sm font-normal
-                    text-gray-700
-                    outline-none
-                    transition-all
-                    duration-200
-                    focus:border-[#6dc7d1]
-                    focus:ring-2
-                    focus:ring-[#6dc7d1]/20
-                  "
-                  value={selectedSubcategory}
-                  onChange={(event) =>
-                    handleSubcategoryChange(event.target.value)
-                  }
-                >
-                  <option value="">All Subcategories</option>
-                  {availableSubcategories.map((subcategory) => (
-                    <option key={subcategory} value={subcategory}>
-                      {subcategory}
-                    </option>
-                  ))}
-                </select>
-              )}
+              <select
+                aria-label="Subcategory"
+                disabled={availableSubcategories.length === 0}
+                className="
+                  h-11 w-full rounded-xl border border-gray-300
+                  bg-white px-4 text-sm font-normal text-gray-700
+                  outline-none transition-all duration-200
+                  focus:border-[#6dc7d1] focus:ring-2 focus:ring-[#6dc7d1]/20 shadow-sm
+                  disabled:bg-gray-50 disabled:text-gray-400 disabled:cursor-not-allowed
+                "
+                value={selectedSubcategory}
+                onChange={(event) => handleSubcategoryChange(event.target.value)}
+              >
+                <option value="">All Subcategories</option>
+                {availableSubcategories.map((subcategory) => (
+                  <option key={subcategory} value={subcategory}>
+                    {subcategory}
+                  </option>
+                ))}
+              </select>
 
               {/* Reset Filters Button */}
               <button
                 type="button"
                 onClick={handleResetFilters}
-                className="inline-flex h-11 w-full shrink-0 items-center justify-center gap-2 rounded-lg bg-[#e8eef5] px-4 text-sm font-medium text-[#163c3d] transition-colors hover:bg-[#dce6ef] sm:w-auto cursor-pointer"
+                className="
+                  inline-flex h-11 w-full items-center justify-center gap-2
+                  rounded-xl bg-[#e8eef5] px-4 text-sm font-medium text-[#163c3d]
+                  transition-colors hover:bg-[#dce6ef] cursor-pointer shadow-sm
+                "
               >
                 <VscRefresh className="h-4 w-4" />
                 <span>Reset filters</span>
@@ -214,40 +189,46 @@ const BlogStep = () => {
             BLOG CARDS GRID
         ========================== */}
         {currentBlogs.length > 0 ? (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {currentBlogs.map((blog) => (
               <div
                 key={blog.id}
-                className="group bg-white rounded-3xl shadow-md hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col border border-gray-100"
+                className="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden flex flex-col border border-gray-100"
               >
                 {/* Image */}
-                <div className="overflow-hidden rounded-t-3xl">
+                <div className="overflow-hidden p-4 pb-0">
                   <img
                     src={blog.image}
                     alt={blog.title}
-                    className="w-full aspect-[18/10] object-cover p-4 sm:p-4 rounded-3xl transition-transform duration-500 group-hover:scale-105"
+                    className="w-full aspect-[16/10] object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
 
                 {/* Content */}
                 <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-lg font-semibold text-[#163c3d] mb-4 leading-snug line-clamp-2">
+                  <div className="mb-3 flex items-center gap-2">
+                    <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-[#e8eef5] text-[#163c3d]">
+                      {blog.category}
+                    </span>
+                  </div>
+
+                  <h3 className="text-lg font-bold text-[#163c3d] mb-3 leading-snug line-clamp-2 group-hover:text-[#6dc7d1] transition-colors">
                     {blog.title}
                   </h3>
 
-                  <p className="text-gray-500 text-sm mb-6 flex items-center gap-2">
-                    <FaCalendar className="h-4 w-4 text-[#7cc576]" /> {blog.date}
+                  <p className="text-gray-500 text-xs mb-6 flex items-center gap-2">
+                    <FaCalendar className="h-3.5 w-3.5 text-[#7cc576]" /> {blog.date}
                   </p>
 
                   {/* Read More Link */}
-                  <div className="mt-auto">
-                    <Link to={`/blogs/${blog.slug}`}>
-                      <button className="group text-[#6dc7d1] font-semibold flex items-center gap-2 justify-end w-full transition-all duration-300 cursor-pointer">
+                  <div className="mt-auto pt-4 border-t border-gray-50">
+                    <Link to={`/blogs/${blog.slug}`} className="block w-full">
+                      <button className="group/btn text-[#6dc7d1] font-semibold text-sm flex items-center gap-2 justify-between w-full transition-all duration-300 cursor-pointer">
                         <span className="relative">
-                          READ MORE
-                          <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#6dc7d1] transition-all duration-300 group-hover:w-full"></span>
+                          READ ARTICLE
+                          <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#6dc7d1] transition-all duration-300 group-hover/btn:w-full"></span>
                         </span>
-                        <span className="transition-transform duration-300 group-hover:translate-x-1">
+                        <span className="transition-transform duration-300 group-hover/btn:translate-x-1">
                           →
                         </span>
                       </button>
@@ -258,13 +239,14 @@ const BlogStep = () => {
             ))}
           </div>
         ) : (
-          <div className="text-center py-16 text-gray-500">
-            <p className="text-lg font-medium">No articles found matching your criteria.</p>
+          <div className="text-center py-20 bg-gray-50 rounded-3xl border border-dashed border-gray-200">
+            <p className="text-lg font-medium text-gray-600 mb-2">No articles found matching your criteria.</p>
+            <p className="text-sm text-gray-400 mb-6">Try adjusting your search terms or filters.</p>
             <button
               onClick={handleResetFilters}
-              className="mt-4 px-4 py-2 bg-[#6dc7d1] text-white rounded-lg hover:bg-[#5bb3bd] transition"
+              className="px-6 py-2.5 bg-[#6dc7d1] text-white font-medium rounded-xl hover:bg-[#5bb3bd] transition cursor-pointer shadow-sm"
             >
-              Clear Filters
+              Clear All Filters
             </button>
           </div>
         )}
@@ -273,30 +255,30 @@ const BlogStep = () => {
             PAGINATION
         ========================== */}
         {totalPages > 1 && (
-          <div className="flex justify-center items-center gap-4 mt-12">
+          <div className="flex justify-center items-center gap-4 mt-16">
             <button
               onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
               disabled={safeCurrentPage === 1}
-              className={`px-5 py-2 rounded-lg font-medium transition ${
+              className={`px-5 py-2.5 rounded-xl font-medium transition shadow-sm border ${
                 safeCurrentPage === 1
-                  ? "text-gray-300 cursor-not-allowed"
-                  : "text-[#163c3d] hover:text-[#6dc7d1] cursor-pointer"
+                  ? "bg-gray-50 text-gray-300 border-gray-200 cursor-not-allowed"
+                  : "bg-white text-[#163c3d] border-gray-200 hover:border-[#6dc7d1] hover:text-[#6dc7d1] cursor-pointer"
               }`}
             >
-              Prev
+              Previous
             </button>
 
-            <span className="text-sm font-medium text-gray-600">
+            <span className="text-sm font-semibold text-gray-600 px-2">
               Page {safeCurrentPage} of {totalPages}
             </span>
 
             <button
               onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
               disabled={safeCurrentPage === totalPages}
-              className={`px-5 py-2 rounded-lg font-medium transition ${
+              className={`px-5 py-2.5 rounded-xl font-medium transition shadow-sm border ${
                 safeCurrentPage === totalPages
-                  ? "text-gray-300 cursor-not-allowed"
-                  : "text-[#163c3d] hover:text-[#6dc7d1] cursor-pointer"
+                  ? "bg-gray-50 text-gray-300 border-gray-200 cursor-not-allowed"
+                  : "bg-white text-[#163c3d] border-gray-200 hover:border-[#6dc7d1] hover:text-[#6dc7d1] cursor-pointer"
               }`}
             >
               Next

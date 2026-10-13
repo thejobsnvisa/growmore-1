@@ -5,15 +5,15 @@
   "description": "Growmore Immigration Digital Platform",
   "homepage": "https://growmore.au",
   "type": "module",
-"scripts": {
-  "sync-excel": "python update_blogs.py",
-  "dev": "vite",
-  "build": "vite build",
-  "lint": "eslint .",
-  "preview": "vite preview",
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist"
-},
+  "scripts": {
+    "sync-excel": "python update_blogs.py",
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
     "dotenv": "^17.3.1",
@@ -23,6 +23,7 @@
     "lottie-react": "^2.4.1",
     "lucide-react": "^0.564.0",
     "nodemailer": "^8.0.2",
+    "papaparse": "^5.7.0",
     "react": "^19.2.0",
     "react-calendly": "^4.4.0",
     "react-circular-progressbar": "^2.2.0",
@@ -41,6 +42,7 @@
     "@eslint/js": "^9.39.1",
     "@tailwindcss/typography": "^0.5.19",
     "@types/node": "^25.5.0",
+    "@types/papaparse": "^5.5.2",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",
