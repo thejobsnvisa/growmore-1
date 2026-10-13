@@ -7,8 +7,8 @@
   "type": "module",
 "scripts": {
   "sync-excel": "python update_blogs.py",
-  "dev": "npm run sync-excel && vite",
-  "build": "./.venv/bin/python update_blogs.py || python update_blogs.py && vite build",
+  "dev": "vite",
+  "build": "vite build",
   "lint": "eslint .",
   "preview": "vite preview",
   "predeploy": "npm run build",
