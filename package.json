@@ -6,14 +6,14 @@
   "homepage": "https://growmore.au",
   "type": "module",
 "scripts": {
-    "sync-excel": "C:\\Users\\USER-28\\AppData\\Local\\Programs\\Python\\Python315\\python.exe update_blogs.py",
-    "dev": "npm run sync-excel && vite",
-    "build": "npm run sync-excel && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
-  },
+  "sync-excel": "python update_blogs.py",
+  "dev": "npm run sync-excel && vite",
+  "build": "npm run sync-excel && vite build",
+  "lint": "eslint .",
+  "preview": "vite preview",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d dist"
+},
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
     "dotenv": "^17.3.1",
