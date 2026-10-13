@@ -5,9 +5,10 @@
   "description": "Growmore Immigration Digital Platform",
   "homepage": "https://growmore.au",
   "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+"scripts": {
+    "sync-excel": "C:\\Users\\USER-28\\AppData\\Local\\Programs\\Python\\Python315\\python.exe update_blogs.py",
+    "dev": "npm run sync-excel && vite",
+    "build": "npm run sync-excel && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",

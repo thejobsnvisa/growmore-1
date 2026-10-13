@@ -1,9 +1,9 @@
-import { useMemo, useState } from "react";
+import { useState, useMemo } from "react";
 import { FaCalendar } from "react-icons/fa";
 import { blogs } from "../data/blogsData";
 import { Link } from "react-router-dom";
-import { VscRefresh } from "react-icons/vsc";
 import { CiSearch } from "react-icons/ci";
+import { VscRefresh } from "react-icons/vsc";
 
 const BlogStep = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -11,221 +11,19 @@ const BlogStep = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedSubcategory, setSelectedSubcategory] = useState("");
 
-  const categoryOptions = [
-    "Bridging Visa",
-    "Employer Sponsored Visas",
-    "Employer Sponsored Visas & Skilled Migration Visas",
-    "Family and partner visas",
-    "Labour Agreements & DAMA",
-    "National Innovation Visa",
-    "Skilled Migration Visas",
-    "Skills Assessment",
-    "Studying and training visas",
-    "Temporary Work Visas",
-    "Visitor Visas",
-    "Working Holiday Visas",
-  ];
-
-  const subcategoryMap = {
-    "Bridging Visa": [
-      "Bridging Visa",
-      "Subclass 186",
-      "Subclass 494",
-    ],
-
-    "Employer Sponsored Visas": [
-      "DAMA",
-      "Subclass 190",
-      "Subclass 186",
-      "Subclass 494",
-      "Subclass 491",
-      "Subclass 189",
-      "Subclass 417",
-      "Subclass 462",
-      "Labour Agreement",
-      "Other",
-    ],
-
-    "Employer Sponsored Visas & Skilled Migration Visas": [
-      "Other",
-    ],
-
-    "Family and partner visas": [
-      "Other",
-    ],
-
-    "Labour Agreements & DAMA": [
-      "Other",
-      "Partner Visa (Subclass 820/801)",
-      "Subclass 417",
-      "Skills Assessment",
-      "Subclass 408",
-      "Subclass 186",
-      "Subclass 494",
-      "Partner Visa (Subclass 309/100)",
-    ],
-
-    "National Innovation Visa": [
-      "Skills Assessment",
-    ],
-
-    Other: [
-      "Skills Assessment",
-      "Subclass 482",
-      "Subclass 462",
-      "Subclass 186",
-      "Subclass 190",
-      "Subclass 189",
-      "Subclass 491",
-    ],
-
-    "Skilled Migration Visas": [
-      "Subclass 189",
-      "Subclass 190",
-      "Subclass 400",
-      "Subclass 491",
-      "Subclass 407",
-      "Subclass 417",
-      "Subclass 482",
-    ],
-
-    "Skills Assessment": [
-      "Subclass 482",
-      "Subclass 485",
-      "Subclass 494",
-      "Subclass 491",
-      "Partner Visa (Subclass 309/100)",
-      "Subclass 190",
-      "Subclass 186",
-      "Labour Agreement",
-    ],
-
-    "Studying and training visas": [
-      "Subclass 500",
-      "Subclass 600",
-    ],
-
-    "Temporary Work Visas": [
-      "Subclass 600",
-    ],
-
-    "Visitor Visas": [
-      "Subclass 804",
-      "Subclass 190",
-      "Subclass 858",
-    ],
-
-    "Working Holiday Visas": [
-      "Subclass 866",
-      "Subclass 491",
-    ],
+  const handleSearchChange = (value) => {
+    setSearchTerm(value);
+    setCurrentPage(1);
   };
 
-  // Combine predefined categories with categories from blog data
-  const categories = [
-    ...new Set([
-      ...categoryOptions,
-      ...blogs.map((blog) => blog.category).filter(Boolean),
-    ]),
-  ];
-
-  // Get subcategories based on selected category
-  const availableSubcategories = useMemo(() => {
-    if (selectedCategory) {
-      return [
-        ...new Set([
-          ...(subcategoryMap[selectedCategory] || []),
-
-          ...blogs
-            .filter((blog) => blog.category === selectedCategory)
-            .map((blog) => blog.subcategory)
-            .filter(Boolean),
-        ]),
-      ];
-    }
-
-    return [
-      ...new Set([
-        ...Object.values(subcategoryMap).flat(),
-        ...blogs.map((blog) => blog.subcategory).filter(Boolean),
-      ]),
-    ];
-  }, [selectedCategory]);
-
-  // Filter blogs
-  const filteredBlogs = useMemo(() => {
-    const query = searchTerm.trim().toLowerCase();
-
-    return blogs.filter((blog) => {
-      const searchableText = `
-        ${blog.title}
-        ${blog.category || ""}
-        ${blog.subcategory || ""}
-      `.toLowerCase();
-
-      const matchesQuery =
-        !query || searchableText.includes(query);
-
-      const matchesCategory =
-        !selectedCategory ||
-        blog.category === selectedCategory;
-
-      const matchesSubcategory =
-        !selectedSubcategory ||
-        blog.subcategory === selectedSubcategory;
-
-      return (
-        matchesQuery &&
-        matchesCategory &&
-        matchesSubcategory
-      );
-    });
-  }, [
-    searchTerm,
-    selectedCategory,
-    selectedSubcategory,
-  ]);
-
-  // Pagination
-  const blogsPerPage = 10;
-
-  const totalPages = Math.max(
-    1,
-    Math.ceil(filteredBlogs.length / blogsPerPage)
-  );
-
-  const safeCurrentPage = Math.min(
-    currentPage,
-    totalPages
-  );
-
-  const indexOfLastBlog =
-    safeCurrentPage * blogsPerPage;
-
-  const indexOfFirstBlog =
-    indexOfLastBlog - blogsPerPage;
-
-  const currentBlogs = filteredBlogs.slice(
-    indexOfFirstBlog,
-    indexOfLastBlog
-  );
-
-  // Category change
   const handleCategoryChange = (value) => {
     setSelectedCategory(value);
     setSelectedSubcategory("");
     setCurrentPage(1);
   };
 
-  // Subcategory change
   const handleSubcategoryChange = (value) => {
     setSelectedSubcategory(value);
-    setCurrentPage(1);
-  };
-
-  // Search change
-  const handleSearchChange = (value) => {
-    setSearchTerm(value);
     setCurrentPage(1);
   };
 
@@ -236,20 +34,77 @@ const BlogStep = () => {
     setCurrentPage(1);
   };
 
-  return (
-    <section className="w-full bg-white py-12 sm:py-16 lg:py-20">
-      <div className="mx-auto w-full max-w-[1600px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+  // Build unique category options dynamically from blog data
+  const categories = useMemo(() => {
+    return [...new Set(blogs.map((blog) => blog.category).filter(Boolean))];
+  }, []);
 
+  // Dynamically extract available subcategories based on selected category
+  const availableSubcategories = useMemo(() => {
+    const relevantBlogs = selectedCategory
+      ? blogs.filter((blog) => blog.category === selectedCategory)
+      : blogs;
+
+    const subcatSet = new Set();
+    relevantBlogs.forEach((blog) => {
+      if (Array.isArray(blog.subcategory)) {
+        blog.subcategory.forEach((sub) => sub && subcatSet.add(sub.trim()));
+      } else if (blog.subcategory) {
+        subcatSet.add(blog.subcategory.trim());
+      }
+    });
+
+    return Array.from(subcatSet);
+  }, [selectedCategory]);
+
+  // Filter blogs based on search query, category, and subcategory
+  const filteredBlogs = useMemo(() => {
+    const query = searchTerm.trim().toLowerCase();
+
+    return blogs.filter((blog) => {
+      const searchableText = `
+        ${blog.title || ""}
+        ${blog.category || ""}
+        ${
+          Array.isArray(blog.subcategory)
+            ? blog.subcategory.join(" ")
+            : blog.subcategory || ""
+        }
+      `.toLowerCase();
+
+      const matchesQuery = !query || searchableText.includes(query);
+      const matchesCategory =
+        !selectedCategory || blog.category === selectedCategory;
+      const matchesSubcategory =
+        !selectedSubcategory ||
+        (Array.isArray(blog.subcategory)
+          ? blog.subcategory.includes(selectedSubcategory)
+          : blog.subcategory === selectedSubcategory);
+
+      return matchesQuery && matchesCategory && matchesSubcategory;
+    });
+  }, [searchTerm, selectedCategory, selectedSubcategory]);
+
+  const blogsPerPage = 10;
+  const totalPages = Math.max(1, Math.ceil(filteredBlogs.length / blogsPerPage));
+  const safeCurrentPage = Math.min(currentPage, totalPages);
+
+  const indexOfLastBlog = safeCurrentPage * blogsPerPage;
+  const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
+
+  const currentBlogs = filteredBlogs.slice(indexOfFirstBlog, indexOfLastBlog);
+
+  return (
+    <section className="bg-white py-20">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         {/* =========================
             RESPONSIVE FILTER SECTION
         ========================== */}
         <div className="mb-8 flex w-full flex-col items-center gap-3">
           <div className="flex w-full max-w-[900px] flex-col gap-3">
 
-            {/* Search */}
-            <label
-              className="flex w-full flex-col gap-2 text-sm font-medium text-[#163c3d]"
-            >
+            {/* Search Input */}
+            <label className="flex w-full flex-col gap-2 text-sm font-medium text-[#163c3d]">
               <span className="sr-only">Search</span>
 
               <div className="relative w-full">
@@ -263,7 +118,7 @@ const BlogStep = () => {
                   onChange={(event) =>
                     handleSearchChange(event.target.value)
                   }
-                  placeholder="Search"
+                  placeholder="Search articles..."
                   className="
                     h-11 w-full rounded-lg border border-gray-300
                     bg-white pl-11 pr-4 text-sm font-normal text-gray-700
@@ -275,49 +130,10 @@ const BlogStep = () => {
               </div>
             </label>
 
-             <div className="flex w-full flex-col gap-3 sm:flex-row sm:items-center sm:gap-3">
-                {/* Category */}
-            <select
-              aria-label="Category"
-              className="
-                h-11 w-full min-w-0
-                sm:w-auto sm:flex-1
-                rounded-lg
-                border border-gray-300
-                bg-white
-                px-4
-                text-sm font-normal
-                text-gray-700
-                outline-none
-                transition-all
-                duration-200
-                focus:border-[#6dc7d1]
-                focus:ring-2
-                focus:ring-[#6dc7d1]/20
-              "
-                value={selectedCategory}
-                onChange={(event) =>
-                  handleCategoryChange(event.target.value)
-                }
-              >
-                <option value="">
-                  Category
-                </option>
-
-                {categories.map((category) => (
-                  <option
-                    key={category}
-                    value={category}
-                  >
-                    {category}
-                  </option>
-                ))}
-            </select>
-
-            {/* Subcategory */}
-            {availableSubcategories.length > 0 && (
+            <div className="flex w-full flex-col gap-3 sm:flex-row sm:items-center sm:gap-3">
+              {/* Category Select */}
               <select
-                aria-label="Subcategory"
+                aria-label="Category"
                 className="
                   h-11 w-full min-w-0
                   sm:w-auto sm:flex-1
@@ -334,255 +150,159 @@ const BlogStep = () => {
                   focus:ring-2
                   focus:ring-[#6dc7d1]/20
                 "
+                value={selectedCategory}
+                onChange={(event) =>
+                  handleCategoryChange(event.target.value)
+                }
+              >
+                <option value="">All Categories</option>
+                {categories.map((category) => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))}
+              </select>
+
+              {/* Subcategory Select */}
+              {availableSubcategories.length > 0 && (
+                <select
+                  aria-label="Subcategory"
+                  className="
+                    h-11 w-full min-w-0
+                    sm:w-auto sm:flex-1
+                    rounded-lg
+                    border border-gray-300
+                    bg-white
+                    px-4
+                    text-sm font-normal
+                    text-gray-700
+                    outline-none
+                    transition-all
+                    duration-200
+                    focus:border-[#6dc7d1]
+                    focus:ring-2
+                    focus:ring-[#6dc7d1]/20
+                  "
                   value={selectedSubcategory}
                   onChange={(event) =>
-                    handleSubcategoryChange(
-                      event.target.value
-                    )
+                    handleSubcategoryChange(event.target.value)
                   }
                 >
-                  <option value="">
-                    Subcategory
-                  </option>
+                  <option value="">All Subcategories</option>
+                  {availableSubcategories.map((subcategory) => (
+                    <option key={subcategory} value={subcategory}>
+                      {subcategory}
+                    </option>
+                  ))}
+                </select>
+              )}
 
-                  {availableSubcategories.map(
-                    (subcategory) => (
-                      <option
-                        key={subcategory}
-                        value={subcategory}
-                      >
-                        {subcategory}
-                      </option>
-                    )
-                  )}
-              </select>
-            )}
-
-
-          <button
-            type="button"
-            onClick={handleResetFilters}
-            className="inline-flex h-11 w-full shrink-0 items-center justify-center gap-2 rounded-lg bg-[#e8eef5] px-4 text-sm font-medium text-[#163c3d] transition-colors hover:bg-[#dce6ef] sm:w-auto"
-          >
-            <VscRefresh className="h-4 w-4" />
-            <span>Reset filters</span>
-          </button>
-             </div>
-           </div>
+              {/* Reset Filters Button */}
+              <button
+                type="button"
+                onClick={handleResetFilters}
+                className="inline-flex h-11 w-full shrink-0 items-center justify-center gap-2 rounded-lg bg-[#e8eef5] px-4 text-sm font-medium text-[#163c3d] transition-colors hover:bg-[#dce6ef] sm:w-auto cursor-pointer"
+              >
+                <VscRefresh className="h-4 w-4" />
+                <span>Reset filters</span>
+              </button>
+            </div>
+          </div>
         </div>
 
         {/* =========================
-            BLOG CARDS
+            BLOG CARDS GRID
         ========================== */}
-        <div
-          className="
-            grid grid-cols-1 gap-6
-            sm:grid-cols-2
-            lg:grid-cols-3
-            lg:gap-8
-          "
-        >
-          {currentBlogs.map((blog) => (
-            <div
-              key={blog.id}
-              className="
-                group flex flex-col
-                overflow-hidden
-                rounded-3xl
-                bg-white
-                shadow-md
-                transition-all
-                duration-500
-                hover:shadow-2xl
-              "
-            >
-              {/* Image */}
-              <div className="overflow-hidden rounded-t-3xl">
-                <img
-                  src={blog.image}
-                  alt={blog.title}
-                  className="
-                    h-52 w-full
-                    rounded-3xl
-                    object-cover
-                    p-3
-                    sm:h-56
-                    lg:h-56
-                  "
-                />
-              </div>
-
-              {/* Content */}
-              <div className="flex flex-grow flex-col p-5 sm:p-6">
-                <h3
-                  className="
-                    mb-5
-                    text-lg font-semibold
-                    leading-snug
-                    text-[#163c3d]
-                    sm:text-xl
-                  "
-                >
-                  {blog.title}
-                </h3>
-
-                {/* Date */}
-                <p
-                  className="
-                    mb-6
-                    flex items-center gap-2
-                    text-sm text-gray-500
-                  "
-                >
-                  <FaCalendar
-                    className="h-4 w-4 text-[#7cc576]"
+        {currentBlogs.length > 0 ? (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {currentBlogs.map((blog) => (
+              <div
+                key={blog.id}
+                className="group bg-white rounded-3xl shadow-md hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col border border-gray-100"
+              >
+                {/* Image */}
+                <div className="overflow-hidden rounded-t-3xl">
+                  <img
+                    src={blog.image}
+                    alt={blog.title}
+                    className="w-full aspect-[18/10] object-cover p-4 sm:p-4 rounded-3xl transition-transform duration-500 group-hover:scale-105"
                   />
+                </div>
 
-                  {blog.date}
-                </p>
+                {/* Content */}
+                <div className="p-6 flex flex-col flex-grow">
+                  <h3 className="text-lg font-semibold text-[#163c3d] mb-4 leading-snug line-clamp-2">
+                    {blog.title}
+                  </h3>
 
-                {/* Read More */}
-                <div className="mt-auto">
-                  <Link
-                    to={`/news/${blog.slug}/`}
-                    className="block"
-                  >
-                    <button
-                      type="button"
-                      className="
-                        group flex w-full
-                        items-center justify-end
-                        gap-2
-                        font-semibold
-                        text-[#6dc7d1]
-                        transition-all
-                        duration-300
-                      "
-                    >
-                      <span className="relative">
-                        READ MORE
+                  <p className="text-gray-500 text-sm mb-6 flex items-center gap-2">
+                    <FaCalendar className="h-4 w-4 text-[#7cc576]" /> {blog.date}
+                  </p>
 
-                        <span
-                          className="
-                            absolute
-                            bottom-[-4px]
-                            left-0
-                            h-[2px]
-                            w-0
-                            bg-[#6dc7d1]
-                            transition-all
-                            duration-300
-                            group-hover:w-full
-                          "
-                        />
-                      </span>
-
-                      <span
-                        className="
-                          transition-transform
-                          duration-300
-                          group-hover:translate-x-1
-                        "
-                      >
-                        →
-                      </span>
-                    </button>
-                  </Link>
+                  {/* Read More Link */}
+                  <div className="mt-auto">
+                    <Link to={`/blogs/${blog.slug}`}>
+                      <button className="group text-[#6dc7d1] font-semibold flex items-center gap-2 justify-end w-full transition-all duration-300 cursor-pointer">
+                        <span className="relative">
+                          READ MORE
+                          <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#6dc7d1] transition-all duration-300 group-hover:w-full"></span>
+                        </span>
+                        <span className="transition-transform duration-300 group-hover:translate-x-1">
+                          →
+                        </span>
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-
-        {/* =========================
-            NO RESULTS
-        ========================== */}
-        {currentBlogs.length === 0 && (
-          <div className="py-12 text-center">
-            <p className="text-sm text-gray-500 sm:text-base">
-              No news articles match your filters.
-            </p>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-16 text-gray-500">
+            <p className="text-lg font-medium">No articles found matching your criteria.</p>
+            <button
+              onClick={handleResetFilters}
+              className="mt-4 px-4 py-2 bg-[#6dc7d1] text-white rounded-lg hover:bg-[#5bb3bd] transition"
+            >
+              Clear Filters
+            </button>
           </div>
         )}
 
         {/* =========================
             PAGINATION
         ========================== */}
-        <div className="mt-10 flex items-center justify-center sm:mt-12">
-          <button
-            type="button"
-            onClick={() =>
-              setCurrentPage((prev) =>
-                Math.max(1, prev - 1)
-              )
-            }
-            disabled={
-              safeCurrentPage === 1 ||
-              filteredBlogs.length === 0
-            }
-            className={`
-              rounded-lg
-              px-4 py-2
-              text-sm
-              transition-all
-              duration-200
-              sm:px-5
-              sm:text-base
-              ${
-                safeCurrentPage === 1 ||
-                filteredBlogs.length === 0
-                  ? "cursor-not-allowed text-gray-400"
-                  : "cursor-pointer text-black hover:text-green-500"
-              }
-            `}
-          >
-            Prev
-          </button>
+        {totalPages > 1 && (
+          <div className="flex justify-center items-center gap-4 mt-12">
+            <button
+              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+              disabled={safeCurrentPage === 1}
+              className={`px-5 py-2 rounded-lg font-medium transition ${
+                safeCurrentPage === 1
+                  ? "text-gray-300 cursor-not-allowed"
+                  : "text-[#163c3d] hover:text-[#6dc7d1] cursor-pointer"
+              }`}
+            >
+              Prev
+            </button>
 
-          {/* Page Number */}
-          <span
-            className="
-              px-3
-              text-sm
-              font-medium
-              text-[#163c3d]
-              sm:px-5
-              sm:text-base
-            "
-          >
-            {safeCurrentPage} / {totalPages}
-          </span>
+            <span className="text-sm font-medium text-gray-600">
+              Page {safeCurrentPage} of {totalPages}
+            </span>
 
-          <button
-            type="button"
-            onClick={() =>
-              setCurrentPage((prev) =>
-                Math.min(totalPages, prev + 1)
-              )
-            }
-            disabled={
-              safeCurrentPage === totalPages ||
-              filteredBlogs.length === 0
-            }
-            className={`
-              rounded-lg
-              px-4 py-2
-              text-sm
-              transition-all
-              duration-200
-              sm:px-5
-              sm:text-base
-              ${
-                safeCurrentPage === totalPages ||
-                filteredBlogs.length === 0
-                  ? "cursor-not-allowed text-gray-400"
-                  : "cursor-pointer text-black hover:text-green-500"
-              }
-            `}
-          >
-            Next
-          </button>
-        </div>
+            <button
+              onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+              disabled={safeCurrentPage === totalPages}
+              className={`px-5 py-2 rounded-lg font-medium transition ${
+                safeCurrentPage === totalPages
+                  ? "text-gray-300 cursor-not-allowed"
+                  : "text-[#163c3d] hover:text-[#6dc7d1] cursor-pointer"
+              }`}
+            >
+              Next
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
