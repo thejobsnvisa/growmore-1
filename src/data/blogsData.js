@@ -5,7 +5,7 @@ export const blogs = [
     "title": "Which Australian Visa Is Right? 3 Questions to Decide",
     "metaTitle": "Which Australian Visa Is Right? 3 Questions to Decide",
     "metaDescription": "Discover how to choose the right Australian visa by answering 3 essential questions regarding your skills, goals, and eligibility.",
-    "date": "April 08, 2026",
+    "date": "April 06, 2026",
     "image": "/assets/bg.jpg",
     "category": "Labour Agreements & DAMA",
     "subcategory": "Skills Assessment",
