@@ -1,3 +1,7 @@
+import sys
+# Strip Vercel's legacy cached packages from sys.path to prevent numpy dependency conflicts
+sys.path = [p for p in sys.path if ".vercel_python_packages" not in p]
+
 import pandas as pd
 import json
 import os
@@ -36,9 +40,6 @@ for index, row in df.iterrows():
         try:
             parsed_date = pd.to_datetime(raw_date, errors='coerce')
             if pd.notna(parsed_date):
-                # Format options:
-                # '%B %d, %Y' -> October 03, 2026
-                # '%d %b %Y'   -> 03 Oct 2026
                 formatted_date = parsed_date.strftime('%B %d, %Y')
             else:
                 formatted_date = str(raw_date).strip()
