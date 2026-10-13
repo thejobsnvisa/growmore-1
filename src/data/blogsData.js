@@ -1,11 +1,23 @@
 export const blogs = [
   {
+    "id": 24,
+    "slug": "which-australian-visa-should-you-choose-3-questions-to-decide",
+    "title": "Which Australian Visa Is Right? 3 Questions to Decide",
+    "metaTitle": "Which Australian Visa Is Right? 3 Questions to Decide",
+    "metaDescription": "Discover how to choose the right Australian visa by answering 3 essential questions regarding your skills, goals, and eligibility.",
+    "date": "April 04, 2026",
+    "image": "/assets/bg.jpg",
+    "category": "Labour Agreements & DAMA",
+    "subcategory": "Skills Assessment",
+    "content": "## Finding the Right Australian Visa\n\nNavigating Australia's migration system can be complex. To narrow down your options quickly, ask yourself these three fundamental questions:\n\n1. **What is your primary goal?** (Work, study, permanent residency, or family reunion)\n2. **Do you have a qualified occupation on the skilled list?**\n3. **Is employer sponsorship available to you?**\n\nUnderstanding these points helps you decide between General Skilled Migration, Employer Sponsorship, or DAMA pathways."
+  },
+  {
     "id": 23,
     "slug": "which-australian-visa-should-you-choose-3-questions-to-decide",
     "title": "Which Australian Visa Is Right? 3 Questions to Decide",
     "metaTitle": "Which Australian Visa Is Right? 3 Questions to Decide",
     "metaDescription": "Discover how to choose the right Australian visa by answering 3 essential questions regarding your skills, goals, and eligibility.",
-    "date": "April 01, 2026",
+    "date": "April 04, 2026",
     "image": "/assets/bg.jpg",
     "category": "Labour Agreements & DAMA",
     "subcategory": "Skills Assessment",
