@@ -8,7 +8,7 @@
 "scripts": {
   "sync-excel": "python update_blogs.py",
   "dev": "npm run sync-excel && vite",
-  "build": "python update_blogs.py && vite build",
+  "build": "./.venv/bin/python update_blogs.py || python update_blogs.py && vite build",
   "lint": "eslint .",
   "preview": "vite preview",
   "predeploy": "npm run build",
