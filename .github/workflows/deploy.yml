@@ -1,10 +1,11 @@
 name: Sync Google Sheets & Update Blogs
 
 on:
+  repository_dispatch:
+    types: [trigger_sync]
+  workflow_dispatch:
   schedule:
-    # Runs automatically every 5 minutes
     - cron: '*/5 * * * *'
-  workflow_dispatch: # Allows manual triggering anytime
 
 permissions:
   contents: write
