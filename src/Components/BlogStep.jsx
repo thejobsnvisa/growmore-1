@@ -190,52 +190,46 @@ const BlogStep = () => {
         ========================== */}
         {currentBlogs.length > 0 ? (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {currentBlogs.map((blog) => (
-              <div
-                key={blog.id}
-                className="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden flex flex-col border border-gray-100"
-              >
-                {/* Image */}
-                <div className="overflow-hidden p-4 pb-0">
-                  <img
-                    src={blog.image}
-                    alt={blog.title}
-                    className="w-full aspect-[16/10] object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
+          {currentBlogs.map((blog) => (
+            <div
+              key={blog.id}
+              className="group bg-white rounded-3xl shadow-md hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col"
+            >
+              {/* Image */}
+              <div className="overflow-hidden rounded-t-3xl">
+                <img
+                  src={blog.image}
+                  alt={blog.title}
+                  className="w-full aspect-[18/10]  object-cover p-4 sm:p-4 rounded-3xl"
+                />
+              </div>
 
-                {/* Content */}
-                <div className="p-6 flex flex-col flex-grow">
-                  <div className="mb-3 flex items-center gap-2">
-                    <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-[#e8eef5] text-[#163c3d]">
-                      {blog.category}
-                    </span>
-                  </div>
+              {/* Content */}
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-xl font-semibold text-[#163c3d] mb-6">
+                  {blog.title}
+                </h3>
 
-                  <h3 className="text-lg font-bold text-[#163c3d] mb-3 leading-snug line-clamp-2 group-hover:text-[#6dc7d1] transition-colors">
-                    {blog.title}
-                  </h3>
+                <p className="text-gray-500 text-sm mb-6 flex items-center gap-2">
+                  <FaCalendar className="h-4 w-4 text-[#7cc576]" />
+                  {blog.date}
+                </p>
 
-                  <p className="text-gray-500 text-xs mb-6 flex items-center gap-2">
-                    <FaCalendar className="h-3.5 w-3.5 text-[#7cc576]" /> {blog.date}
-                  </p>
-
-                  {/* Read More Link */}
-                  <div className="mt-auto pt-4 border-t border-gray-50">
-                    <Link to={`/blogs/${blog.slug}`} className="block w-full">
-                      <button className="group/btn text-[#6dc7d1] font-semibold text-sm flex items-center gap-2 justify-between w-full transition-all duration-300 cursor-pointer">
-                        <span className="relative">
-                          READ ARTICLE
-                          <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#6dc7d1] transition-all duration-300 group-hover/btn:w-full"></span>
-                        </span>
-                        <span className="transition-transform duration-300 group-hover/btn:translate-x-1">
-                          →
-                        </span>
-                      </button>
-                    </Link>
-                  </div>
+                <div className="mt-auto">
+                  <Link to={`/news/${blog.slug}/`}>
+                    <button className="group text-[#6dc7d1] font-semibold flex items-center gap-2 justify-end w-full transition-all duration-300">
+                      <span className="relative">
+                        READ MORE
+                        <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#6dc7d1] transition-all duration-300 group-hover:w-full"></span>
+                      </span>
+                      <span className="transition-transform duration-300 group-hover:translate-x-1">
+                        →
+                      </span>
+                    </button>
+                  </Link>
                 </div>
               </div>
+            </div>
             ))}
           </div>
         ) : (

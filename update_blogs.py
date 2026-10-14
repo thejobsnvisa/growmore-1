@@ -22,6 +22,16 @@ except Exception as e:
 blogs = []
 
 for index, row in df.iterrows():
+    required_fields = [
+        'id', 'slug', 'title', 'metaTitle', 'metaDescription', 'date',
+        'image', 'category', 'subcategory', 'content'
+    ]
+    if any(
+        field not in row or pd.isna(row[field]) or not str(row[field]).strip()
+        for field in required_fields
+    ):
+        continue
+
     # Handle subcategories
     subcat_raw = str(row['subcategory']).strip() if pd.notna(row['subcategory']) else "Other"
     if ',' in subcat_raw:
@@ -57,7 +67,7 @@ for index, row in df.iterrows():
         "metaDescription": str(row['metaDescription']).strip() if pd.notna(row['metaDescription']) else "",
         "date": formatted_date,
         "image": f"/{image_path}",
-        "category": str(row['category']).strip() if pd.notna(row['category']) else "Other",
+        "category": str(row['category']).strip() if pd.notna(row['category']) else "",
         "subcategory": subcategories,
         "content": str(row['content']).strip() if pd.notna(row['content']) else ""
     }

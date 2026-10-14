@@ -55,6 +55,17 @@ for index, row in df.iterrows():
         formatted_date = ""
 
     # Parse news object properties safely
+    required_fields = [
+        'id', 'slug', 'title', 'metaTitle', 'metaDescription',
+        'date', 'image', 'category', 'subcategory', 'content'
+    ]
+    if any(
+        field not in row or pd.isna(row[field]) or str(row[field]).strip() == ""
+        for field in required_fields
+    ) or not str(row['id']).strip().isdigit():
+        print(f"Skipping row {index + 1}: one or more required fields are blank or invalid.")
+        continue
+
     news_obj = {
         "id": int(row['id']) if 'id' in row and pd.notna(row['id']) and str(row['id']).strip().isdigit() else index + 1,
         "slug": str(row.get('slug', '')).strip() if pd.notna(row.get('slug')) else "",
@@ -63,7 +74,7 @@ for index, row in df.iterrows():
         "metaDescription": str(row.get('metaDescription', '')).strip() if pd.notna(row.get('metaDescription')) else "",
         "date": formatted_date,
         "image": f"/{image_path}",
-        "category": str(row.get('category', '')).strip() if pd.notna(row.get('category')) else "Other",
+        "category": str(row.get('category', '')).strip() if pd.notna(row.get('category')) else "",
         "subcategory": subcategories,
         "content": str(row.get('content', '')).strip() if pd.notna(row.get('content')) else ""
     }
