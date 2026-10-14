@@ -8,7 +8,6 @@ import FAQ from "../Components/FAQ";
 import BlogSection from "../Components/BlogSection";
 import Member from "../Components/Member";
 import Testimonials from "../Components/Testimonials"; // Removed .jsx and ensured Capital T
-import GoogleReviews from "../Components/GoogleReviews";
 const Home = () => {
   return (
     <div className="bg-white">
