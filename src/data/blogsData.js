@@ -1,5 +1,17 @@
 export const blogs = [
   {
+    "id": 23,
+    "slug": "which-australian-visa-should-you-choose-3-questions-to-decide",
+    "title": "Which Australian Visa Is Right? 3 Questions to Decide",
+    "metaTitle": "Which Australian Visa Is Right? 3 Questions to Decide",
+    "metaDescription": "",
+    "date": "",
+    "image": "/assets/bg.jpg",
+    "category": "Other",
+    "subcategory": "Other",
+    "content": ""
+  },
+  {
     "id": 22,
     "slug": "which-australian-visa-should-you-choose-3-questions-to-decide",
     "title": "Which Australian Visa Is Right? 3 Questions to Decide",
