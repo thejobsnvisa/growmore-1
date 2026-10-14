@@ -1,4 +1,4 @@
-name: Sync Google Sheets & Update Blogs
+name: Sync Google Sheets & Update Blogs and News
 
 on:
   repository_dispatch:
@@ -11,7 +11,7 @@ permissions:
   contents: write
 
 jobs:
-  sync_blogs:
+  sync_data:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -27,15 +27,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install pandas requests
 
-      - name: Run Google Sheets Sync Script
+      - name: Run Google Sheets Blogs Sync Script
         run: python update_blogs.py
 
-      - name: Commit and push if blogsData.js changed
+      - name: Run Google Sheets News Sync Script
+        run: python update_news.py
+
+      - name: Commit and push if blogsData.js or newsData.js changed
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add ./src/data/blogsData.js
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-sync: update blogsData.js from Google Sheets" && git push)
+          git add ./src/data/blogsData.js ./src/data/newsData.js
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-sync: update blogsData.js and newsData.js from Google Sheets" && git push)
 
       - name: Trigger Vercel Deployment
         if: env.VERCEL_DEPLOY_HOOK_URL != ''
